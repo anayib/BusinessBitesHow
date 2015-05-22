@@ -1,0 +1,84 @@
+<header class="main-header" id="topic_header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <h3 class="page-title" id="title-topic"><%= @topic.title %></h3>
+            </div>
+            <div class="col-md-6">
+                <ol class="breadcrumb pull-right">
+                    <li><%= link_to "Regresar al curso", @topic.lesson.course %></li>
+                    <li><%= link_to "#{@topic.lesson.title}", @topic.lesson.course %></li>
+                </ol> 
+            </div>
+        </div>                
+    </div>
+</header>
+<section class="css-section">
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="<% @progress %>" aria-valuemin="5" aria-valuemax="100" style="width: <% if @progress == 0 %>3%<% else %><%= @progress %>%<% end %>">
+            <%= @progress %>%
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-primary">                
+                <div class="video">
+                    <iframe src="<%= "#{@topic.content_url}"+"?title=0&amp;byline=0&amp;portrait=0" %>"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 col-md-offset-1">
+            <h1 class="section-title" id="topic_title"><%= @topic.title %></h1>
+        </div>
+        <div class="col-md-3 text-right">
+            <p id="next_step_text">MARCAR COMO COMPLETO Y<BR>CONTINUAR</p>
+            <%= link_to '<span class="icon-ar icon-ar-lg icon-ar-circle"><i class="fa fa-check"></i></span>'.html_safe, mark_as_done_path(topic_id: @topic.id) %>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs nav-tabs-ar nav-tabs-ar-white">
+                <li class="active"><a href="#home2" data-toggle="tab">DESCRIPCIÓN</a></li>
+                <li><a href="#profile2" data-toggle="tab">LISTA DE RECURSOS</a></li>
+                <li><a href="#messages2" data-toggle="tab">ACCIONES PARA TU PROYECTO</a></li>
+                <li><a href="#transcription" data-toggle="tab">TRANSCRIPTION</a></li>
+            </ul>
+             
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="home2"><%= @topic.description %></div>
+                <div class="tab-pane" id="profile2">
+                    <h1 class="section-title" id="topic_title">Lista de Recursos</h1>
+                    Estos recursos te serviran como material de apoyo para esta sección:
+                    <div class="list-group">
+                        <% @topic.resources.each do |resource| %>
+                           <a href="<%= resource.link_url %>" class="list-group-item" target="_blank">
+                             <h4 class="list-group-item-heading"><%= resource.title %></h4>
+                             <p class="list-group-item-text"><%= resource.description %></p>
+                           </a> 
+                        <% end %>                      
+                    </div>
+                </div>
+                <div class="tab-pane" id="messages2">
+                    Sigue las siguiente lista de acciones y aplicalas en tu proyecto personal:
+                    <%= @topic.activities.html_safe %>
+                </div>  
+                <div class="tab-pane" id="transcription">                    
+                    <%= @topic.transcription.html_safe %>
+                </div>            
+            </div>
+        </div>
+    </div>
+</div>

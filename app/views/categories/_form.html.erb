@@ -1,0 +1,19 @@
+<%= form_for(@category, :html => { :id => "categoryForm"}) do |category| %>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 text-left">
+			<div class="field form-group">
+				<%= category.label :name, "Nombre de la Categoría:", class: "lead lead-lg" %>
+				<%= category.text_field :name, required: true, class: "form-control" %>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="actions form-group text-center">		  	
+  			<%= category.submit "Guardar Categoría", class: "btn btn-ar btn-lg btn-success" %>
+  		</div>
+		</div>	
+	</div>
+
+<% end %>

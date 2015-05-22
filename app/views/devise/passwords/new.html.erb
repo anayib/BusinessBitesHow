@@ -1,0 +1,29 @@
+<div class="paper-back-full">
+  <div class="login-form-full">
+    <div class="fix-box">
+      <div class="text-center title-logo animated fadeInDown animation-delay-5">business<span>bites</span></div>
+      <div class="transparent-div no-padding animated fadeInUp animation-delay-8">
+        <ul class="nav nav-tabs nav-tabs-transparent">
+          <li class="active"><a href="#home" data-toggle="tab">Recuperar Contraseña</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">
+						<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+						  <%= devise_error_messages! %>
+						  <div class="field form-group input-group login-input">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>                
+                <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Correo Electrónico" %>
+              </div>
+
+              <div class="actions form-group">
+                <%= f.submit "Recuperar", class: "btn btn-ar btn-primary pull-right btn-lg" %>
+              </div>
+						<% end %>           
+            <%= render "devise/shared/links" %>
+          </div>            
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

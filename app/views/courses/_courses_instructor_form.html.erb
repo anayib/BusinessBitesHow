@@ -1,0 +1,17 @@
+<fieldset class="form-group register">
+	<h3 class="right-line text-left">NUEVO INSTRUCTOR</h3>
+	<div class="row">
+		<div class="col-md-12 text-left">
+
+			<div class="field form-group">
+				<%= courses_instructor.label :name, "Nombre del Instructor:", class: "lead lead-lg" %>
+				<%= courses_instructor.collection_select :instructor_id, Instructor.all, :id, :name, {prompt: 'Seleccione un instructor'}, class: "type-register", required: true %>
+			</div>
+
+			<div class="form-group">
+				<%= courses_instructor.hidden_field :_destroy %>
+				<%= link_to "Borrar Instructor", "#", class: "remove_field btn btn-ar btn-lg btn-danger" %>
+			</div>
+		</div>	
+	</div>
+</fieldset>

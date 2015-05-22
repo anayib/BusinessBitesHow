@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: courses_instructors
+#
+#  course_id     :integer
+#  instructor_id :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course_id: 1
+  instructor_id: 1
+
+two:
+  course_id: 1
+  instructor_id: 1

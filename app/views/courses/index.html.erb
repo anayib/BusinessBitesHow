@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+		<h2 class="right-line">LISTADO DE CURSOS EN LA PLATAFORMA</h2>
+		<div class="col-md-12">
+			<table class="table">
+				<tr class="success">
+					<th class="text-center lead lead-lg">No Curso</th>
+					<th class="text-center lead lead-lg">Imagen</th>
+					<th class="text-center lead lead-lg">Título</th>
+					<th class="text-center lead lead-lg">Descripción</th>
+					<th class="text-center lead lead-lg">No de Lessons</th>
+					<th class="text-center lead lead-lg">Opciones</th>
+				</tr>		
+				<% @courses.each_with_index do |course,index| %>							
+					<tr class="text-center">
+						<td class="lead lead-sm vert-align text-center"><%= index+1 %></td>
+						<% if course.image.url == "http://i592.photobucket.com/albums/tt5/Mardini03/765-default-avatar.png" %>
+							<td class="vert-align text-center"><%= image_tag "http://i592.photobucket.com/albums/tt5/Mardini03/765-default-avatar.png", class: "user-thumbnail" %></td>
+						<% else %>
+							<td class="lead lead-sm vert-align text-center"><%= image_tag course.image.url(:thumb) %></td>						
+						<% end %>						
+						<td class="lead lead-sm vert-align text-center"><%= course.title %></td>
+						<td class="lead lead-sm vert-align text-center"><%= course.description %></td>
+						<td class="lead lead-sm vert-align text-center"><%= course.lessons.count %></td>						
+						<td class="lead lead-sm vert-align text-center">
+							<%= link_to 'Ver Curso', course, class: "btn btn-ar btn-info" %>
+							<%= link_to 'Editar Curso', edit_course_path(course), class: "btn btn-ar btn-warning" %>
+							<%= link_to course_path(course.id), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el curso?' }, class: "btn btn btn-ar btn-danger" do %><span>Eliminar</span><% end %>
+						</td>												
+					</tr>								
+				<% end %>
+			</table>	
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 text-center col-md-offset-3" id="btn-new-user">
+			<%= link_to "Crear Un Nuevo Curso", new_course_path, class: "btn btn-lg btn-ar btn-success" %>
+		</div>
+	</div>
+</div>

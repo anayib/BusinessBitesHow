@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="row">
+		<h2 class="right-line">LISTADO DE USUARIOS REGISTRADOS</h2>
+		<div class="col-md-8 col-md-offset-2">
+			<table class="table">
+				<tr>
+					<th class="text-center lead lead-lg">No Categoría</th>
+					<th class="text-center lead lead-lg">Nombre</th>
+					<th class="text-center lead lead-lg">Opciones</th>
+				</tr>
+				<% @categories.each_with_index do |category,index| %>
+					<tr class="text-center">
+						<td class="lead lead-sm vert-align text-center"><%= index+1 %></td>						
+						<td class="lead lead-sm vert-align text-center"><%= category.name %></td>
+						<td class="lead lead-sm vert-align text-center"><%= link_to "Editar", edit_category_path(category), class: "btn btn-ar btn-warning" %>  <%= link_to category_path(category), method: :delete, data: { confirm: '¿Esta seguro que desea elminar esta usuario?' }, class: "btn btn-ar btn-danger" do %><span>Eliminar</span><% end %></td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 text-center col-md-offset-3" id="btn-new-user">
+			<%= link_to "Crear Una Nueva Categoría", new_category_path, class: "btn btn-lg btn-ar btn-success" %>
+		</div>
+	</div>
+</div>

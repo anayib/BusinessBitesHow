@@ -1,0 +1,24 @@
+<fieldset class="form-group register">
+	<h3 class="right-line text-left">NUEVO RECURSO</h3>
+	<div class="col-md-8 col-md-offset-4 text-left">
+		<div class="field form-group">
+			<%= resource.label :title, "Título:", class: "lead lead-lg" %>
+			<%= resource.text_field :title, required: true, class: "form-control" %>
+		</div>
+
+		<div class="field form-group">
+			<%= resource.label :description, "Descripción:", class: "lead lead-lg" %>
+			<%= resource.text_area :description, required: true,class: "form-control" %>
+		</div>
+
+		<div class="field form-group">
+			<%= resource.label :link_url, "URL del recurso:", class: "lead lead-lg" %>
+			<%= resource.text_field :link_url, required: true, class: "form-control" %>
+		</div>
+
+		<div class="form-group">
+			<%= resource.hidden_field :_destroy %>
+			<%= link_to "Borrar Recurso", "#", class: "remove_field btn btn-ar btn-lg btn-danger" %>
+		</div>
+	</div>
+</fieldset>

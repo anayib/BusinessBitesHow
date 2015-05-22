@@ -1,0 +1,28 @@
+<%= form_for(@instructor, :html => { :id => "instructorForm"}) do |instructor| %>
+	<h3 class="right-line text-left">NUEVO INSTRUCTOR</h3>
+	<div class="row">
+		<div class="col-md-12 text-left">
+			<div class="field form-group">
+				<%= instructor.label :name, "Nombre del Instructor:", class: "lead lead-lg" %>
+				<%= instructor.text_field :name, required: true, class: "form-control" %>
+			</div>
+
+			<div class="field form-group">
+				<%= instructor.label :background, "Background:", class: "lead lead-lg" %>
+				<%= instructor.text_area :background, class: "form-control" %>
+			</div>
+
+			<div class="field form-group">
+			  <%= instructor.label :image, "Imagen del instructor:", class: "lead lead-lg" %>
+			  <%= instructor.file_field :image, class: "form-control" %>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="actions form-group text-center">		  	
+		  			<%= instructor.submit "Guardar Instructor", class: "btn btn-ar btn-lg btn-success" %>
+		  		</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+<% end %>

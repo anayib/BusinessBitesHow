@@ -1,0 +1,70 @@
+<%= form_for(@course, :html => { :id => "courseForm"}) do |course| %>
+	<div class="row">
+		<div class="col-md-6">
+		  <div class="field form-group">
+		    <%= course.label :title, "Título del curso:", class: "lead lead-lg" %>
+		    <%= course.text_field :title, required: true, class: "form-control" %>
+		  </div>
+
+		  <div class="field form-group">
+		    <%= course.label :image, "Imagen del curso:", class: "lead lead-lg" %>
+		    <%= course.file_field :image, required: true, class: "form-control" %>
+		  </div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="field form-group">
+		  	<%= course.label :description, "Descripción del curso:", class: "lead lead-lg" %>
+		  	<%= course.text_area :description, required: true, :rows => 5, class: "form-control", id: "new_user_email" %>
+		 	</div>
+		</div>
+	</div>
+
+	<div class="row">
+    <div class="field form-group">
+      <h3 class="right-line">SELECCIONE INSTRUCTORES PARA ESTE CURSO</h3>
+      <% if Instructor.all.empty? %>
+      	<h3 class="text-center">No hay Instructores almacenados, porfavor dirijase a la pestaña Gestión de Instructores para crear nuevos registros</h3>
+      <% else %>
+      	<% Instructor.all.each do |instructor| %>
+	        <div class="col-md-3">
+	        	<%= image_tag instructor.image.url(:thumb) %>
+	          <%= hidden_field_tag "course[instructor_ids][]", nil %>      
+	          <%= check_box_tag "course[instructor_ids][]", instructor.id, @course.instructor_ids.include?(instructor.id), id: dom_id(instructor) %>
+	          <%= label_tag dom_id(instructor), instructor.name %></br>      
+	        </div>
+	      <% end %>
+      <% end %>      
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field form-group">
+      <h3 class="right-line">SELECCIONE CATEGORÍAS PARA ESTE CURSO</h3>
+			<% if Category.all.empty? %>
+      	<h3 class="text-center">No hay categorías almacenadas, porfavor dirijase a la pestaña Categorías para crear nuevos registros</h3>
+      <% else %>
+      	<% Category.all.each do |category| %>
+	        <div class="col-md-3">
+	          <%= hidden_field_tag "course[category_ids][]", nil %>      
+	          <%= check_box_tag "course[category_ids][]", category.id, @course.category_ids.include?(category.id), id: dom_id(category) %>
+	          <%= label_tag dom_id(category), category.name %></br>      
+	        </div>
+      	<% end %>
+	    <% end %>      
+    </div>
+  </div>
+
+  <%= course.fields_for :lessons do |lesson| %>
+		<%= render 'lesson_form', :lesson => lesson %>			
+	<% end %>
+	  
+	<div class="row">
+		<div class="col-md-12">
+		  <div class="actions form-group text-center">
+		  	<%= link_to_add_lessons "Agregar lesson", course, :lessons %>
+		  	<%= course.submit "Guardar Información del Curso", class: "btn btn-ar btn-lg btn-success" %>
+		  </div>
+	  </div>
+	</div>
+<% end %>

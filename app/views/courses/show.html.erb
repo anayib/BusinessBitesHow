@@ -1,0 +1,84 @@
+<div class="container" id="course_container">
+	<div class="row">
+		<div class="col-md-12">
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs nav-tabs-ar nav-tabs-ar-white">
+			    <li class="active"><a href="#home2" data-toggle="tab">CURSO</a></li>
+			    <li><a href="#profile2" data-toggle="tab">LISTA DE RECURSOS</a></li>
+			</ul>
+
+			<!-- Tab panes -->
+			<div class="tab-content course-content">
+		    <div class="tab-pane active" id="home2">
+		    	<!-- Lessons List -->
+		    	<ul class="timeline-2">						
+		    		<!-- LESSON: Si el lesson esta completo usar: 
+		    		<i class="timeline-2-point check"></i>
+		    		sino usar:
+		    		<i class="timeline-2-point to-do"></i> -->
+
+		    		<!-- TOPIC: Si el topic ya se realizo usar: 
+		    		<span class='icon-ar icon-ar-sm icon-ar-circle'><i class='fa fa-check'></i></span>, sino usar :
+		    		<span class='icon-ar icon-ar-course-view icon-ar-sm icon-ar-circle'><i class='fa fa-check'></i></span> -->
+
+		    		<% @course.lessons.each_with_index do |lesson,index| %>
+		    			<li class="animated fadeInRight animation-delay-10">	    	        
+	    	        <% lesson_topics_ids = lesson.topics.pluck(:id) %>
+	    	        <!-- Este bloque analiza el id de cada topic perteneciente al lesson, por lo tanto usando interseccion de conjuntos para analizar el contenido de ambos array, si todos estos estan marcados como completos en la tabla Topic Completition, el lesson se marca como completo sino el lesson se marca como to-do -->
+								<% if (lesson_topics_ids & @topics_ready_ids) == lesson_topics_ids %>
+									<time class="timeline-time" datetime=""><span>Lesson <%= index+1 %></span></time>
+									<i class="timeline-2-point check"></i>
+								<% else %>
+									<time class="timeline-time" datetime=""><span>Lesson <%= index+1 %></span></time>
+									<i class="timeline-2-point to-do"></i>
+								<% end %>				    	       
+	    	        <div class="panel panel-success">
+	  	            <div class="panel-heading"><%= lesson.title.upcase %></div>
+	  	            <div class="panel-body">
+	        		    	<ul class="list-group">									
+	        		    		<li class="list-group-item lesson-topics-list">											
+												<% lesson.topics.each_with_index do |topic,index| %>
+													<ul class="list-group topic-item">
+														<li class="list-group-item">
+															<% if current_user.courses.include?(topic.lesson.course) %>
+																<% if @topics_ready_ids.include?(topic.id) %>
+																	<%= link_to "<span class='icon-ar icon-ar-sm icon-ar-circle'><i class='fa fa-check'></i></span> #{index+1}. #{topic.title.upcase}".html_safe, topic %>
+																<% else %>
+																	<%= link_to "<span class='icon-ar icon-ar-course-view icon-ar-sm icon-ar-circle'><i class='fa fa-check'></i></span> #{index+1}. #{topic.title.upcase}".html_safe, topic %>
+																<% end %>																
+															<% else %>
+																<span class='icon-ar icon-ar-course-view icon-ar-sm icon-ar-circle'><i class='fa fa-check'></i></span> <%= index+1 %>. <%= topic.title.upcase %>
+															<% end %>															
+														</li>
+														<li class="list-group-item"><%= topic.description %></li>
+													</ul>
+												<% end %>																       		    			
+	        		    		</li>  <!-- Close Topics list -->      		    		
+	        		    	</ul>
+	  	            </div>
+	    	        </div>
+	    	    	</li> <!-- Close Lesson -->
+		    		<% end %>
+		    	</ul>
+		    </div>
+
+		    <!-- Contenido de las pestañas -->
+		    <div class="tab-pane" id="profile2">
+					<% @course.lessons.each do |lesson| %>
+						<% lesson.topics.each do |topic| %>
+							<h1 class="section-title" id="topic_title">Lista para el topic: <%= topic.title %></h1>
+							<div class="list-group">
+							<% topic.resources.each do |resource| %>																
+								<a href="<%= resource.link_url %>" class="list-group-item" target="_blank">
+								  <h4 class="list-group-item-heading"><%= resource.title %></h4>
+								  <p class="list-group-item-text"><%= resource.description %></p>
+								</a> 								
+							<% end %>
+							</div>
+						<% end %>
+					<% end %>	        
+		    </div>		              
+			</div>		
+		</div>
+	</div>
+</div>
