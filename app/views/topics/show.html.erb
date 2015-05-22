@@ -13,6 +13,7 @@
         </div>                
     </div>
 </header>
+
 <section class="css-section">
     <div class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="<% @progress %>" aria-valuemin="5" aria-valuemax="100" style="width: <% if @progress == 0 %>3%<% else %><%= @progress %>%<% end %>">
@@ -21,17 +22,31 @@
     </div>
 </section>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-primary">                
-                <div class="video">
-                    <iframe src="<%= "#{@topic.content_url}"+"?title=0&amp;byline=0&amp;portrait=0" %>"></iframe>
+<% if @topic.document.url %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-primary">                
+                    <div class="video">
+                        <iframe src="/pdfjs/web/viewer.html?file=<%= @topic.document.url %>" style="border: 0" width="50%" height="600" frameborder="0" scrolling="no"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<% else %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-primary">                
+                    <div class="video">
+                        <iframe src="<%= "#{@topic.content_url}"+"?title=0&amp;byline=0&amp;portrait=0" %>"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>
 
 <div class="container">
     <div class="row">
