@@ -33,8 +33,13 @@
 					</div>
 
 					<div class="field form-group">
+					  <%= topic.label :document, "PDF del curso:", class: "lead lead-lg" %>
+					  <%= topic.file_field :document, class: "form-control" %>
+					</div>
+
+					<div class="field form-group">
 						<%= topic.label :content_url, "URL Video:", class: "lead lead-lg" %>
-						<%= topic.text_field :content_url, required: true, class: "form-control" %>
+						<%= topic.text_field :content_url, class: "form-control" %>
 					</div>
 
 					<div class="field form-group">
