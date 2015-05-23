@@ -31,20 +31,31 @@
 						<%= topic.label :description, "Descripción:", class: "lead lead-lg" %>
 						<%= topic.text_area :description, required: true,class: "form-control" %>
 					</div>
-
+					
+					<!-- Conditional to add Video or PDF file for topic -->
 					<div class="field form-group">
-					  <%= topic.label :document, "PDF del curso:", class: "lead lead-lg" %>
-					  <%= topic.file_field :document, class: "form-control" %>
-					</div>
+						
+						<h4>Contenido de apoyo para el curso, escoja si lleva Archivo PDF o Video Clip</h4>
+						<select id="content_select" class="form-control">
+							<option disabled selected> Seleccione una opción </option>
+						  <option value="pdf">Archivo PDF</option>
+						  <option value="video">Video Clip desde Vimeo</option>						  
+						</select>
 
-					<div class="field form-group">
-						<%= topic.label :content_url, "URL Video:", class: "lead lead-lg" %>
-						<%= topic.text_field :content_url, class: "form-control" %>
+						<div class="field form-group">
+						  <%= topic.label :document, "PDF del curso:", class: "lead lead-lg" %>
+						  <%= topic.file_field :document, class: "form-control" %>
+						</div>
+
+						<div class="field form-group">
+							<%= topic.label :content_url, "URL Video:", class: "lead lead-lg" %>
+							<%= topic.text_field :content_url, class: "form-control" %>
+						</div>
 					</div>
 
 					<div class="field form-group">
 						<%= topic.label :activities, "Acciones para aplicar en proyecto:", class: "lead lead-lg" %>
-						<p>Para almacenar las diferentes acciones que corresponden a este topic se debe hacer uso del siguiente formato, este contiene una lista no ordena con tags de HTML donde cada item debe ir entre tagas li, como se muestra a continuación:<br>
+						<p>Para almacenar las diferentes acciones que corresponden a este topic se debe hacer uso del siguiente formato, este contiene una lista no ordenada con tags de HTML donde cada item debe ir entre tagas li, como se muestra a continuación:<br>
 							&nbsp&nbsp&nbsp &ltul class="list-group"&gt<br>
 								&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &ltli class="list-group-item"&gtNombre de la acción&lt/li&gt<br>
 							&nbsp&nbsp&nbsp &lt/ul&gt					
@@ -112,3 +123,16 @@
 	  </div>
 	</div>
 </fieldset>
+<script>	
+	$(document).on("page:change", function() {
+
+		$( "#content_select" ).change(function() {
+			if ( $("#content_select").val() == "pdf" ) {
+			  alert("Escogio PDF");
+			} else if ( $("#content_select").val() == "video" ) {
+			  alert("Escogio Video");
+			}
+		});
+
+	});	
+</script>
