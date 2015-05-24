@@ -42,12 +42,12 @@
 						  <option value="video">Video Clip desde Vimeo</option>						  
 						</select>
 
-						<div class="field form-group">
+						<div class="field form-group  pdf_field" style='display: none'>
 						  <%= topic.label :document, "PDF del curso:", class: "lead lead-lg" %>
-						  <%= topic.file_field :document, class: "form-control" %>
+						  <%= topic.file_field :document, class: "form-control file_input" %>
 						</div>
 
-						<div class="field form-group">
+						<div class="field form-group  video_field" style='display: none'>
 							<%= topic.label :content_url, "URL Video:", class: "lead lead-lg" %>
 							<%= topic.text_field :content_url, class: "form-control" %>
 						</div>
@@ -128,9 +128,12 @@
 
 		$( "#content_select" ).change(function() {
 			if ( $("#content_select").val() == "pdf" ) {
-			  alert("Escogio PDF");
+			  $('div.video_field').hide();
+			  $('div.pdf_field').show();
 			} else if ( $("#content_select").val() == "video" ) {
-			  alert("Escogio Video");
+			  $("input.file_input").val("");
+			  $('div.pdf_field').hide();
+			  $('div.video_field').show();
 			}
 		});
 
