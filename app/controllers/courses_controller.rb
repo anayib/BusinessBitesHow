@@ -57,7 +57,7 @@ class CoursesController < ApplicationController
 
 	private
 		def course_params
-  		params.require(:course).permit(:title, :description, :image, { :instructor_ids => [] }, { :category_ids => [] }, lessons_attributes: [:id,:title,:description,:_destroy, topics_attributes: [:id,:title,:description,:content_url, :activities, :transcription, :_destroy, resources_attributes: [ :id, :title, :description, :link_url, :_destroy]]])
+  		params.require(:course).permit(:title, :description, :image, { :instructor_ids => [] }, { :category_ids => [] }, lessons_attributes: [:id,:title,:description,:_destroy, topics_attributes: [:id,:title,:description,:content_url, :activities, :document, :transcription, :_destroy, resources_attributes: [ :id, :title, :description, :link_url, :_destroy]]])
 		end
 		
 		def content_permission

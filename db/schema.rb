@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420001628) do
+ActiveRecord::Schema.define(version: 20150522180907) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -91,11 +91,15 @@ ActiveRecord::Schema.define(version: 20150420001628) do
     t.string   "title"
     t.text     "description"
     t.string   "content_url"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.text     "activities"
     t.integer  "lesson_id"
     t.text     "transcription"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

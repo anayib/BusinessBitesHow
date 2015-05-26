@@ -1,0 +1,116 @@
+<fieldset class="form-group register">
+	<h3 class="right-line text-left">LESSON</h3>
+	<div class="row">
+		<div class="col-md-12 text-left">
+			<div class="field form-group">
+				<%= lesson.label :title, "Título", class: "lead lead-lg" %>
+				<%= lesson.text_field :title, required: true, class: "form-control" %>
+			</div>
+			<div class="field form-group">
+				<%= lesson.label :description, "Descripción", class: "lead lead-lg" %>
+				<%= lesson.text_area :description, class: "form-control" %>
+			</div>
+			<div class="form-group">					
+				<%= lesson.hidden_field :_destroy %>
+				<%= link_to "Borrar Lesson", "#", class: "remove_field btn btn-ar btn-lg btn-danger" %>
+			</div>
+		</div>
+	</div>
+		
+	<%= lesson.fields_for :topics do |topic| %>					
+		<fieldset class="form-group register">
+			<h3 class="right-line text-left">TOPIC</h3>
+			<div class="row">
+				<div class="col-md-10 col-md-offset-2 text-left">
+					<div class="field form-group">
+						<%= topic.label :title, "Título:", class: "lead lead-lg" %>
+						<%= topic.text_field :title, required: true, class: "form-control" %>
+					</div>
+
+					<div class="field form-group">
+						<%= topic.label :description, "Descripción:", class: "lead lead-lg" %>
+						<%= topic.text_area :description, required: true,class: "form-control" %>
+					</div>
+										
+					<div class="field form-group">																		
+						<div class="field form-group  pdf_field">
+						  <%= topic.label :document, "PDF del curso:", class: "lead lead-lg" %>
+						  <%= topic.file_field :document, class: "form-control file_input" %>
+						</div>
+
+						<div class="field form-group  video_field">
+							<%= topic.label :content_url, "URL Video:", class: "lead lead-lg" %>
+							<%= topic.text_field :content_url, class: "form-control video_url" %>
+						</div>
+					</div>
+
+					<div class="field form-group">
+						<%= topic.label :activities, "Acciones para aplicar en proyecto:", class: "lead lead-lg" %>
+						<p>Para almacenar las diferentes acciones que corresponden a este topic se debe hacer uso del siguiente formato, este contiene una lista no ordenada con tags de HTML donde cada item debe ir entre tagas li, como se muestra a continuación:<br>
+							&nbsp&nbsp&nbsp &ltul class="list-group"&gt<br>
+								&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &ltli class="list-group-item"&gtNombre de la acción&lt/li&gt<br>
+							&nbsp&nbsp&nbsp &lt/ul&gt					
+						</p>
+						<%= topic.text_area :activities, required: true,:rows => 5, class: "form-control" %>
+					</div>
+
+					<div class="field form-group">
+						<%= topic.label :transcription, "Videotexto(Transcription):", class: "lead lead-lg" %>
+						<p>Para almacenar el texto en diferentes parrafos, debe hacer uso del siguiente formato, este contiene cada parrafo entre tags de HTML tipo p, como se muestra a continuación:<br><br>
+							&ltp&gtLorem ipsum dolor sit amet, quo illud eleifend ne. Vel ei zril laudem quaestio, eu alia modus scriptorem vix. Qui ex pericula assentior, utamur ornatus patrioque an pro, ne equidem facilis phaedrum sea. Modo nullam nominati cu nam, cum ut choro quando nominavi. Has illud tation consulatu et. Cu antiopam tractatos ius, et hinc paulo vis.&lt/p&gt<br>
+						</p>
+						<%= topic.text_area :transcription, rows: 10, required: true,class: "form-control" %>
+					</div>
+
+					<div class="form-group">
+						<%= topic.hidden_field :_destroy %>
+						<%= link_to "Borrar Topic", "#", class: "remove_field btn btn-ar btn-lg btn-danger" %>
+					</div>
+				</div>
+			</div>
+			
+			<%= topic.fields_for :resources do |resource| %>	
+				<fieldset class="form-group register">
+					<h3 class="right-line text-left">NUEVO RECURSO</h3>
+					<div class="col-md-8 col-md-offset-4 text-left">
+						<div class="field form-group">
+							<%= resource.label :title, "Título:", class: "lead lead-lg" %>
+							<%= resource.text_field :title, required: true, class: "form-control" %>
+						</div>
+
+						<div class="field form-group">
+							<%= resource.label :description, "Descripción:", class: "lead lead-lg" %>
+							<%= resource.text_area :description, required: true,class: "form-control" %>
+						</div>
+
+						<div class="field form-group">
+							<%= resource.label :link_url, "URL del recurso:", class: "lead lead-lg" %>
+							<%= resource.text_field :link_url, required: true, class: "form-control" %>
+						</div>
+
+						<div class="form-group">
+							<%= resource.hidden_field :_destroy %>
+							<%= link_to "Borrar Recurso", "#", class: "remove_field btn btn-ar btn-lg btn-danger" %>
+						</div>
+					</div>
+				</fieldset>
+			<% end %>
+
+			<div class="row">
+				<div class="col-md-12">
+				  <div class="actions form-group text-center">
+				  	<%= link_to_add_resources "Click aqui para agregar un recurso", topic, :resources %>
+				  </div>
+			  </div>
+			</div>
+		</fieldset>									
+	<% end %>
+
+	<div class="row">
+		<div class="col-md-12">
+		  <div class="actions form-group text-left">
+		  	<%= link_to_add_topics "Agregar topic", lesson, :topics %>
+		  </div>
+	  </div>
+	</div>
+</fieldset>
