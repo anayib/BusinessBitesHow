@@ -33,10 +33,9 @@
 					</div>
 					
 					<!-- Conditional to add Video or PDF file for topic -->
-					<div class="field form-group">
-						
+					<div class="field form-group">						
 						<h4>Contenido de apoyo para el curso, escoja si lleva Archivo PDF o Video Clip</h4>
-						<select id="content_select" class="form-control">
+						<select class="form-control content_select">
 							<option disabled selected> Seleccione una opción </option>
 						  <option value="pdf">Archivo PDF</option>
 						  <option value="video">Video Clip desde Vimeo</option>						  
@@ -123,18 +122,3 @@
 	  </div>
 	</div>
 </fieldset>
-<script>	
-	$(document).on("page:change", function() {
-		$( "#content_select" ).change(function() {
-			if ( $("#content_select").val() == "pdf" ) {
-				$("input.video_url").val("");
-			  $('div.video_field').hide();
-			  $('div.pdf_field').show();
-			} else if ( $("#content_select").val() == "video" ) {
-			  $("input.file_input").val("");
-			  $('div.pdf_field').hide();
-			  $('div.video_field').show();
-			}
-		});
-	});	
-</script>
