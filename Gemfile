@@ -1,3 +1,4 @@
+source 'https://code.stripe.com'
 source 'https://rubygems.org'
 ruby '2.1.5'
 
@@ -17,6 +18,9 @@ gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
 gem "font-awesome-rails"
 gem 'pdfjs_rails'
+gem "figaro"
+gem 'stripe', :source => 'https://code.stripe.com/'
+gem 'rest-client', :source => 'https://rubygems.org/'
 
 group :development, :test do
 	gem 'guard'
