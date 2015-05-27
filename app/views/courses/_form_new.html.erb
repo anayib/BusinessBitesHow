@@ -10,6 +10,11 @@
 		    <%= course.label :image, "Imagen del curso:", class: "lead lead-lg" %>
 		    <%= course.file_field :image, required: true, class: "form-control" %>
 		  </div>
+
+		  <div class="field form-group">
+    		<%= course.label :course_type, "Rol para este usuario", class: "lead lead-lg" %><br />
+    		<%= course.select :course_type, options_for_select(Course.course_types.map {|k,v| [k.humanize,k]}, @course.course_type), {}, { :class => "form-control" } %>
+    	</div>
 		</div>
 
 		<div class="col-md-6">
