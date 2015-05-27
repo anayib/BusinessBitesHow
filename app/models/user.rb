@@ -21,6 +21,7 @@
 #  image_file_size        :integer
 #  image_updated_at       :datetime
 #  name                   :string
+#  stripe_customer_id     :string
 #
 
 class User < ActiveRecord::Base
