@@ -7,92 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<nav class="navbar navbar-static-top navbar-default navbar-inverse" role="navigation" id="header">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <i class="fa fa-bars"></i>
-            </button>
-            <%= link_to 'Business <span> Bites</span>'.html_safe, root_path, class: "navbar-brand" %>
-        </div> <!-- navbar-header -->
+	
+	<%= render 'layouts/nav_bar' %>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">   
-						<% if user_signed_in? %>
-							<li class="dropdown">
-						    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Cursos</a>
-						     <ul class="dropdown-menu dropdown-menu-left">
-									<li><%= link_to 'Todos los Cursos', root_path(anchor: 'user-courses') %></li>
-						    </ul>
-							</li> 							         
-						<% end %>           
-            <% if user_signed_in? && current_user.admin? %>
-							<li class="dropdown">
-						    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Gestión de Usuarios</a>
-						     <ul class="dropdown-menu dropdown-menu-left">
-					        <li><%= link_to 'Usuarios Registrados', user_index_path %></li>
-						    </ul>
-							</li> 
-							<li class="dropdown">
-						    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Gestión de Cursos</a>
-						     <ul class="dropdown-menu dropdown-menu-left">
-					        <li><%= link_to 'Crear Cursos', new_course_path %></li>
-					        <li><%= link_to 'Cursos Publicados', courses_path %></li>
-						    </ul>
-							</li> 
-							<li class="dropdown">
-						    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Gestión de Instructores</a>
-						     <ul class="dropdown-menu dropdown-menu-left">
-					        <li><%= link_to 'Crear Instructores', new_instructor_path %></li>
-					        <li><%= link_to 'Instructores Registrados', instructors_path %></li>
-						    </ul>
-							</li>
-							<li class="dropdown">
-						    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Categorías</a>
-						     <ul class="dropdown-menu dropdown-menu-left">
-					        <li><%= link_to 'Crear Categoría', new_category_path %></li>
-					        <li><%= link_to 'Categorías Almacenadas', categories_path %></li>
-						    </ul>
-							</li>             	            
-            	<li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-            <% elsif user_signed_in? && current_user.content_manager? %>
-							<li class="dropdown">
-						    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Gestión de Cursos</a>
-						     <ul class="dropdown-menu dropdown-menu-left">
-					        <li><%= link_to 'Crear Cursos', new_course_path %></li>
-					        <li><%= link_to 'Cursos Publicados', courses_path %></li>
-						    </ul>
-							</li>
-							<li class="dropdown">
-						    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Gestión de Instructores</a>
-						     <ul class="dropdown-menu dropdown-menu-left">
-					        <li><%= link_to 'Crear Instructores', new_instructor_path %></li>
-					        <li><%= link_to 'Instructores Registrados', instructors_path %></li>
-						    </ul>
-							</li> 
-							<li class="dropdown">
-						    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Categorías</a>
-						     <ul class="dropdown-menu dropdown-menu-left">
-					        <li><%= link_to 'Crear Categoría', new_category_path %></li>
-					        <li><%= link_to 'Categorías Almacenadas', categories_path %></li>
-						    </ul>
-							</li>  
-            	<li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-            <% elsif user_signed_in? && current_user.user? %>													
-							<li><%= link_to 'Editar Perfil', edit_user_path(current_user) %></li>
-							<li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>            
-            <% else %>
-            	<li><%= link_to 'Cursos', root_path(anchor: 'user-courses') %></li>
-            	<li><%= link_to 'Log In', new_user_session_path %></li> 
-            	<li><%= link_to 'Sign Up', new_user_registration_path %></li> 
-            <% end %>                        
-           </ul>
-        </div><!-- navbar-collapse -->
-    </div><!-- container -->
-	</nav>
 	<% if flash[:alert] %>
 	  <div class="container-fluid">
 	    <div class="row">
@@ -109,34 +26,9 @@
 	<%end%>
 	<%= yield %>
 
-<% if current_page?(root_path) || current_page?(course_information_path) %>
-	<aside id="footer-widgets">
-    <div class="container">
-      <div class="row">                  
-				<div class="footer-widget">
-          <h3 class="footer-widget-title">Cursos Recientes</h3>
-
-					<% @footer_courses.each do |course| %>
-						<div class="col-md-4">
-		          <div class="media">
-		            <a class="pull-left" href="#">
-		            	<%= image_tag(course.image.url(:thumb), size: "75") %>
-		            </a>
-		            <div class="media-body">
-                	<h4 class="media-heading"><a href="#"><%= course.title.capitalize %></a></h4>
-                	<small><%= course.created_at.strftime("%d %b. %Y") %></small>
-              	</div>
-            	</div>
-          	</div>
-					<% end %>			
-				</div>               
-      </div> <!-- row -->
-	  </div> <!-- container -->
-	</aside> <!-- footer-widgets -->	
-	<footer id="footer">
-	    <p>&copy; 2014 <a href="#">Business Bites</a>, inc. All rights reserved.</p>
-	</footer>
-<% end %>
+	<% if current_page?(root_path) || current_page?(course_information_path) %>
+		<%= render 'layouts/footer' %>
+	<% end %>
 
 	</div> <!-- boxed -->
 	</div> <!-- sb-site -->
