@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :topics
   resources :instructors
   resources :categories
-  resources :subscriptions, only: [:index, :new, :create]
+  resources :subscriptions, only: [:new, :create]
   get 'mark_as_done' => 'topic_completition#mark_as_done'
   get 'course_information' => 'pages#course_information'
   get 'my_courses' => 'courses#my_courses'

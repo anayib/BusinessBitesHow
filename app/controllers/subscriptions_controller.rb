@@ -1,9 +1,6 @@
 class SubscriptionsController < ApplicationController
 	before_filter :authenticate_user!
 	before_filter :load_plans
-	
-	def index
-	end
 
 	def new
 		@subscription = Subscription.new
