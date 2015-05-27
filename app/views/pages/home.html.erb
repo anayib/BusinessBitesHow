@@ -41,7 +41,7 @@
             </div>
             <div class="row course-caption">
               <% if user_signed_in? %>                  
-                <%# if current_user.courses.include?(course) %>
+                <% if course.gratis? %>
                   <div class="col-sm-3">
                     <%= link_to 'Ir al curso', course, class: "btn btn-ar btn-primary" %>
                   </div>
@@ -49,7 +49,7 @@
                     <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
                     <%= course.instructors.first.name %>
                   </div>
-                <%# else %>
+                <% else %>
                   <div class="col-sm-3">
                     <%= link_to 'Ver Curso', course_information_path(:course_id => course.id), class: "btn btn-ar btn-warning" %>
                   </div>
@@ -57,7 +57,7 @@
                     <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
                     <%= course.instructors.first.name %>
                   </div>
-                <%# end %>
+                <% end %>
               <% else %>
                 <div class="col-sm-3">
                   <%= link_to 'Ver curso', course_information_path(:course_id => course.id), class: "btn btn-ar btn-warning" %>
