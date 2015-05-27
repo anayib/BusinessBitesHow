@@ -1490,9 +1490,7 @@ hr.double {
   border-radius: 2px;
   font-size: 14px;
 }
-.btn-ar > .fa {
-  margin-right: 5px;
-}
+
 .btn-ar.btn-transparent {
   background-color: transparent;
   color: #fff;

@@ -20,18 +20,33 @@
   <% end %>
 </div>
 
-
-<div class="container" id="first_topic_video">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-primary">                
-                <div class="video">
-                    <iframe src="<%= "#{@course.lessons.first.topics.first.content_url}"+"?title=0&amp;byline=0&amp;portrait=0" %>"></iframe>
+<!-- Conditional to show support content from a specific topic -->
+<% if @course.lessons.first.topics.first.document.url != "/documents/original/missing.png" %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-primary">                
+                    <div class="video">
+                        <iframe src="/pdfjs/web/viewer.html?file=<%= @course.lessons.first.topics.first.document.url %>" style="border: 0" width="50%" height="600" frameborder="0" scrolling="no"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<% else %>
+    <div class="container" id="first_topic_video">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="panel panel-primary">                
+            <div class="video">
+              <iframe src="<%= "#{@course.lessons.first.topics.first.content_url}"+"?title=0&amp;byline=0&amp;portrait=0" %>"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+
 
 <div class="container">
   <div class="row">
