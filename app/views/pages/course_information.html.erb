@@ -21,7 +21,7 @@
 </div>
 
 <!-- Conditional to show support content from a specific topic -->
-<% if @course.lessons.first.topics.first.document.url != "/documents/original/missing.png" %>
+<% if @course.lessons.first.topics.first.content_url == "" %>
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
