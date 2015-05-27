@@ -21,6 +21,7 @@ gem 'pdfjs_rails'
 gem "figaro"
 gem 'stripe', :source => 'https://code.stripe.com/'
 gem 'rest-client', :source => 'https://rubygems.org/'
+gem 'paper_trail'
 
 group :development, :test do
 	gem 'guard'
