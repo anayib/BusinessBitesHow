@@ -1,29 +1,41 @@
-<h2>Sign up</h2>
+<div class="paper-back-full">
+  <div class="login-form-full">
+    <div class="fix-box">
+      <div class="text-center title-logo animated fadeInDown animation-delay-5">business<span>bites</span></div>
+      <div class="transparent-div no-padding animated fadeInUp animation-delay-8">
+        <ul class="nav nav-tabs nav-tabs-transparent">
+          <li class="active"><a href="#home" data-toggle="tab">Registrarse</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= devise_error_messages! %>
+              <div class="field form-group input-group login-input">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>                
+                <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Correo Electrónico" %>
+              </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+              <div class="field form-group input-group login-input">                
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <% if @validatable %>
+                <% end %>                
+                <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Contraseña - Mínimo 8 carácteres" %>
+              </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+              <div class="field form-group input-group login-input">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirmar Contraseña" %>
+              </div>
+
+              <div class="actions form-group">
+                <%= f.submit "Log in", class: "btn btn-ar btn-primary pull-right btn-lg" %>
+              </div>
+            <% end %>
+            <%= render "devise/shared/links" %>
+          </div>            
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
