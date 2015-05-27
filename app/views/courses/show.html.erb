@@ -40,7 +40,7 @@
 												<% lesson.topics.each_with_index do |topic,index| %>
 													<ul class="list-group topic-item">
 														<li class="list-group-item">
-															<% if current_user.courses.include?(topic.lesson.course) %>
+															<% if true %>
 																<% if @topics_ready_ids.include?(topic.id) %>
 																	<%= link_to "<span class='icon-ar icon-ar-sm icon-ar-circle'><i class='fa fa-check'></i></span> #{index+1}. #{topic.title.upcase}".html_safe, topic %>
 																<% else %>

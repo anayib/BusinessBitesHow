@@ -26,15 +26,13 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  enum role: [ :user, :content_manager, :admin]
+  enum role: [:user, :content_manager, :admin, :normal_user, :vip_user]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://i592.photobucket.com/albums/tt5/Mardini03/765-default-avatar.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   after_initialize :set_default_role, :if => :new_record?
-  has_many :enrollments
   has_many :topic_completitions
-  has_many :courses, through: :enrollments
   has_many :topics, through: :topic_completitions
 
   def set_default_role

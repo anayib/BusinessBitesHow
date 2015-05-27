@@ -24,6 +24,6 @@ class Topic < ActiveRecord::Base
 	has_many :users, through: :topic_completitions
 	accepts_nested_attributes_for :resources, :reject_if => :all_blank, allow_destroy: true
   validates_associated :resources
-  has_attached_file :document
+  has_attached_file :document, :default_url => ""
 	validates_attachment :document, :content_type => { :content_type => %w(application/pdf) }
 end

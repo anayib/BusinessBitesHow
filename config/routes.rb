@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   # Block route for devise registration controller
-  if Rails.env.production?
-    devise_for :users, :controllers => { :registrations => "registrations" } 
-  else
-    devise_for :users
-  end
+  devise_for :users
   root 'pages#home'
   resources :user, :controller => "user"
   resources :courses
