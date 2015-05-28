@@ -73,7 +73,7 @@
 				    </ul>
 					</li>  
         	<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>
-        <% elsif user_signed_in? && current_user.user? %>													
+        <% elsif user_signed_in? && ( current_user.user? || current_user.vip_user? ) %>													
 					<li><%= link_to 'Editar Perfil', edit_user_path(current_user) %></li>
 					<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>            
         <% else %>

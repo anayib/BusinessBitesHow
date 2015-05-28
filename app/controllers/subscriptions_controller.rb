@@ -15,9 +15,9 @@ class SubscriptionsController < ApplicationController
 			params[:stripeToken]
 		)
 		if @subscription.errors.blank?
-			flash[:notice] = 'Thank you for your purchase!' +
-			'Please click the link in the email we just sent ' +
-			'you to get started.'
+			flash[:notice] = 'Gracias por tu subscripcion, desde este momento haces parte de la comunidad VIP de BusinessBites.'
+			current_user.role = "vip_user"
+			current_user.save
 			redirect_to '/'
 		else
 			render :new
