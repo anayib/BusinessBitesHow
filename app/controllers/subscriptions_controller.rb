@@ -1,6 +1,7 @@
 class SubscriptionsController < ApplicationController
-	before_filter :authenticate_user!
-	before_filter :load_plans
+	before_action	 :authenticate_user!	
+	before_filter :load_plans	
+	before_filter :has_subscription?
 
 	def new
 		@subscription = Subscription.new
@@ -26,6 +27,12 @@ class SubscriptionsController < ApplicationController
 
 	protected
 		def load_plans
-		@plans = Plan.where(published: true).order('amount')
+			@plans = Plan.where(published: true).order('amount')
+		end
+		
+		def has_subscription?
+			if current_user.subscription.nil?
+				redirect_to root_path, :alert => "Usted ya se encuentra suscrito a una cuenta VIP en BusinessBites"
+			end
 		end
 end
