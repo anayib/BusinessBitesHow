@@ -31,7 +31,7 @@ class SubscriptionsController < ApplicationController
 		end
 		
 		def has_subscription?
-			if current_user.subscription.nil?
+			if !current_user.subscription.nil?
 				redirect_to root_path, :alert => "Usted ya se encuentra suscrito a una cuenta VIP en BusinessBites"
 			end
 		end
