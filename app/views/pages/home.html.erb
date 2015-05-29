@@ -41,7 +41,7 @@
             </div>
             <div class="row course-caption">
               <% if user_signed_in? %>                  
-                <% if course.gratis? %>
+                <% if course.free? %>
                   <div class="col-sm-3">
                     <%= link_to 'Ir al curso', course, class: "btn btn-ar btn-primary" %>
                   </div>

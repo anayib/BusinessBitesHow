@@ -25,6 +25,10 @@ class SubscriptionsController < ApplicationController
 		end
 	end
 
+	def edit
+
+	end
+
 	protected
 		def load_plans
 			@plans = Plan.where(published: true).order('amount')
@@ -32,7 +36,11 @@ class SubscriptionsController < ApplicationController
 		
 		def has_subscription?
 			if !current_user.subscription.nil?
-				redirect_to root_path, :alert => "Usted ya se encuentra suscrito a una cuenta VIP en BusinessBites"
+				redirect_to root_path, :alert => "Usted ya se encuentra suscrito a una cuenta VIP en BusinessBites."
+			elsif current_user.content_manager?
+				redirect_to root_path, :alert => "Usted es gestor de contenido, por lo tanto no necesita una cuenta VIP en BusinessBites."
+			elsif current_user.admin?
+				redirect_to root_path, :alert => "Usted es administrador de este sitio WEB, por lo tanto no necesita una cuenta VIP en BusinessBites."
 			end
 		end
 end
