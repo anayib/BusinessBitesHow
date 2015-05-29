@@ -14,11 +14,13 @@ class TopicsController < ApplicationController
 		@progress = (topics_done*100) / topics_number
 	end
 
-	def topic_access
-		if Topic.find(params[:id]).lesson.course.with_charge?
-			unless current_user.vip_user? || current_user.admin? || current_user.content_manager?
-				redirect_to root_path, :alert => "Lo sentimos, usted no posee una cuenta VIP, por lo tanto no puede ver el topic: #{Topic.find(params[:id]).title}."
+
+	private
+		def topic_access
+			if Topic.find(params[:id]).lesson.course.with_charge?
+				unless current_user.vip_user? || current_user.admin? || current_user.content_manager?
+					redirect_to root_path, :alert => "Lo sentimos, usted no posee una cuenta VIP, por lo tanto no puede ver el topic: #{Topic.find(params[:id]).title}."
+				end
 			end
 		end
-	end
 end
