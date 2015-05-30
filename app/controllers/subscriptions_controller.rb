@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
 	before_action	 :authenticate_user!	
 	before_filter :load_plans	
-	before_filter :has_subscription?
+	before_filter :has_subscription?, :except => [:edit,:update]
 
 	def new
 		@subscription = Subscription.new
@@ -26,7 +26,24 @@ class SubscriptionsController < ApplicationController
 	end
 
 	def edit
+		@subscription = current_user.subscription
+		@plan = Plan.find(1)
+	end
 
+	def update
+		@subscription = current_user.subscription
+		@plan = Plan.find(1)
+		@subscription = ChangeSubscriptionCard.call(
+			@subscription,
+			params[:stripeToken]
+		)
+		if @subscription.errors.blank?
+			flash[:notice] = 'Su tarjeta de crédito ha sido actualizada, muchas gracias por usar nuestros servicios'			
+			@subscription.save
+			redirect_to '/'
+		else
+			render :edit
+		end
 	end
 
 	protected

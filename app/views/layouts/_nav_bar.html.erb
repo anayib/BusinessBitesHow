@@ -19,7 +19,10 @@
 							<li><%= link_to 'Todos los Cursos', root_path(anchor: 'user-courses') %></li>
 							<% if current_user.subscription.nil? %>
 								<li><%= link_to 'Cuenta VIP', new_subscription_path %></li>
-							<% end %>							
+							<% else %>		
+								<li><%= link_to 'Editar Tarjeta de Crédito', edit_subscription_path(current_user.subscription.id) %></li>
+							<% end %>
+
 				    </ul>
 					</li> 							         
 				<% end %>           

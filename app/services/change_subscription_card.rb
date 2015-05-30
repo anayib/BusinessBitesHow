@@ -6,7 +6,7 @@ class ChangeSubscriptionCard
 			stripe_sub = customer.subscriptions.retrieve(subscription.stripe_id)
 		
 			stripe_sub.card = token
-			stripe_sub.save!
+			stripe_sub.save
 		rescue Stripe::StripeError => e
 			subscription.errors[:base] << e.message
 		end
