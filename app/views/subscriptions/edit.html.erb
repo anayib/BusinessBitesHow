@@ -1,0 +1,50 @@
+<div class="paper-back-full">
+  <div class="login-form-full">
+    <div class="fix-box">
+      <div class="text-center title-logo animated fadeInDown animation-delay-5">business<span>bites</span></div>
+      <div class="transparent-div no-padding animated fadeInUp animation-delay-8">
+        <ul class="nav nav-tabs nav-tabs-transparent">
+          <li class="active"><a href="#home" data-toggle="tab">Editar Método de Pago</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">
+            
+
+            <% unless @subscription.errors.blank? %>
+              <%= @subscription.errors.full_messages.to_sentence %>
+            <% end %>
+            <h2>Datos para nueva tarjeta de crédito:</h2>
+
+            <%= form_for @subscription, html: { id: 'payment-form' } do |f| %>
+              <input type="hidden" name="plan_id" value="<%= @plan.id %>" />
+              <span class="payment-errors"></span>
+              
+              <div class="field form-group input-group login-input">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <%= text_field_tag :card_number, nil, name: nil, class: "form-control", placeholder: "Número Tarjete de Crédito", :data => {:stripe => 'number' } %>
+              </div>
+              
+              <div class="field form-group input-group login-input">    
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <%= text_field_tag :card_code, nil, name: nil, placeholder: "CVC", :data => {:stripe => 'cvc' } %>                
+              </div>
+              
+              <div class="field form-group input-group login-input">
+                <label>
+                <span>Expiración de tarjeta (MM/YYYY)</span>
+                <input type="text" size="2" data-stripe="exp-month"/>
+                </label>
+                <span> / </span>
+                <input type="text" size="4" data-stripe="exp-year"/>
+              </div>
+
+              <button type="submit" class="btn btn-ar btn-primary pull-right btn-lg">Editar Tarjeta de Crédito</button>
+            <% end %>
+            
+          </div>            
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

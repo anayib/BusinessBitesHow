@@ -17,6 +17,12 @@
 				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Cursos</a>
 				     <ul class="dropdown-menu dropdown-menu-left">
 							<li><%= link_to 'Todos los Cursos', root_path(anchor: 'user-courses') %></li>
+							<% if current_user.subscription.nil? %>
+								<li><%= link_to 'Cuenta VIP', new_subscription_path %></li>
+							<% else %>		
+								<li><%= link_to 'Editar Tarjeta de Crédito', edit_subscription_path(current_user.subscription.id) %></li>
+							<% end %>
+
 				    </ul>
 					</li> 							         
 				<% end %>           
@@ -72,7 +78,7 @@
 				    </ul>
 					</li>  
         	<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>
-        <% elsif user_signed_in? && current_user.user? %>													
+        <% elsif user_signed_in? && ( current_user.user? || current_user.vip_user? ) %>													
 					<li><%= link_to 'Editar Perfil', edit_user_path(current_user) %></li>
 					<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>            
         <% else %>

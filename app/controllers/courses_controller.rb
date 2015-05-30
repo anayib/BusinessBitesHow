@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
 	before_action :authenticate_user!
-	before_filter :content_permission, :except => [:show,:my_courses]
+	before_filter :content_permission, :except => [:my_courses]
 
 	def index
 		@courses = Course.all
@@ -61,8 +61,10 @@ class CoursesController < ApplicationController
 		end
 		
 		def content_permission
-	    unless current_user.admin? || current_user.content_manager?
-	      redirect_to root_path, :alert => "Lo sentimos, usted no posee permisos de administrador para acceder a esta ruta."
+	    if Course.find(params[:id]).with_charge?
+	    	unless current_user.vip_user? || current_user.admin? || current_user.content_manager?
+	    		redirect_to root_path, :alert => "Lo sentimos, usted no posee una cuenta VIP, por lo tanto no puede acceder a la información del curso: #{Course.find(params[:id]).title}."
+	    	end
 	    end
   	end
 end

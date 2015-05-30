@@ -21,12 +21,13 @@
 #  image_file_size        :integer
 #  image_updated_at       :datetime
 #  name                   :string
+#  stripe_customer_id     :string
 #
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  enum role: [:user, :content_manager, :admin, :normal_user, :vip_user]
+  enum role: [:user, :content_manager, :admin, :vip_user]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://i592.photobucket.com/albums/tt5/Mardini03/765-default-avatar.png"
@@ -34,6 +35,7 @@ class User < ActiveRecord::Base
   after_initialize :set_default_role, :if => :new_record?
   has_many :topic_completitions
   has_many :topics, through: :topic_completitions
+  has_one :subscription
 
   def set_default_role
     self.role ||= :user
