@@ -18,3 +18,5 @@ users = User.create([{
 		role: "admin",
 		password: 'holamama'
 		}])
+
+plan = Plan.create(stripe_id: 'test_plan', name: 'Test Plan', amount: 500, interval:'month', description: 'Test Plan',published: false)

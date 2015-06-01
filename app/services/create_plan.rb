@@ -1,7 +1,7 @@
 class CreatePlan
 	def self.call(options={})
 		plan = Plan.new(options)
-		
+		plan.save
 		if !plan.valid?
 			return plan
 		end
