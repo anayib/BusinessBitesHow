@@ -19,4 +19,4 @@ users = User.create([{
 		password: 'holamama'
 		}])
 
-plan = Plan.create(stripe_id: 'test_plan', name: 'Test Plan', amount: 500, interval:'month', description: 'Test Plan',published: false)
+plan = Plan.create(stripe_id: 'vip', name: 'VIP Plan', amount: 500, interval:'month', description: 'VIP Plan', published: true)
