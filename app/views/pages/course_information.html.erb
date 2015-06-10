@@ -27,7 +27,11 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-primary">                
                     <div class="video">
-                        <iframe src="/pdfjs/web/viewer.html?file=<%= @course.lessons.first.topics.first.document.url.sub! 'http', 'https' %>" style="border: 0" width="50%" height="600" frameborder="0" scrolling="no"></iframe>
+                        <% if @topic.document.url.include? "http"  %>
+                          <iframe src="/pdfjs/web/viewer.html?file=<%= @topic.document.url.sub! 'http', 'https' %>" style="border: 0" width="50%" height="600" frameborder="0" scrolling="no"></iframe>
+                        <% else %>
+                          <iframe src="/pdfjs/web/viewer.html?file=<%= @topic.document.url %>" style="border: 0" width="50%" height="600" frameborder="0" scrolling="no"></iframe>
+                        <% end %>
                     </div>
                 </div>
             </div>
