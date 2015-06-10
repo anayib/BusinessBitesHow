@@ -28,7 +28,7 @@ group :development, :test do
 	gem 'guard'
 	gem 'guard-livereload', require: false
   gem 'byebug'
-	gem 'sqlite3'
+	gem 'pg'
   gem 'web-console', '~> 2.0'
   #gem 'spring'
 end
