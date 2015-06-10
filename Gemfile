@@ -22,6 +22,7 @@ gem "figaro"
 gem 'stripe', :source => 'https://code.stripe.com/'
 gem 'rest-client', :source => 'https://rubygems.org/'
 gem 'paper_trail'
+gem 'thin'
 
 group :development, :test do
 	gem 'guard'
