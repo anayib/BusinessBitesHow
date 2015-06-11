@@ -40,4 +40,15 @@ class User < ActiveRecord::Base
   def set_default_role
     self.role ||= :user
   end
+
+  # Override devise confirm! message
+  def confirm!
+    welcome_email
+    super
+  end
+
+  private
+    def welcome_email
+      UserMailer.welcome_email(self).deliver
+    end
 end
