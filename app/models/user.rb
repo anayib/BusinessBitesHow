@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   enum role: [:user, :content_manager, :admin, :vip_user]
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://i592.photobucket.com/albums/tt5/Mardini03/765-default-avatar.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   after_initialize :set_default_role, :if => :new_record?
@@ -40,4 +40,15 @@ class User < ActiveRecord::Base
   def set_default_role
     self.role ||= :user
   end
+
+  # Override devise confirm! message
+  def confirm!
+    welcome_email
+    super
+  end
+
+  private
+    def welcome_email
+      UserMailer.welcome_email(self).deliver
+    end
 end

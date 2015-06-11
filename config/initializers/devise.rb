@@ -10,7 +10,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'businessbites@info.com'
   config.secret_key = '244495e664231157b91b4e1dc6a83ed96c0a87586b45aaf4964f281079a211ee9de221d25dcd77307f52a7eff088355eec365abeeac26ef909d2ad65d4306b9d'
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -119,7 +119,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  config.reconfirmable = false
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [ :email ]

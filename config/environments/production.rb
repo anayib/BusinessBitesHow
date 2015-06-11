@@ -88,7 +88,7 @@ Rails.application.configure do
     }
   }
 
-  config.action_mailer.default_url_options = { :host => 'http://agile-mountain-5304.herokuapp.com/' }
+  config.action_mailer.default_url_options = { :host => 'http://floating-dusk-7848.herokuapp.com/' }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
