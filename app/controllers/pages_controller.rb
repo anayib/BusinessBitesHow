@@ -8,5 +8,6 @@ class PagesController < ApplicationController
 		@course = Course.find(params[:course_id])
 		@instructors = @course.instructors
 		@footer_courses = Course.last(3)
+		@topic = @course.lessons.first.topics.first
 	end
 end
