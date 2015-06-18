@@ -24,25 +24,6 @@
       </div>
     </div>
   </div>
-  
-  <% if current_user.admin? %>
-    <div class="row">
-      <div class="field form-group">
-        <h3 class="right-line">SELECCIONE CURSOS PARA ESTE USUARIO</h3>
-        <% if Course.all.empty? %>
-          <h3 class="text-center">No hay cursos almacenados, porfavor dirijase a la pestaña Gestión de Cursos para crear nuevos registros</h3>
-        <% else %>
-          <% Course.all.each do |course| %>
-            <div class="col-md-4">
-              <%= hidden_field_tag "user[course_ids][]", nil %>      
-              <%= check_box_tag "user[course_ids][]", course.id, @user.course_ids.include?(course.id), id: dom_id(course) %>
-              <%= label_tag dom_id(course), course.title %></br>      
-            </div>
-          <% end %>
-        <% end %>      
-      </div>
-    </div>
-  <% end %>
 
   <div class="actions form-group text-center">
   	<%= f.submit "Editar Usuario", class: "btn btn-ar btn-lg btn-success" %>

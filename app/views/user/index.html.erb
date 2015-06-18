@@ -21,13 +21,8 @@
 						<% end %>						
 						<td class="lead lead-sm vert-align text-center"><%= user.name %></td>
 						<td class="lead lead-sm vert-align text-center"><%= user.email %></td>
-						<% if user.admin? %>
-							<td class="lead lead-sm vert-align text-center"><%= user.role.upcase %></td>
-						<% elsif user.content_manager? %>
-							<td class="lead lead-sm vert-align text-center"><%= user.role.upcase %></td>
-						<% else %>
-							<td class="lead lead-sm vert-align text-center"><%= user.role.upcase %></td>
-						<% end %>
+						<td class="lead lead-sm vert-align text-center"><%= user.role.humanize %></td>
+						
 						<td class="lead lead-sm vert-align text-center"><%= link_to "Editar", edit_user_path(user), class: "btn btn-ar btn-warning" %> <%= link_to user_path(user), method: :delete, data: { confirm: '¿Esta seguro que desea elminar esta usuario?' }, class: "btn btn-ar btn-danger" do %><span>Eliminar</span><% end %></td>
 					</tr>
 				<% end %>
