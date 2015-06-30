@@ -121,10 +121,38 @@ div#course-information-text {
 	padding-top: 80px;
 }
 
-li a.call-to-action {
+li a.call-to-action, a.call-to-action {
 	margin: 5px 2px !important;
 	border-radius: 100px;
 	padding: 9px 2em !important;
 	background-color: #F6921E;
 	color: white !important;
 }
+
+/*---------Home Video----------*/
+@media (min-width: 992px) {
+	div#video_home_embed {
+		margin-top: 125px;
+	}
+
+	div#header_container {
+		margin-top: 190px;
+	}
+}
+
+@media (max-width: 462px) {
+	div#header_container {
+		margin-top: 80px;		
+	}
+
+	div#header_container a.call-to-action {		
+		font-size: 11px;
+	}
+}
+
+@media (min-width: 670px) and (max-width:991px) {
+	header#header-full, div.wrap-primary {
+		height: 750px;		
+	}
+}
+/*-----------------------------*/

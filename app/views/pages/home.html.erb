@@ -2,13 +2,23 @@
 <div class="boxed">
 
 <header id="header-full">
-    <div class="wrap-primary">
-        <div class="container">
-            <h1 class="head-title">Business Bites</h1>
-            <h2 class="secondary-color text-center head-subtitle">connect to the artificial revolution</h2>
-            <p class="lead text-center">We bring the revolution to the web design, our principles are experience, knowledge and creativity. Discover all that can offer artificial reason.</p>
+  <div class="wrap-primary">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <!-- 16:9 aspect ratio -->
+          <div class="embed-responsive embed-responsive-4by3" id="video_home_embed">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bk6Xst6euQk?wmode=transparent"></iframe>
+          </div>
         </div>
+        <div class="col-md-6 text-center" id="header_container">
+          <h1 class="head-title">HEADER</h1>
+          <h2 class="secondary-color text-center head-subtitle">Sub-Header</h2>
+          <%= link_to 'ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES', new_user_registration_path, class: "call-to-action" %>
+        </div>
+      </div>          
     </div>
+  </div>
 </header>
 
 <div class="container">
