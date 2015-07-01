@@ -156,3 +156,9 @@ li a.call-to-action, a.call-to-action {
 	}
 }
 /*-----------------------------*/
+/*---------Home Buttons--------*/
+a.btn.btn-view-course {
+	background-color: #4b6532 !important;
+	color: white;
+}
+/*-----------------------------*/
