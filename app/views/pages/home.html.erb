@@ -14,7 +14,9 @@
         <div class="col-md-6 text-center" id="header_container">
           <h1 class="head-title">HEADER</h1>
           <h2 class="secondary-color text-center head-subtitle">Sub-Header</h2>
-          <%= link_to 'ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES', new_user_registration_path, class: "call-to-action" %>
+          <% if !user_signed_in? || ( user_signed_in? && current_user.subscription.nil?) %>
+            <%= link_to 'ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES', new_user_registration_path, class: "call-to-action" %>
+          <% end %>
         </div>
       </div>          
     </div>
