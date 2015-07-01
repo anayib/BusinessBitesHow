@@ -162,3 +162,6 @@ a.btn.btn-view-course {
 	color: white;
 }
 /*-----------------------------*/
+div#video_actions {
+	margin-bottom: 20px;
+}
