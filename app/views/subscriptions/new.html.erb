@@ -10,7 +10,7 @@
             <a href="" onclick="return false">1 Crear Cuenta</a>
           </li>
           <li class="active" style="width: 50%;">
-            <a href="" data-toggle="tab">2 Pagar Suscripción</a>
+            <a href="" data-toggle="tab">2 Pagar Subscripción</a>
           </li>
         </ul>
         <!-- Tab panes -->
@@ -32,7 +32,8 @@
               
               <div class="field form-group input-group login-input">    
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <%= text_field_tag :card_code, nil, name: nil, placeholder: "CVC", :data => {:stripe => 'cvc' } %>                
+                <%= text_field_tag :card_code, nil, name: nil, placeholder: "CVC", :data => {:stripe => 'cvc' } %>
+                <img src="http://i592.photobucket.com/albums/tt5/Mardini03/creditcardlogos-2%201.png" height="34px" width="145px" alt="" id="supported_cards">                                 
               </div>
               
               <div class="field form-group input-group login-input">

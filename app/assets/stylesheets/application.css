@@ -178,3 +178,7 @@ li#account_created a:hover {
 div#powered_by_stripe {
 	margin-top: 10px;
 }
+
+img#supported_cards {
+	float: right;
+}

@@ -19,4 +19,19 @@ users = User.create([{
 		password: 'holamama'
 		}])
 
-plan = Plan.create(stripe_id: 'vip', name: 'VIP Plan', amount: 500, interval:'month', description: 'VIP Plan', published: true)
+plan = Plan.create([{
+		stripe_id: 'anual', 
+		name: 'Suscripción Anual', 
+		amount: 204.99, 
+		interval:'yearly', 
+		description: 'Subscripción por un año a todos los cursos de Business Bites', 
+		published: true
+	},
+	{
+		stripe_id: 'mensual', 
+		name: 'Suscripción Mensual', 
+		amount: 19.99, 
+		interval:'monthly', 
+		description: 'Subscripción por un mes a todos los cursos de Business Bites', 
+		published: true
+		}])
