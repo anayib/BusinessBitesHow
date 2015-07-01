@@ -165,3 +165,16 @@ a.btn.btn-view-course {
 div#video_actions {
 	margin-bottom: 20px;
 }
+li#account_created a {
+	background-color: rgb(175,221,147)!important;
+	cursor: default;
+	color: white;
+}
+li#account_created a:hover {
+	background-color: rgb(175,221,147)!important;
+	border-color: rgb(175,221,147);
+}
+
+div#powered_by_stripe {
+	margin-top: 10px;
+}

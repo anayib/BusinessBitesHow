@@ -1,16 +1,21 @@
 <div class="paper-back-full">
   <div class="login-form-full">
     <div class="fix-box">
-      <div class="text-center title-logo animated fadeInDown animation-delay-5">business<span>bites</span></div>
+      <div class="text-center title-logo animated fadeInDown animation-delay-5">
+        business<span>bites</span>
+      </div>
       <div class="transparent-div no-padding animated fadeInUp animation-delay-8">
         <ul class="nav nav-tabs nav-tabs-transparent">
-          <li class="active"><a href="#home" data-toggle="tab">Subscripción a Cuenta VIP</a></li>
+          <li style="width: 50%;" id="account_created">
+            <a href="" onclick="return false">1 Crear Cuenta</a>
+          </li>
+          <li class="active" style="width: 50%;">
+            <a href="" data-toggle="tab">2 Pagar Suscripción</a>
+          </li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
           <div class="tab-pane active" id="home">
-            
-
             <% unless @subscription.errors.blank? %>
               <%= @subscription.errors.full_messages.to_sentence %>
             <% end %>
@@ -40,11 +45,16 @@
               </div>
 
               <button type="submit" class="btn btn-ar btn-primary pull-right btn-lg">Pagar Ahora</button>
-            <% end %>
-            
+            <% end %>            
           </div>            
         </div>
       </div>
+      <div class="row animated fadeInDown animation-delay-13" id="powered_by_stripe">
+        <div class="col-md-12 text-center">
+          Pago seguro 
+          <img src="http://i592.photobucket.com/albums/tt5/Mardini03/solid.png" alt="">
+        </div>
+      </div>      
     </div>
   </div>
 </div>
