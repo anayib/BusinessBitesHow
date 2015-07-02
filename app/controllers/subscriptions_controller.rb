@@ -26,11 +26,12 @@ class SubscriptionsController < ApplicationController
 
 	def edit
 		@subscription = current_user.subscription
+		@plan = current_user.subscription.plan
 	end
 
 	def update
 		@subscription = current_user.subscription
-		@plan = Plan.find(1)
+		@plan = current_user.subscription.plan
 		@subscription = ChangeSubscriptionCard.call(
 			@subscription,
 			params[:stripeToken]

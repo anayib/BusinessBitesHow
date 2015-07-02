@@ -45,7 +45,7 @@
               <div class="field form-group input-group login-input">    
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <%= text_field_tag :card_code, nil, name: nil, placeholder: "CVC", :data => {:stripe => 'cvc' } %>
-                <img src="http://i592.photobucket.com/albums/tt5/Mardini03/creditcardlogos-2%201.png" height="34px" width="145px" alt="" id="supported_cards">                                 
+                <img src="http://i592.photobucket.com/albums/tt5/Mardini03/creditcardlogos-2%201.png" height="34px" width="145px" alt="" class="supported_cards">
               </div>
               
               <div class="field form-group input-group login-input">
@@ -58,7 +58,7 @@
                 Total a pagar: <span id="plan_price"></span>
               </div>
 
-              <button type="submit" class="btn btn-ar btn-primary pull-right btn-lg">Selecciona un plan</button>
+              <button type="submit" id="pay_button" class="btn btn-ar btn-primary pull-right btn-lg">Selecciona un plan</button>
             <% end %>            
           </div>            
         </div>
@@ -72,3 +72,25 @@
     </div>
   </div>
 </div>
+<script>
+  $(document).on("ready page:load", function() {
+    var hidden = $('input#plan_selected');
+    $("button#pay_button").attr("disabled", "disabled");
+    $("div#plan_buttons").on('click', 'button', function() {
+      $("button#pay_button").removeAttr("disabled");
+      $("button#pay_button").html("Pagar Ahora");  
+      var button = $(this);
+      $('span#plan_name').html(button.data("name"));
+      if(button.data("price")==204.99){
+        $('span#plan_price').html(button.data("price")+" dólares/año");
+      }else {
+        $('span#plan_price').html(button.data("price")+" dólares/mes");
+      }
+      console.log(button.data("name"));
+      console.log(button.data("price"));
+      console.log(button.data("id"));
+      hidden.val(button.data("id"));  
+      console.log(hidden.value);      
+    }); 
+  });
+</script>

@@ -179,7 +179,7 @@ div#powered_by_stripe {
 	margin-top: 10px;
 }
 
-img#supported_cards {
+img.supported_cards {
 	float: right;
 }
 div#plan_buttons {
