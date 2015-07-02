@@ -8,7 +8,7 @@ class SubscriptionsController < ApplicationController
 	end
 
 	def create
-		@plan = Plan.find(7)
+		@plan = Plan.find(params[:plan_id])
 		@subscription = CreateSubscription.call(
 			@plan,
 			current_user.email,
@@ -18,7 +18,7 @@ class SubscriptionsController < ApplicationController
 			flash[:notice] = 'Gracias por tu subscripcion, desde este momento haces parte de la comunidad VIP de BusinessBites.'
 			current_user.role = "vip_user"
 			current_user.save
-			redirect_to '/'
+			redirect_to welcome_new_subscriptor_path
 		else
 			render :new
 		end
@@ -26,7 +26,6 @@ class SubscriptionsController < ApplicationController
 
 	def edit
 		@subscription = current_user.subscription
-		@plan = Plan.find(1)
 	end
 
 	def update

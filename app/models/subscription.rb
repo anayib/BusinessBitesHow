@@ -11,6 +11,7 @@
 #
 
 class Subscription < ActiveRecord::Base
+	validates :plan_id, presence: true
   belongs_to :user
   belongs_to :plan
   has_paper_trail
