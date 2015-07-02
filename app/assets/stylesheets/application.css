@@ -155,6 +155,7 @@ li a.call-to-action, a.call-to-action {
 		height: 750px;
 	}
 }
+
 /*-----------------------------*/
 /*---------Home Buttons--------*/
 a.btn.btn-view-course {
@@ -198,4 +199,8 @@ a#courses_index_button {
 }
 .footer-thumb-mask img{
 	width:75px;
+}
+
+#user-courses img.thumbnail_custom_image {
+	width: 100%;
 }
