@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+	before_filter :course_location
 	before_action :authenticate_user!, :only => [:welcome_video_user,:welcome_video_subscriptor]
 	before_action :has_subscription?, :only => [:welcome_video_subscriptor]
 
@@ -7,7 +8,7 @@ class PagesController < ApplicationController
 		@footer_courses = Course.last(3)
 	end
 
-	def course_information		
+	def course_information
 		@course = Course.find(params[:course_id])
 		@instructors = @course.instructors
 		@footer_courses = Course.last(3)
