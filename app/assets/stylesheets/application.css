@@ -182,3 +182,6 @@ div#powered_by_stripe {
 img#supported_cards {
 	float: right;
 }
+div#plan_buttons {
+	margin-bottom: 15px;
+}

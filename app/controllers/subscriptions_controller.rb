@@ -5,11 +5,10 @@ class SubscriptionsController < ApplicationController
 
 	def new
 		@subscription = Subscription.new
-		@plan = Plan.find(1)
 	end
 
 	def create
-		@plan = Plan.find(1)
+		@plan = Plan.find(7)
 		@subscription = CreateSubscription.call(
 			@plan,
 			current_user.email,
