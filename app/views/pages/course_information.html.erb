@@ -2,7 +2,11 @@
   <div class="row">
     <div id="course_information_text" class="col-md-10 col-md-offset-1 text-center">
       <h1 id="course_information_title"><%= @course.title %></h1> 
-      <%= link_to "ACCEDER AL CURSO", new_user_session_path, class: "btn btn-ar cta_button btn-lg" %>   
+      <% if @course.free? %>
+        <%= link_to "ACCEDER AL CURSO", new_user_session_path, class: "btn btn-ar cta_button btn-lg" %>   
+      <% else %>
+        <%= link_to 'ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES', new_user_registration_path, class: "call-to-action" %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -69,7 +73,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <%= link_to "ACCEDER AL CURSO", new_user_session_path, class: "btn btn-ar cta_button btn-lg" %>
+      <% if @course.free? %>
+        <%= link_to "ACCEDER AL CURSO", new_user_session_path, class: "btn btn-ar cta_button btn-lg" %>   
+      <% else %>
+        <%= link_to 'ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES', new_user_registration_path, class: "call-to-action" %>
+      <% end %>
     </div>
   </div>
 </div>   
