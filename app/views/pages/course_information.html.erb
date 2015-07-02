@@ -1,7 +1,8 @@
 <div class="container" id="course_information_header">
   <div class="row">
     <div id="course_information_text" class="col-md-10 col-md-offset-1 text-center">
-      <h1 id="course_information_title"><%= @course.title %></h1>    
+      <h1 id="course_information_title"><%= @course.title %></h1> 
+      <%= link_to "ACCEDER AL CURSO", new_user_session_path, class: "btn btn-ar cta_button btn-lg" %>   
     </div>
   </div>
 </div>
@@ -51,7 +52,6 @@
     </div>
 <% end %>
 
-
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
@@ -66,7 +66,24 @@
   </div>
 </div>
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <%= link_to "ACCEDER AL CURSO", new_user_session_path, class: "btn btn-ar cta_button btn-lg" %>
+    </div>
+  </div>
+</div>   
+
 <style>
+  a.cta_button {
+    font-size: 35px;
+    padding: 15px 75px 15px 75px;
+    background-color: #F6921E!important;
+    color: white;
+  }
+  a.cta_button:hover {
+    color: white;
+  }
   div#course_information_header {
     height: 76vh;
     width: 100%;    
@@ -87,12 +104,12 @@
   }
 
   div#course_information_text {
-    margin-top: 100px;
+    margin-top: 50px;
     border-radius: 25px;
   }
 
   div#course_information_text h1#course_information_title{
-    margin-top: 150px;
+    margin-bottom: 60px;
     border-radius: 25px;
     font-size: 60px;
     color: white;
