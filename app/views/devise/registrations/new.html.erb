@@ -12,17 +12,17 @@
         <div class="tab-content">
           <div class="tab-pane active" id="home">
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-              
+
               <%= devise_error_messages! %>
               <div class="field form-group input-group login-input">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>                
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Correo Electrónico" %>
               </div>
 
-              <div class="field form-group input-group login-input">                
+              <div class="field form-group input-group login-input">
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                 <% if @validatable %>
-                <% end %>                
+                <% end %>
                 <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Contraseña - Mínimo 8 carácteres" %>
               </div>
 
@@ -31,12 +31,15 @@
                 <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirmar Contraseña" %>
               </div>
 
+              <%= hidden_field_tag :course_id, params[:course_id] %>
+              <%= hidden_field_tag :subscription, params[:subscription] %>
+
               <div class="actions form-group">
                 <%= f.submit "Crear cuenta gratuita", class: "btn btn-ar btn-primary pull-right btn-lg" %>
               </div>
             <% end %>
             <%= render "devise/shared/links" %>
-          </div>            
+          </div>
         </div>
       </div>
     </div>

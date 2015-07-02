@@ -17,16 +17,10 @@ class PagesController < ApplicationController
 
 	def welcome_video_user
 		@previous_url = session[:previous_url]
-		puts "ññññññññññññññññññññññññ"
-		puts @previous_url
-		puts "ññññññññññññññññññññññññ"
 	end
 
 	def welcome_video_subscriptor
 		@previous_url = session[:previous_url]
-		puts "ññññññññññññññññññññññññ"
-		puts @previous_url
-		puts "ññññññññññññññññññññññññ"
 	end
 
 	private

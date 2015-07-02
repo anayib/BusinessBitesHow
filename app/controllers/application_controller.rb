@@ -4,22 +4,30 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def course_location
-    puts "ñññññññññññññññññññññññññññ"
-    puts "I pass through here!"
     if params[:course_id]
       session[:previous_url] = course_path(params[:course_id])
     end
-    puts session[:previous_url]
-    puts "ññññññññññññññññññññññññññññ"
   end
 
   def after_sign_in_path_for(user)
+    unless params[:course_id].empty?
+      course = Course.find(params[:course_id]) if params[:course_id]
+    end
   	if user_signed_in? && current_user.sign_in_count == 1
-  		welcome_new_user_path
+      unless params[:course_id].empty?
+        if course.course_type == "with_charge"
+          new_subscription_path
+        else
+      		welcome_new_user_path
+        end
+      else
+        if params[:subscription] == true
+          new_subscription_path
+        else
+          welcome_new_user_path
+        end
+      end
   	else
-      puts "~~~~~~~~~~~~~~~~~~"
-      puts session[:previous_url]
-      puts "~~~~~~~~~~~~~~~~~"
     	session[:previous_url] || root_path
   	end
   end
