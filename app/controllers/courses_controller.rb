@@ -16,8 +16,8 @@ class CoursesController < ApplicationController
 
 	def create
 		@course = Course.new(course_params)
-		@course.instructor_ids = params[:course][:instructor_ids] 
-		@course.category_ids = params[:course][:category_ids] 
+		@course.instructor_ids = params[:course][:instructor_ids]
+		@course.category_ids = params[:course][:category_ids]
 		if @course.save
   	  flash[:notice] = "El course #{@course.title} fue creado con exito"
   	  redirect_to courses_path
@@ -60,7 +60,7 @@ class CoursesController < ApplicationController
 		def course_params
   		params.require(:course).permit(:title, :description, :image, :course_type, { :instructor_ids => [] }, { :category_ids => [] }, lessons_attributes: [:id,:title,:description,:_destroy, topics_attributes: [:id,:title,:description,:content_url, :activities, :document, :transcription, :_destroy, resources_attributes: [ :id, :title, :description, :link_url, :_destroy]]])
 		end
-		
+
 		def content_permission
 	    if Course.find(params[:id]).with_charge?
 	    	unless current_user.vip_user? || current_user.admin? || current_user.content_manager?

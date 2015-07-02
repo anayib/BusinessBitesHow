@@ -3,8 +3,8 @@
       <div class="row">
         <div class="col-md-12 text-center">
           <h1 class="page-title" id="title-topic">BIENVENIDO A BUSINESS BITES</h3>
-        </div>            
-      </div>                
+        </div>
+      </div>
     </div>
 </header>
 
@@ -12,7 +12,7 @@
 <div class="container" id="first_topic_video">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <div class="panel panel-primary">                
+      <div class="panel panel-primary">
         <div class="embed-responsive embed-responsive-16by9">
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bk6Xst6euQk?wmode=transparent"></iframe>
         </div>
@@ -21,7 +21,11 @@
   </div>
   <div class="row" id="video_actions">
   	<div class="col-md-10 col-md-offset-1 text-center">
-  		<%= link_to "VER CURSOS", root_path(anchor: 'user-courses'), class: "btn btn-ar btn-primary" %>
+      <% if @previous_url %>
+        <%= link_to "IR A CURSO", @previous_url, class: "btn btn-ar btn-primary" %>
+      <% else %>
+        <%= link_to "VER CURSOS", root_path(anchor: 'user-courses'), class: "btn btn-ar btn-primary" %>
+      <% end %>
   		<%= link_to "SUSCRIBIRME Y ACCEDER A TODOS LOS CURSOS", new_subscription_path, class: "btn btn-ar btn-warning" %>
   	</div>
   </div>

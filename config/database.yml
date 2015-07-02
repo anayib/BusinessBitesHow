@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: bb_development
   pool: 5
-  username: apple
+  username:
   password:
 
 test:
@@ -11,5 +11,5 @@ test:
   encoding: unicode
   database: bb_test
   pool: 5
-  username: apple
-  password: 
+  username:
+  password:
