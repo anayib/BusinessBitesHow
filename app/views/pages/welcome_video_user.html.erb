@@ -1,0 +1,28 @@
+<header class="main-header" id="topic_header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1 class="page-title" id="title-topic">BIENVENIDO A BUSINESS BITES</h3>
+        </div>            
+      </div>                
+    </div>
+</header>
+
+
+<div class="container" id="first_topic_video">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-primary">                
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bk6Xst6euQk?wmode=transparent"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" id="video_actions">
+  	<div class="col-md-10 col-md-offset-1 text-center">
+  		<%= link_to "VER CURSOS", root_path(anchor: 'user-courses'), class: "btn btn-ar btn-primary" %>
+  		<%= link_to "SUSCRIBIRME Y ACCEDER A TODOS LOS CURSOS", new_subscription_path, class: "btn btn-ar btn-warning" %>
+  	</div>
+  </div>
+</div>

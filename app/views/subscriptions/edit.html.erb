@@ -22,17 +22,18 @@
               
               <div class="field form-group input-group login-input">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-                <%= text_field_tag :card_number, nil, name: nil, class: "form-control", placeholder: "Número Tarjete de Crédito", :data => {:stripe => 'number' } %>
+                <%= text_field_tag :card_number, nil, name: nil, class: "form-control", placeholder: "Número Tarjete de Crédito", :data => {:stripe => 'number' } %>                
               </div>
               
               <div class="field form-group input-group login-input">    
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <%= text_field_tag :card_code, nil, name: nil, placeholder: "CVC", :data => {:stripe => 'cvc' } %>                
+                <%= text_field_tag :card_code, nil, name: nil, placeholder: "CVC", :data => {:stripe => 'cvc' } %>   
+                <img src="http://i592.photobucket.com/albums/tt5/Mardini03/creditcardlogos-2%201.png" height="34px" width="145px" alt="" class="supported_cards">             
               </div>
               
               <div class="field form-group input-group login-input">
                 <label>
-                <span>Expiración de tarjeta (MM/YYYY)</span>
+                <span>Expiración de tarjeta (MM/YY)</span>
                 <input type="text" size="2" data-stripe="exp-month"/>
                 </label>
                 <span> / </span>
@@ -40,9 +41,14 @@
               </div>
 
               <button type="submit" class="btn btn-ar btn-primary pull-right btn-lg">Editar Tarjeta de Crédito</button>
-            <% end %>
-            
+            <% end %>            
           </div>            
+        </div>
+      </div>
+      <div class="row animated fadeInDown animation-delay-13" id="powered_by_stripe">
+        <div class="col-md-12 text-center">
+          Pago seguro 
+          <img src="http://i592.photobucket.com/albums/tt5/Mardini03/solid.png" alt="">
         </div>
       </div>
     </div>

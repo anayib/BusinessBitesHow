@@ -36,9 +36,9 @@ class User < ActiveRecord::Base
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://i592.photobucket.com/albums/tt5/Mardini03/765-default-avatar.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   after_initialize :set_default_role, :if => :new_record?
-  has_many :topic_completitions
-  has_many :topics, through: :topic_completitions
-  has_one :subscription
+  has_many :topic_completitions, dependent: :destroy
+  has_many :topics, through: :topic_completitions, dependent: :destroy
+  has_one :subscription, dependent: :destroy
 
   def set_default_role
     self.role ||= :user
@@ -49,6 +49,11 @@ class User < ActiveRecord::Base
     welcome_email
     super
   end
+
+  protected
+    def confirmation_required?
+      false
+    end
 
   private
     def welcome_email

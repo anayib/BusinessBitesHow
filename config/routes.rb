@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get 'mark_as_done' => 'topic_completition#mark_as_done'
   get 'course_information' => 'pages#course_information'
   get 'my_courses' => 'courses#my_courses'
+  get 'welcome_new_user' => 'pages#welcome_video_user'
+  get 'welcome_new_subscriptor' => 'pages#welcome_video_subscriptor'
 end
