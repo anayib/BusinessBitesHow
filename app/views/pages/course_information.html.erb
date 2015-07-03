@@ -5,11 +5,7 @@
       <% if @course.free? %>
       <%= link_to "ACCEDER AL CURSO", new_user_session_path, class: "btn btn-ar cta_button btn-lg" %>
       <% else %>
-        <% if user_signed_in? %>
-          <%= link_to 'ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES', new_subscription_path(:course_id => @course.id), class: "call-to-action" %>
-        <% else %>
-          <a href=<%="/course_information?course_id=#{@course.id}#price-columns" %> class="call-to-action">ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES</a>
-        <% end %>
+        <a href=<%="/course_information?course_id=#{@course.id}#price-columns" %> class="call-to-action">ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES</a>
       <% end %>
     </div>
   </div>
