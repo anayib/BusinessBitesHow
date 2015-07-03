@@ -22,9 +22,10 @@
   <div class="row" id="video_actions">
   	<div class="col-md-10 col-md-offset-1 text-center">
       <% if @previous_url %>
-        <%= link_to "IR A CURSO", @previous_url, class: "btn btn-ar btn-primary" %>
+        <%= link_to "EMPEZAR A APRENDER", @previous_url, class: "btn btn-ar btn-lg btn-warning" %>
+      <% else %>
+    		<%= link_to "EMPEZAR A APRENDER", root_path(anchor: 'user-courses'), class: "btn btn-ar btn-lg btn-warning" %>
       <% end %>
-  		<%= link_to "EMPEZAR A APRENDER", root_path(anchor: 'user-courses'), class: "btn btn-ar btn-lg btn-warning" %>
   	</div>
   </div>
 </div>
