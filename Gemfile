@@ -15,7 +15,7 @@ gem 'annotate'
 gem 'hirb'
 gem 'devise'
 gem 'paperclip', '~> 4.2'
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk'
 gem "font-awesome-rails"
 gem 'pdfjs_rails'
 gem "figaro"
@@ -23,17 +23,16 @@ gem 'stripe', :source => 'https://code.stripe.com/'
 gem 'rest-client', :source => 'https://rubygems.org/'
 gem 'paper_trail'
 gem 'thin'
+gem 'pg'
 
 group :development, :test do
 	gem 'guard'
 	gem 'guard-livereload', require: false
   gem 'byebug'
-	gem 'pg'
   gem 'web-console', '~> 2.0'
   #gem 'spring'
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
