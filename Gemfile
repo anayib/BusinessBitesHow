@@ -15,7 +15,7 @@ gem 'annotate'
 gem 'hirb'
 gem 'devise'
 gem 'paperclip', '~> 4.2'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 gem "font-awesome-rails"
 gem 'pdfjs_rails'
 gem "figaro"
