@@ -17,7 +17,7 @@
           <% if !user_signed_in? || ( user_signed_in? && current_user.subscription.nil?) %>
             <%= link_to 'ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES', new_user_registration_path(:subscription => true), class: "call-to-action" %>
           <% else %>
-            <%= link_to 'ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES', new_sbuscription_path, class: "call-to-action" %>
+            <%= link_to 'ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES', new_subscription_path, class: "call-to-action" %>
           <% end %>
         </div>
       </div>

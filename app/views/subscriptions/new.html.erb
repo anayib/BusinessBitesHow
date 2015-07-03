@@ -20,7 +20,7 @@
               <%= @subscription.errors.full_messages.to_sentence %>
             <% end %>
 
-            <h3 class="text-center">Elige uno de los siguientes planes:</h3> 
+            <h3 class="text-center">Elige uno de los siguientes planes:</h3>
             <div class="row" id="plan_buttons">
               <div class="col-md-12 text-center">
                 <button class="btn-ar btn-success" data-name="Plan VIP Anual" data-id="<%= Plan.find_by_stripe_id("anual").id %>" data-price="204.99" id="anual">
@@ -30,18 +30,29 @@
                   Subscripción<br>$19.99 dólares/mes
                 </button>
               </div>
-            </div> 
-            <h2>Suscribirse a: <span id="plan_name"></span></h2>
+            </div>
+            <h2>Suscribirse a:
+              <span id="plan_name">
+                <%= "Plan VIP Mensual" if params[:subscription_plan] == "plan_mensual" %>
+                <%= "Plan VIP Anual" if params[:subscription_plan] == "plan_anual" %>
+              </span>
+            </h2>
 
             <%= form_for @subscription, html: { id: 'payment-form' } do |f| %>
-              <input type="hidden" id="plan_selected" name="plan_id" value="0"/>
+              <% if params[:subscription_plan] == "plan_mensual" %>
+                <input type="hidden" id="plan_selected" name="plan_id" value="2"/>
+              <% elsif params[:subscription_plan] == "plan_anual" %>
+                <input type="hidden" id="plan_selected" name="plan_id" value="1"/>
+              <% else %>
+                <input type="hidden" id="plan_selected" name="plan_id" value="0"/>
+              <% end %>
               <span class="payment-errors"></span>
-              
+
               <div class="field form-group input-group login-input">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <%= text_field_tag :card_number, nil, name: nil, class: "form-control", placeholder: "Número Tarjete de Crédito", :data => {:stripe => 'number' } %>
-              </div>              
-              <div class="field form-group input-group login-input">    
+              </div>
+              <div class="field form-group input-group login-input">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <%= text_field_tag :card_code, nil, name: nil, placeholder: "CVC", :data => {:stripe => 'cvc' } %>
                 <img src="http://i592.photobucket.com/albums/tt5/Mardini03/creditcardlogos-2%201.png" height="34px" width="145px" alt="" class="supported_cards">
@@ -53,19 +64,26 @@
                 </label>
                 <span> / </span>
                 <input type="text" size="4" data-stripe="exp-year"/><br><br>
-                Total a pagar: <span id="plan_price"></span>
+                Total a pagar: <span id="plan_price">
+                  <%= "19.99 dólares/mes" if params[:subscription_plan] == "plan_mensual" %>
+                  <%= "204.99 dólares/año" if params[:subscription_plan] == "plan_anual" %>
+                </span>
               </div>
-              <button type="submit" id="pay_button" class="btn btn-ar btn-primary pull-right btn-lg">Selecciona un plan</button>
-            <% end %>            
-          </div>            
+              <% if params[:subscription_plan] %>
+              <button type="submit" class="btn btn-ar btn-primary pull-right btn-lg">Pagar Ahora</button>
+              <% else %>
+                <button type="submit" id="pay_button" class="btn btn-ar btn-primary pull-right btn-lg">Selecciona un plan</button>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
       <div class="row animated fadeInDown animation-delay-13" id="powered_by_stripe">
         <div class="col-md-12 text-center">
-          Pago seguro 
+          Pago seguro
           <img src="http://i592.photobucket.com/albums/tt5/Mardini03/solid.png" alt="">
         </div>
-      </div>      
+      </div>
     </div>
   </div>
 </div>
