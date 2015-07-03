@@ -102,9 +102,9 @@
                 <div class="pricing-box-footer">
                   <!-- <a href="#" class="btn btn-ar btn-default">Order Now</a> -->
                   <% if user_signed_in? %>
-                    <%= link_to 'PLAN MENSUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), class: "call-to-action" %>
+                    <%= link_to 'ELEGIR PLAN MENSUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), class: "call-to-action" %>
                   <% else %>
-                    <%= link_to 'PLAN MENSUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), class: "call-to-action" %>
+                    <%= link_to 'ELEGIR PLAN MENSUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), class: "call-to-action" %>
                   <% end %>
                 </div>
               </div>
