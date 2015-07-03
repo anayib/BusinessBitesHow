@@ -1,39 +1,49 @@
 <aside id="footer-widgets">
   <div class="container">
-    <div class="row">                  
+    <div class="row">
 			<div class="footer-widget">
         <h3 class="footer-widget-title">Cursos Recientes</h3>
 				<% @footer_courses.each do |course| %>
 					<div class="col-md-4">
 	          <div class="media">
-							<% if user_signed_in? %>                  
+							<% if user_signed_in? %>
 							  <% if course.free? %>
-							    <%= link_to image_tag(course.image.url(:thumb), size: "75"), course, class: "pull-left" %>
-    	            <div class="media-body">	            	
+							    <%= link_to image_tag(course.image.url(:thumb)), course, class: "pull-left footer-thumb-mask" %>
+    	            <div class="media-body">
                   	<h4 class="media-heading"><%= link_to course.title.capitalize, course %></h4>
                   	<small><%= course.created_at.strftime("%d %b. %Y") %></small>
                 	</div>
 							  <% else %>
-							  	<%= link_to image_tag(course.image.url(:thumb), size: "75"), course_information_path(:course_id => course.id), class: "pull-left" %>
-  		            <div class="media-body">	            	
+							  	<%= link_to image_tag(course.image.url(:thumb)), course_information_path(:course_id => course.id), class: "pull-left footer-thumb-mask" %>
+  		            <div class="media-body">
   	              	<h4 class="media-heading"><%= link_to course.title.capitalize, course_information_path(:course_id => course.id) %></h4>
   	              	<small><%= course.created_at.strftime("%d %b. %Y") %></small>
-  	            	</div>						    
+  	            	</div>
 							  <% end %>
 							<% else %>
-							  <%= link_to image_tag(course.image.url(:thumb), size: "75"), course_information_path(:course_id => course.id), class: "pull-left" %> 
-  	            <div class="media-body">	            	
+							  <%= link_to image_tag(course.image.url(:thumb)), course_information_path(:course_id => course.id), class: "pull-left footer-thumb-mask" %>
+  	            <div class="media-body">
                 	<h4 class="media-heading"><%= link_to course.title.capitalize, course_information_path(:course_id => course.id) %></h4>
                 	<small><%= course.created_at.strftime("%d %b. %Y") %></small>
-              	</div>            
-							<% end %>	            
+              	</div>
+							<% end %>
           	</div>
         	</div>
-				<% end %>			
-			</div>               
+				<% end %>
+			</div>
     </div> <!-- row -->
   </div> <!-- container -->
-</aside> <!-- footer-widgets -->	
+</aside> <!-- footer-widgets -->
 <footer id="footer">
-    <p>&copy; 2014 <a href="#">Business Bites</a>, inc. All rights reserved.</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <p>Developed By <a target="_blank" href="http://kaizendevs.co">KaizenDevs</a></p>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <p>&copy; 2014 <a href="#">Business Bites</a>, inc. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
 </footer>
+

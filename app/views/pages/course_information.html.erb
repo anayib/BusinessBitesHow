@@ -1,70 +1,68 @@
-<div class="container" id="course_information_header">
+<div class="container-fluid darken-image" id="course_information_header">
   <div class="row">
-    <div id="course_information_text" class="col-md-10 col-md-offset-1 text-center">
-      <h1 id="course_information_title"><%= @course.title %></h1> 
+    <div id="course_information_text" class="col-md-12 text-center">
+      <h1 id="course_information_title"><%= @course.title %></h1>
       <% if @course.free? %>
-        <%= link_to "ACCEDER AL CURSO", new_user_session_path, class: "btn btn-ar cta_button btn-lg" %>   
+      <%= link_to "ACCEDER AL CURSO", new_user_session_path, class: "btn btn-ar cta_button btn-lg" %>
       <% else %>
-        <%= link_to 'ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES', new_user_registration_path, class: "call-to-action" %>
+        <a href=<%="/course_information?course_id=#{@course.id}#price-columns" %> class="call-to-action">ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES</a>
       <% end %>
     </div>
   </div>
 </div>
-
-<div class="container">
-  <% @instructors.each do |instructor|%>    
-    <div class="row" id="teacher_course"> 
-      <div class="col-md-3 col-md-offset-2 text-center vcenter" id="teacher_image_box">
-        <img src="<%= instructor.image.url %>" alt="" id="teacher_image">
-      </div>
-      <div class="col-md-6 vcenter" id="teacher_information">      
-        <p class="text-justify"><%= instructor.background %></p>
-        <h2 class="text-center"><%= instructor.name %></h2>
-      </div>
-    </div>    
+<div class="container teacher-container">
+  <% @instructors.each do |instructor|%>
+  <div class="row">
+    <div class="col-xs-12 col-md-2 col-md-offset-1 vcenter" id="teacher_image_box">
+      <%= image_tag( instructor.image.url, class: "img-teacher img-responsive center-block" ) %>
+    </div>
+    <div class="col-xs-12 col-md-7 vcenter">
+      <h2><%= instructor.name %></h2>
+      <p class="text-justify"><%= instructor.background %></p>
+    </div>
+  </div>
   <% end %>
 </div>
-
 <!-- Conditional to show support content from a specific topic -->
 <% if @topic.content_url == "" %>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-primary">                
-                    <div class="video">
-                        <% if @topic.document.url.include? "http"  %>
-                          <iframe src="/pdfjs/web/viewer.html?file=<%= @topic.document.url.sub! 'http', 'https' %>" style="border: 0" width="50%" height="600" frameborder="0" scrolling="no"></iframe>
-                        <% else %>
-                          <iframe src="/pdfjs/web/viewer.html?file=<%= @topic.document.url %>" style="border: 0" width="50%" height="600" frameborder="0" scrolling="no"></iframe>
-                        <% end %>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<% else %>
-    <div class="container" id="first_topic_video">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <div class="panel panel-primary">                
-            <div class="video">
-              <iframe src="<%= "#{@topic.content_url}"+"?title=0&amp;byline=0&amp;portrait=0" %>"></iframe>
-            </div>
-          </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 col-xs-12">
+      <div class="panel panel-primary">
+        <div class="video">
+          <% if @topic.document.url.include? "http"  %>
+          <iframe src="/pdfjs/web/viewer.html?file=<%= @topic.document.url.sub! 'http', 'https' %>" style="border: 0" width="50%" height="600" frameborder="0" scrolling="no"></iframe>
+          <% else %>
+          <iframe src="/pdfjs/web/viewer.html?file=<%= @topic.document.url %>" style="border: 0" width="50%" height="600" frameborder="0" scrolling="no"></iframe>
+          <% end %>
         </div>
       </div>
     </div>
+  </div>
+</div>
+<% else %>
+<div class="container" id="first_topic_video">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-primary">
+        <div class="video">
+          <iframe src="<%= "#{@topic.content_url}"+"?title=0&amp;byline=0&amp;portrait=0" %>"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
 
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-        <h2 class="right-line">Descripción</h2>
+      <h2 class="right-line">Descripción</h2>
     </div>
     <div class="col-md-10 col-md-offset-1">
       <div class="text-icon wow fadeInUp">
         <h3 class="no-margin" id="course_title"><%= @course.title %></h3>
-        <p class="text-justify"><%= @course.description %></p>        
+        <p class="text-justify"><%= @course.description %></p>
       </div>
     </div>
   </div>
@@ -73,54 +71,152 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
+
       <% if @course.free? %>
-        <%= link_to "ACCEDER AL CURSO", new_user_session_path, class: "btn btn-ar cta_button btn-lg" %>   
+      <%= link_to "ACCEDER AL CURSO", new_user_session_path, class: "btn btn-ar cta_button btn-lg v-align" %>
       <% else %>
-        <%= link_to 'ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES', new_user_registration_path, class: "call-to-action" %>
+
+
+
+      <div class="container">
+        <section id="price-columns">
+          <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <div class="pricign-box animated fadeInUp animation-delay-7">
+                <div class="pricing-box-header">
+                  <h2>Subscripción Mensual</h2>
+                </div>
+                <div class="pricing-box-price">
+                  <h3 style="color: RGBA(246, 146, 30, 1)">$19,99 <sub> dólares/mes</sub> </h3>
+                </div>
+                <div class="pricing-box-content">
+                  <ul class="text-center">
+                    <li>Accede a nuevos micro-cursos todos los meses.</li>
+                    <li>Acceso ilimitado a todos los micro-cursos.</li>
+                    <li>Nuevos "bites" - sesiones - todas las semanas.</li>
+                    <li>Pagas mes a mes.</li>
+                    <li>Sin permanencias, cancelas si no quieres continuar* .</li>
+                    <li>* puedes cancelar tu suscripción recurrente mensual en cualquier momento</li>
+                  </ul>
+                </div>
+                <div class="pricing-box-footer">
+                  <!-- <a href="#" class="btn btn-ar btn-default">Order Now</a> -->
+                  <% if user_signed_in? %>
+                    <%= link_to 'ELEGIR PLAN MENSUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), class: "call-to-action" %>
+                  <% else %>
+                    <%= link_to 'ELEGIR PLAN MENSUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), class: "call-to-action" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="pricign-box pricign-box-pro animated fadeInUp animation-delay-9">
+                <div class="pricing-box-header">
+                  <h2>Subscripción Anual</h2>
+                </div>
+                <div class="pricing-box-price">
+                  <h3><span style="text-decoration: line-through; color:RGBA(198, 39, 23, 1)">$239,88</span> $204,99 <sub>dólares/año</sub> </h3>
+                </div>
+                <div class="pricing-box-content">
+                   <ul class="text-center">
+                    <li><h4><strong>Ahorras $39,89 dólares.</strong></h4></li>
+                    <li>Accede a nuevos micro-cursos todos los meses.</li>
+                    <li>Acceso ilimitado a todos los micro-cursos.</li>
+                    <li>Nuevos "bites" - sesiones - todas las semanas.</li>
+                    <li>Sin permanencias, cancelas si no quieres continuar** .</li>
+                    <li>** puedes cancelar tu suscripción recurrente anual en cualquier momento</li>
+                  </ul>
+                </div>
+                <div class="pricing-box-footer">
+                  <!-- <a href="#" class="btn btn-ar btn-primary">Order Now</a> -->
+
+                  <% if user_signed_in? %>
+                    <%= link_to 'ELEGIR PLAN ANUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_anual"), class: "call-to-action", style: "background: RGBA(94, 190, 30, 1)" %>
+                  <% else %>
+                    <%= link_to 'ELEGIR PLAN ANUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_anual"), class: "call-to-action", style: "background: RGBA(94, 190, 30, 1)" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div> <!-- row -->
+        </section>
+
+      </div> <!-- container -->
+
       <% end %>
+
     </div>
   </div>
-</div>   
+</div>
 
 <style>
+  .teacher-container{
+    margin-bottom:4em;
+  }
+  .teacher-container p{
+    padding: 0 1em;
+  }
+  .teacher-container .row {
+    margin-bottom:2em;
+  }
+  .img-teacher{
+    border-radius: 50%;
+    border: 5px solid #FFF;
+  }
+
+  @media screen and (min-width: 768px) {
+    .img-teacher{
+      width: 180px;
+    }
+    a.cta_button {
+      padding: 15px 75px 15px 75px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .img-teacher{
+      width: 200px;
+    }
+    .teacher-container h2{
+      text-align:center;
+    }
+
+  }
   a.cta_button {
-    font-size: 35px;
-    padding: 15px 75px 15px 75px;
+    font-size: 2em;
     background-color: #F6921E!important;
     color: white;
   }
   a.cta_button:hover {
     color: white;
   }
-  div#course_information_header {
-    height: 76vh;
-    width: 100%;    
-    background-image: url('<%= @course.image.url %>');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center; 
-  }
 
-  img#teacher_image { 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center; 
-    height: 160px;
-    width: 160px;
-    border-radius: 50%;
-    border: 5px solid white;
+  .darken-image {
+    /*max-height: 500px;*/
+    overflow: hidden;
+    background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.65),
+      rgba(70, 70, 70, 0.5),
+      rgba(255, 255, 255, 1)
+      ),
+    url('<%= @course.image.url %>');
+    background-position: center;
+    padding-bottom:4em;
   }
 
   div#course_information_text {
     margin-top: 50px;
-    border-radius: 25px;
   }
-
+  #course_information_text{
+    padding-bottom:3em;
+  }
   div#course_information_text h1#course_information_title{
-    margin-bottom: 60px;
-    border-radius: 25px;
+    /*margin-bottom: 60px;*/
+    margin-top: 2em;
+    /*padding-bottom:2em;*/
     font-size: 60px;
     color: white;
+    /*color: #595959;*/
     font-weight: bold;
   }
 
@@ -129,7 +225,7 @@
     vertical-align: middle;
     float: none;
   }
-  
+
   div#teacher_course:first-child {
     margin-top: -130px;
   }
@@ -145,7 +241,7 @@
   }
   div#teacher_information h2{
     font-weight: bold;
-    font-size: 35px
+    font-size: 35px;
   }
   div#teacher_information p{
     font-weight: bold;
