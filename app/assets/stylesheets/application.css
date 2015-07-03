@@ -162,6 +162,13 @@ a.btn.btn-view-course {
 	background-color: #4b6532 !important;
 	color: white;
 }
+
+@media (min-width: 992px) and (max-width:1199px) {
+	a.btn.btn-responsive-thumbnail {
+		font-size: 11px;
+	}
+}
+
 /*-----------------------------*/
 div#video_actions {
 	margin-bottom: 20px;

@@ -33,7 +33,7 @@
       </div>
 
       <% @courses.each do |course| %>
-        <div class="col-sm-3 col-md-4">
+        <div class="col-sm-6 col-md-4 col-xs-12">
           <div class="thumbnail">
             <img src="<%= course.image.url(:medium) %>" alt="..." class="thumbnail_custom_image">
             <div class="caption">
@@ -43,49 +43,49 @@
             <div class="row course-caption">
               <% if user_signed_in? && (current_user.user? || current_user.admin? || current_user.content_manager?) %>
                 <% if course.free? %>
-                  <div class="col-md-8 col-sm-9 text-center">
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center">
                     <span class="text-center">Basado en:</span><br>
                     <% if !course.instructors.blank? %>
                       <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
                       <%= course.instructors.first.name %>
                     <% end %>
                   </div>
-                  <div class="col-sm-3">
-                    <%= link_to 'Ir al curso', course, class: "btn btn-ar btn-primary" %>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
+                    <%= link_to 'Ir al curso', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
                   </div>
                 <% else %>
-                  <div class="col-md-8 col-sm-9 text-center">
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center">
                     <span>Basado en:</span><br>
                     <% if !course.instructors.blank? %>
                       <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
                       <%= course.instructors.first.name %>
                     <% end %>
                   </div>
-                  <div class="col-sm-3">
-                    <%= link_to 'Ver Curso', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course" %>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
+                    <%= link_to 'Ver Curso', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
                   </div>
                 <% end %>
               <% elsif user_signed_in? && current_user.vip_user? %>
-                <div class="col-md-8 col-sm-9 text-center">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center">
                   <span>Basado en:</span><br>
                   <% if !course.instructors.blank? %>
                     <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
                     <%= course.instructors.first.name %>
                   <% end %>
                 </div>
-                <div class="col-sm-3">
-                  <%= link_to 'Ir al curso', course, class: "btn btn-ar btn-primary" %>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
+                  <%= link_to 'Ir al curso', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
                 </div>
               <% else %>
-                <div class="col-md-8 col-sm-9 text-center">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center">
                   <span>Basado en:</span><br>
                   <% if !course.instructors.blank? %>
                     <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
                     <%= course.instructors.first.name %>
                   <% end %>
                 </div>
-                <div class="col-sm-3">
-                  <%= link_to 'Ver curso', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course" %>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
+                  <%= link_to 'Ver curso', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
                 </div>
               <% end %>
             </div>

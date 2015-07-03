@@ -14,7 +14,6 @@ class TopicsController < ApplicationController
 		@progress = (topics_done*100) / topics_number
 	end
 
-
 	private
 		def topic_access
 			if Topic.find(params[:id]).lesson.course.with_charge?
