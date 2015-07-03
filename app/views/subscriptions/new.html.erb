@@ -40,9 +40,9 @@
 
             <%= form_for @subscription, html: { id: 'payment-form' } do |f| %>
               <% if params[:subscription_plan] == "plan_mensual" %>
-                <input type="hidden" id="plan_selected" name="plan_id" value="2"/>
+                <input type="hidden" id="plan_selected" name="plan_id" value="<%= Plan.find_by_stripe_id("mensual").id %>"/>
               <% elsif params[:subscription_plan] == "plan_anual" %>
-                <input type="hidden" id="plan_selected" name="plan_id" value="1"/>
+                <input type="hidden" id="plan_selected" name="plan_id" value="<%= Plan.find_by_stripe_id("anual").id %>"/>
               <% else %>
                 <input type="hidden" id="plan_selected" name="plan_id" value="0"/>
               <% end %>
