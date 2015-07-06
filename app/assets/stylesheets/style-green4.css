@@ -5611,7 +5611,6 @@ a.feature-icon:hover {
 }
 /* 404 2 */
 .paper-back {
-  background-image: url("../img/back.png");
   background-repeat: repeat;
   position: fixed;
   height: 100%;

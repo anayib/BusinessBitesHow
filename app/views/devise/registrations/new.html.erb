@@ -1,10 +1,10 @@
 <div class="paper-back-full">
   <div class="login-form-full">
     <div class="fix-box">
-      <div class="text-center title-logo animated fadeInDown animation-delay-5">
+      <div class="text-center title-logo">
         business<span>bites</span>
       </div>
-      <div class="transparent-div no-padding animated fadeInUp animation-delay-8">
+      <div class="transparent-div no-padding">
         <ul class="nav nav-tabs nav-tabs-transparent">
           <li class="active"><a href="#home" data-toggle="tab">Registrarse</a></li>
         </ul>
@@ -12,8 +12,9 @@
         <div class="tab-content">
           <div class="tab-pane active" id="home">
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
+              
               <%= devise_error_messages! %>
+              
               <div class="field form-group input-group login-input">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Correo Electrónico" %>
