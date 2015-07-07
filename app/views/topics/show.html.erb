@@ -2,13 +2,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 text-center">
-                <h3 class="page-title" id="title-topic"><%= @topic.title %></h3>
+                <h4><%= link_to "Regresar al curso", @topic.lesson.course %></h4>
             </div>
-            <div class="col-md-6">
-                <ol class="breadcrumb pull-right">
-                    <li><%= link_to "Regresar al curso", @topic.lesson.course %></li>
-                    <li><%= link_to "#{@topic.lesson.title}", @topic.lesson.course %></li>
-                </ol> 
+            <div class="col-md-6 text-right">
+                <p id="next_step_text">MARCAR COMO COMPLETO Y<BR>CONTINUAR</p>
+                <%= link_to '<span class="icon-ar icon-ar-lg icon-ar-circle"><i class="fa fa-check"></i></span>'.html_safe, mark_as_done_path(topic_id: @topic.id) %>
             </div>
         </div>                
     </div>
@@ -65,15 +63,17 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container" style="margin-bottom: 80px;">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs nav-tabs-ar nav-tabs-ar-white">
                 <!-- <li class="active"><a href="#home2" data-toggle="tab">DESCRIPCIÓN</a></li> -->
                 <li><a href="#messages2" data-toggle="tab">ACCIONES PARA TU PROYECTO</a></li>
-                <li><a href="#profile2" data-toggle="tab">RECURSOS ADICIONALES</a></li>                
-                <li><a href="#transcription" data-toggle="tab">TRANSCRIPTION</a></li>
+                <li><a href="#profile2" data-toggle="tab">RECURSOS ADICIONALES</a></li>   
+                <% if !(@topic.content_url == "") %>
+                    <li><a href="#transcription" data-toggle="tab">TRANSCRIPTION</a></li>
+                <% end %>
             </ul>
              
             <!-- Tab panes -->
