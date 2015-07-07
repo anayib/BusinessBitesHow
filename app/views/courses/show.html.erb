@@ -26,10 +26,10 @@
 	    	        <% lesson_topics_ids = lesson.topics.pluck(:id) %>
 	    	        <!-- Este bloque analiza el id de cada topic perteneciente al lesson, por lo tanto usando interseccion de conjuntos para analizar el contenido de ambos array, si todos estos estan marcados como completos en la tabla Topic Completition, el lesson se marca como completo sino el lesson se marca como to-do -->
 								<% if (lesson_topics_ids & @topics_ready_ids) == lesson_topics_ids %>
-									<time class="timeline-time" datetime=""><span>Lesson <%= index+1 %></span></time>
+									<time class="timeline-time" datetime=""><span>Lesson <%#= index+1 %></span></time>
 									<i class="timeline-2-point check"></i>
 								<% else %>
-									<time class="timeline-time" datetime=""><span>Lesson <%= index+1 %></span></time>
+									<time class="timeline-time" datetime=""><span>Lesson <%#= index+1 %></span></time>
 									<i class="timeline-2-point to-do"></i>
 								<% end %>				    	       
 	    	        <div class="panel panel-success">

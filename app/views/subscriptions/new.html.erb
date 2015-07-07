@@ -1,4 +1,4 @@
-<div class="paper-back-full" style="height:100vh;">
+<div class="paper-back-full">
   <div class="login-form-full" style="padding-top:20px;">
     <div class="fix-box">
       <div class="text-center title-logo animated fadeInDown animation-delay-5" style="padding-top:20px;">
@@ -20,18 +20,18 @@
               <%= @subscription.errors.full_messages.to_sentence %>
             <% end %>
 
-            <h3 class="text-center">Elige uno de los siguientes planes:</h3>
+            <h3 class="text-center" style="color:black;"><strong>Elige uno de los siguientes planes:</strong></h3>
             <div class="row" id="plan_buttons">
               <div class="col-md-12 text-center">
                 <button class="btn-ar btn-success" data-name="Plan VIP Anual" data-id="<%= Plan.find_by_stripe_id("anual").id %>" data-price="204.99" id="anual">
                   Subscripción<br><span style="text-decoration: line-through;">$239.88</span> $204.99 dólares/año
                 </button>
-                <button class="btn-ar btn-success" data-name="Plan VIP Mensual" data-id="<%= Plan.find_by_stripe_id("mensual").id %>" data-price="19.99" id="mensual ">
+                <button class="btn-ar btn-warning" data-name="Plan VIP Mensual" data-id="<%= Plan.find_by_stripe_id("mensual").id %>" data-price="19.99" id="mensual ">
                   Subscripción<br>$19.99 dólares/mes
                 </button>
               </div>
             </div>
-            <h2>Suscribirse a:
+            <h2>
               <span id="plan_name">
                 <%= "Plan VIP Mensual" if params[:subscription_plan] == "plan_mensual" %>
                 <%= "Plan VIP Anual" if params[:subscription_plan] == "plan_anual" %>
@@ -73,10 +73,12 @@
               <button type="submit" class="btn btn-ar btn-primary pull-right btn-lg">Pagar Ahora</button>
               <% else %>
                 <button type="submit" id="pay_button" class="btn btn-ar btn-primary pull-right btn-lg">Selecciona un plan</button>
-              <% end %>
+              <% end %>              
             <% end %>
-          </div>
+          </div>          
         </div>
+        <p class="text-center">Al dar click en el botón estás de acuerdo con las <a href="link a politicas de servicio" target="all_blank">políticas del servicio</a></p>
+        <p class="text-center">El proceso de pago puede tardar unos minutos, no cierres esta ventana</p>
       </div>
       <div class="row animated fadeInDown animation-delay-13" id="powered_by_stripe">
         <div class="col-md-12 text-center">

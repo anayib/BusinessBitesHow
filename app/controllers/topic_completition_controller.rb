@@ -35,25 +35,25 @@ class TopicCompletitionController < ApplicationController
 			redirect_to topic.lesson.course
 			if (lesson_index == (lesson_ids.length-1)) && (TopicCompletition.where(user_id: current_user.id, course_id: course_id).count==course_topics)
 				# Si es el ultimo lesson y ha terminado todos los topics del curso, lo envia al home del curso con mensaje flash de felicitaciones
-				flash[:notice] = "FELICITACIONES!, Haz completado con exito el curso: #{topic.lesson.course.title}"
+				flash[:notice] = "FELICITACIONES!, Has completado con exito el curso: #{topic.lesson.course.title}"
 			elsif (lesson_index == (lesson_ids.length-1)) && (TopicCompletition.where(user_id: current_user.id, course_id: course_id).count!=course_topics)
 				# Si es el ultimo lesson pero no ha terminado todos los topics del curso, lo envia al home del curso con mensaje flash de aviso para completar topics
-				flash[:alert] = "¡Haz completado con éxito el Topic: #{topic.title}, sin embargo aun debes completar topics anteriores a este, para marcar este curso como completado"
+				flash[:alert] = "¡Has completado con éxito el Topic: #{topic.title}, sin embargo aun debes completar topics anteriores a este, para marcar este curso como completado"
 			elsif TopicCompletition.where(user_id: current_user.id, topic_id: topic_ids).count == topic_ids.count
 				# Si no es el ultimo lesson y ha terminado todos los topics de este, lo envia al home del curso con mensaje flash e información para tomar el siguiente lesson
-				flash[:notice] = "¡Haz completado con exito la Lesson número #{lesson_index+1}, continua con la Lesson #{lesson_index+2}: #{Lesson.find(lesson_ids[lesson_index+1]).title}"				
+				flash[:notice] = "¡Has completado con exito la Lesson número #{lesson_index+1}, continua con la Lesson #{lesson_index+2}: #{Lesson.find(lesson_ids[lesson_index+1]).title}"				
 			elsif TopicCompletition.where(user_id: current_user.id, topic_id: topic_ids).count != topic_ids.count
 				# Si no es el ultimo lesson pero no ha terminado todos los topics de este, lo envia al home del curso con mensaje flash de aviso para completar topics
-				flash[:alert] = "¡Haz completado con éxito el Topic: #{topic.title}, sin embargo aun debes completar topics anteriores a este, para marcar la lesson #{topic.lesson.title} como completa"								
+				flash[:alert] = "¡Has completado con éxito el Topic: #{topic.title}, sin embargo aun debes completar topics anteriores a este, para marcar la lesson #{topic.lesson.title} como completa"								
 			end
 		elsif TopicCompletition.where(user_id: current_user.id, course_id: course_id).count == course_topics
 			redirect_to topic.lesson.course
 			# Si no es el ultimo lesson pero ha terminado todos los topics del curso, lo envia al home del curso con mensaje flash de felicitaciones
-			flash[:notice] = "FELICITACIONES!, Haz completado con exito el curso: #{topic.lesson.course.title}"
+			flash[:notice] = "FELICITACIONES!, Has completado con exito el curso: #{topic.lesson.course.title}"
 		elsif TopicCompletition.where(user_id: current_user.id, topic_id: topic_ids).count == topic_ids.count
 			redirect_to topic.lesson.course
 			# Si no es el ultimo lesson y ha terminado todos los topics de este, lo envia al home del curso con mensaje flash e información para tomar el siguiente lesson
-			flash[:notice] = "¡Haz completado con exito la Lesson número #{lesson_index+1}, continua con la Lesson #{lesson_index+2}: #{Lesson.find(lesson_ids[lesson_index+1]).title}"
+			flash[:notice] = "¡Has completado con exito la Lesson número #{lesson_index+1}, continua con la Lesson #{lesson_index+2}: #{Lesson.find(lesson_ids[lesson_index+1]).title}"
 		else
 			# Si aun no termina el lesson completo, lo redirecciona al topic siguiente
 			redirect_to Topic.find(topic_ids[topic_index+1])

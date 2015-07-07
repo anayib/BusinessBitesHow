@@ -1200,9 +1200,6 @@ hr.double {
   margin-top: 39px;
   color: #000;
 }
-.section-title:first-letter {
-  color: #5ebe1e;
-}
 .css-section {
   margin-bottom: 0px;
 }
@@ -5854,7 +5851,7 @@ a.feature-icon:hover {
   background-image: url("http://i592.photobucket.com/albums/tt5/Mardini03/back.png");
   background-repeat: repeat;
   padding-bottom: 30px;
-  height: 93vh;
+  height: 110vh;
 }
 @media (min-height: 800px) {
   .login-form-full {
