@@ -1,49 +1,114 @@
-<div class="paper-back-full">
-  <div class="login-form-full">
-    <div class="fix-box">
-      <div class="text-center title-logo">
-        business<span>bites</span>
-      </div>
-      <div class="transparent-div no-padding">
-        <ul class="nav nav-tabs nav-tabs-transparent">
-          <li class="active"><a href="#home" data-toggle="tab">Registrarse</a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div class="tab-pane active" id="home">
-            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-              
-              <%= devise_error_messages! %>
-              
-              <div class="field form-group input-group login-input">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Correo Electrónico" %>
-              </div>
+<% if params[:subscription] == "true" || (params.has_key?(:subscription_plan)) %>
 
-              <div class="field form-group input-group login-input">
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                <% if @validatable %>
+  <div class="paper-back-full">
+    <div class="login-form-full" style="padding-top:20px;">
+      <div class="fix-box" style="margin-top:70px">
+        <div class="text-center title-logo animated fadeInDown animation-delay-5" style="padding-top:20px;">
+          business<span>bites</span>
+        </div>
+        <div class="transparent-div no-padding animated fadeInUp animation-delay-8">
+          <ul class="nav nav-tabs nav-tabs-transparent">
+            <li class="active" style="width: 50%;" >
+              <a href="" data-toggle="tab" >1 Crear Cuenta</a>
+            </li>
+            <li style="width: 50%;" id="account_created">
+              <a href="" onclick="return false">2 Pagar Subscripción</a>
+            </li>
+          </ul>
+          <!-- Tab panes -->
+          <div class="transparent-div">
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div class="tab-pane active" id="home">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+                  <%= devise_error_messages! %>
+
+                  <div class="field form-group input-group login-input">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Correo Electrónico" %>
+                  </div>
+
+                  <div class="field form-group input-group login-input">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <% if @validatable %>
+                    <% end %>
+                    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Contraseña - Mínimo 8 carácteres" %>
+                  </div>
+
+                  <div class="field form-group input-group login-input">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirmar Contraseña" %>
+                  </div>
+
+                  <%= hidden_field_tag :course_id, params[:course_id] if (params.has_key?(:course_id)) %>
+                  <%= hidden_field_tag :subscription, params[:subscription] if (params.has_key?(:subscription)) %>
+                  <%= hidden_field_tag :subscription_plan, params[:subscription_plan] if (params.has_key?(:subscription_plan)) %>
+
+                  <div class="actions form-group">
+                    <%= f.submit "Crear cuenta gratuita", class: "btn btn-ar btn-primary pull-right btn-lg" %>
+                  </div>
                 <% end %>
-                <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Contraseña - Mínimo 8 carácteres" %>
+                <%= render "devise/shared/links" %>
               </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
 
-              <div class="field form-group input-group login-input">
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirmar Contraseña" %>
-              </div>
+<% else %>
 
-              <%= hidden_field_tag :course_id, params[:course_id] if (params.has_key?(:course_id)) %>
-              <%= hidden_field_tag :subscription, params[:subscription] if (params.has_key?(:subscription)) %>
-              <%= hidden_field_tag :subscription_plan, params[:subscription_plan] if (params.has_key?(:subscription_plan)) %>
 
-              <div class="actions form-group">
-                <%= f.submit "Crear cuenta gratuita", class: "btn btn-ar btn-primary pull-right btn-lg" %>
-              </div>
-            <% end %>
-            <%= render "devise/shared/links" %>
+  <div class="paper-back-full">
+    <div class="login-form-full">
+      <div class="fix-box">
+        <div class="text-center title-logo">
+          business<span>bites</span>
+        </div>
+        <div class="transparent-div no-padding">
+          <ul class="nav nav-tabs nav-tabs-transparent">
+            <li class="active"><a href="#home" data-toggle="tab">Registrarse</a></li>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+                <%= devise_error_messages! %>
+
+                <div class="field form-group input-group login-input">
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Correo Electrónico" %>
+                </div>
+
+                <div class="field form-group input-group login-input">
+                  <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                  <% if @validatable %>
+                  <% end %>
+                  <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Contraseña - Mínimo 8 carácteres" %>
+                </div>
+
+                <div class="field form-group input-group login-input">
+                  <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirmar Contraseña" %>
+                </div>
+
+                <%= hidden_field_tag :course_id, params[:course_id] if (params.has_key?(:course_id)) %>
+                <%= hidden_field_tag :subscription, params[:subscription] if (params.has_key?(:subscription)) %>
+                <%= hidden_field_tag :subscription_plan, params[:subscription_plan] if (params.has_key?(:subscription_plan)) %>
+
+                <div class="actions form-group">
+                  <%= f.submit "Crear cuenta gratuita", class: "btn btn-ar btn-primary pull-right btn-lg" %>
+                </div>
+              <% end %>
+              <%= render "devise/shared/links" %>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
+<% end %>
