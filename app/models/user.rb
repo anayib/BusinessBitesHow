@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
   end
 
   def self.welcome_subscriptor_email(user)
-    UserMailer.welcome_email(user).deliver
+    UserMailer.welcome_subscriptor_email(user).deliver
   end
 
   protected
