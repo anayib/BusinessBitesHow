@@ -183,6 +183,11 @@ li#account_created a:hover {
 	border-color: rgb(175,221,147);
 }
 
+.payment-errors {
+	color: red;
+	font-weight: bold;
+}
+
 div#powered_by_stripe {
 	margin-top: 10px;
 }
