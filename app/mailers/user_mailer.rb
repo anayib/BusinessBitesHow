@@ -9,7 +9,7 @@ class UserMailer < ApplicationMailer
   def welcome_subscriptor_email(user)
     @user = user
     @url  = 'http://www.businessbites.how/'
-    mail(to: @user.email, subject: 'Bienvenido Business Bites VIP')
+    mail(to: @user.email, subject: 'Felicitaciones por tu suscripción. Bienvenido Business Bites VIP')
   end
 
 end
