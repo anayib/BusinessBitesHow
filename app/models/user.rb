@@ -39,6 +39,7 @@ class User < ActiveRecord::Base
   has_many :topic_completitions, dependent: :destroy
   has_many :topics, through: :topic_completitions, dependent: :destroy
   has_one :subscription, dependent: :destroy
+  after_create :welcome_email
 
   def set_default_role
     self.role ||= :user
@@ -48,6 +49,10 @@ class User < ActiveRecord::Base
   def confirm!
     welcome_email
     super
+  end
+
+  def self.welcome_subscriptor_email(user)
+    UserMailer.welcome_email(user).deliver
   end
 
   protected
