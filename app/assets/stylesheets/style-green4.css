@@ -5124,7 +5124,7 @@ input.input-lg[type="text"] {
     margin: 0;
     padding: 0;
     padding-left: 20px;
-    margin-left: 110px;
+    margin-left: 25px;
   }
   .timeline-2 li {
     position: relative;
@@ -5166,7 +5166,7 @@ input.input-lg[type="text"] {
   }
   .timeline-2 li .timeline-time span {
     display: block;
-    font-size: 1.6em;
+    font-size: 1.6em;    
   }
   .timeline-2 li .panel,
   .timeline-2 li .alert,

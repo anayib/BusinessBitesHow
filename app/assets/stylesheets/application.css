@@ -223,3 +223,7 @@ a#courses_index_button {
 	}	
 }
 
+.timeline-2 li .timeline-time span {
+	visibility: hidden;
+}
+
