@@ -216,3 +216,10 @@ a#courses_index_button {
 #user-courses img.thumbnail_custom_image {
 	width: 100%;
 }
+
+@media all and (min-width: 992px) and (max-width: 1199px){
+	.instructor-info {
+		font-size: 11px;
+	}	
+}
+

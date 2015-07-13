@@ -43,7 +43,7 @@
             <div class="row course-caption">
               <% if user_signed_in? && (current_user.user? || current_user.admin? || current_user.content_manager?) %>
                 <% if course.free? %>
-                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center">
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
                     <span class="text-center">Basado en:</span><br>
                     <% if !course.instructors.blank? %>
                       <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
@@ -54,7 +54,7 @@
                     <%= link_to 'Ir al curso', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
                   </div>
                 <% else %>
-                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center">
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
                     <span>Basado en:</span><br>
                     <% if !course.instructors.blank? %>
                       <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
@@ -66,7 +66,7 @@
                   </div>
                 <% end %>
               <% elsif user_signed_in? && current_user.vip_user? %>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
                   <span>Basado en:</span><br>
                   <% if !course.instructors.blank? %>
                     <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
@@ -77,7 +77,7 @@
                   <%= link_to 'Ir al curso', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
                 </div>
               <% else %>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
                   <span>Basado en:</span><br>
                   <% if !course.instructors.blank? %>
                     <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
