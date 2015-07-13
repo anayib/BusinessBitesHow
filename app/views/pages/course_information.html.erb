@@ -5,7 +5,7 @@
       <% if @course.free? %>
       <%= link_to "ACCEDER AL CURSO", new_user_session_path, class: "btn btn-ar cta_button btn-lg" %>
       <% else %>
-        <a href=<%="/course_information?course_id=#{@course.id}#price-columns" %> class="call-to-action">ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES</a>
+        <a href=<%="/course_information?course_id=#{@course.id}#price-columns" %> class="call-to-action" id="payed_call_to_action">ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES</a>
       <% end %>
     </div>
   </div>
@@ -253,4 +253,12 @@
     font-size: 25px;
     font-weight: bold;
   }
+
+  @media all and (max-width: 460px) {
+    a#payed_call_to_action {
+      font-size: 11px;      
+    }
+
+  }
+
 </style>
