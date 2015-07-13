@@ -22,7 +22,7 @@
 		    		<span class='icon-ar icon-ar-course-view icon-ar-sm icon-ar-circle'><i class='fa fa-check'></i></span> -->
 
 		    		<% @course.lessons.each_with_index do |lesson,index| %>
-		    			<li class="animated fadeInRight animation-delay-10">	    	        
+		    			<li>	    	        
 	    	        <% lesson_topics_ids = lesson.topics.pluck(:id) %>
 	    	        <!-- Este bloque analiza el id de cada topic perteneciente al lesson, por lo tanto usando interseccion de conjuntos para analizar el contenido de ambos array, si todos estos estan marcados como completos en la tabla Topic Completition, el lesson se marca como completo sino el lesson se marca como to-do -->
 								<% if (lesson_topics_ids & @topics_ready_ids) == lesson_topics_ids %>
