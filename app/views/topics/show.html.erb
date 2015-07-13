@@ -1,12 +1,11 @@
 <header class="main-header" id="topic_header">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 text-center">
+            <div class="col-md-4 col-sm-6 col-xs-6 text-center">
                 <h4><%= link_to "Regresar al curso", @topic.lesson.course %></h4>
             </div>
-            <div class="col-md-6 text-right">
-                <p id="next_step_text">MARCAR COMO COMPLETO Y<BR>CONTINUAR</p>
-                <%= link_to '<span class="icon-ar icon-ar-lg icon-ar-circle"><i class="fa fa-check"></i></span>'.html_safe, mark_as_done_path(topic_id: @topic.id) %>
+            <div class="col-md-8 col-sm-6 col-xs-6 text-center">
+                <%= link_to 'MARCAR COMO <BR> COMPLETO Y CONTINUAR'.html_safe, mark_as_done_path(topic_id: @topic.id), class: "btn btn-ar btn-lg btn-primary", id: "next-step-topic-view" %>
             </div>
         </div>                
     </div>
@@ -52,13 +51,12 @@
 <% end %>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-7 col-md-offset-1">
-            <h1 class="section-title" id="topic_title"><%= @topic.title %></h1>
+    <div class="row" style="margin-bottom:20px">
+        <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-1">
+            <h1 class="section-title" id="topic_title" style="display:inline-block"><%= @topic.title %></h1>
         </div>
-        <div class="col-md-3 text-right">
-            <p id="next_step_text">MARCAR COMO COMPLETO Y<BR>CONTINUAR</p>
-            <%= link_to '<span class="icon-ar icon-ar-lg icon-ar-circle"><i class="fa fa-check"></i></span>'.html_safe, mark_as_done_path(topic_id: @topic.id) %>
+        <div class="col-md-4 col-sm-6 col-xs-6 text-right">
+            <%= link_to 'MARCAR COMO <BR> COMPLETO Y CONTINUAR'.html_safe, mark_as_done_path(topic_id: @topic.id), class: "btn btn-ar btn-lg btn-primary", id: "next-step-topic-view-top" %>
         </div>
     </div>
 </div>
