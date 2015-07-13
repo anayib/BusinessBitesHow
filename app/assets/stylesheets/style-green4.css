@@ -3448,11 +3448,11 @@ a.thumbnail.active {
   text-transform: lowercase;
   font-family: "Muli", sans-serif;
   word-spacing: -6px;
-  -webkit-text-stroke: 0.01em;
+  -webkit-text-stroke: 0.01em;/*
   background-image: url("http://i592.photobucket.com/albums/tt5/Mardini03/logo.png");
   background-position: left center;
   background-repeat: no-repeat;
-  padding-left: 45px;
+  padding-left: 45px;*/
   color: #000;
 }
 @media (min-width: 360px) and (max-width: 768px) {
