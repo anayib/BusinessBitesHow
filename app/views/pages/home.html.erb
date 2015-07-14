@@ -15,9 +15,9 @@
           <h1 class="head-title">HEADER</h1>
           <h2 class="secondary-color text-center head-subtitle">Sub-Header</h2>
           <% if !user_signed_in? %>
-            <%= link_to 'ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES', new_user_registration_path(:subscription => true), class: "call-to-action" %>   
+            <%= link_to 'ACCEDE A TODOS LAS GUÍAS DESDE 19.99 DÓLARES', new_user_registration_path(:subscription => true), class: "call-to-action" %>   
           <% elsif user_signed_in? && current_user.subscription.nil? %>
-            <%= link_to 'ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES', new_subscription_path(:subscription => true), class: "call-to-action" %>          
+            <%= link_to 'ACCEDE A TODOS LAS GUÍAS DESDE 19.99 DÓLARES', new_subscription_path(:subscription => true), class: "call-to-action" %>          
           <% end %>
         </div>
       </div>
@@ -29,7 +29,7 @@
   <section class="margin-bottom" id="user-courses">
     <div class="row">
       <div class="col-md-12">
-          <h2 class="right-line">TODOS LOS CURSOS</h2>
+          <h2 class="right-line">TODOS LAS GUÍAS</h2>
       </div>
 
       <% @courses.each do |course| %>
@@ -51,7 +51,7 @@
                     <% end %>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
-                    <%= link_to 'Ir al curso', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
+                    <%= link_to 'Ir a la guía', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
                   </div>
                 <% else %>
                   <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
@@ -62,7 +62,7 @@
                     <% end %>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
-                    <%= link_to 'Ver Curso', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
+                    <%= link_to 'Ver Guía', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
                   </div>
                 <% end %>
               <% elsif user_signed_in? && current_user.vip_user? %>
@@ -74,7 +74,7 @@
                   <% end %>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
-                  <%= link_to 'Ir al curso', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
+                  <%= link_to 'Ir a la guía', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
                 </div>
               <% else %>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
@@ -85,7 +85,7 @@
                   <% end %>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
-                  <%= link_to 'Ver curso', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
+                  <%= link_to 'Ver Guía', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
                 </div>
               <% end %>
             </div>

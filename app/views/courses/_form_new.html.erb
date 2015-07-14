@@ -2,12 +2,12 @@
 	<div class="row">
 		<div class="col-md-6">
 		  <div class="field form-group">
-		    <%= course.label :title, "Título del curso:", class: "lead lead-lg" %>
+		    <%= course.label :title, "Título de la guía:", class: "lead lead-lg" %>
 		    <%= course.text_field :title, required: true, class: "form-control" %>
 		  </div>
 
 		  <div class="field form-group">
-		    <%= course.label :image, "Imagen del curso:", class: "lead lead-lg" %>
+		    <%= course.label :image, "Imagen de la guía:", class: "lead lead-lg" %>
 		    <%= course.file_field :image, required: true, class: "form-control" %>
 		  </div>
 
@@ -19,7 +19,7 @@
 
 		<div class="col-md-6">
 			<div class="field form-group">
-		  	<%= course.label :description, "Descripción del curso:", class: "lead lead-lg" %>
+		  	<%= course.label :description, "Descripción de la guía:", class: "lead lead-lg" %>
 		  	<%= course.text_area :description, required: true, :rows => 5, class: "form-control", id: "new_user_email" %>
 		 	</div>
 		</div>
@@ -27,7 +27,7 @@
 
 	<div class="row">
     <div class="field form-group">
-      <h3 class="right-line">SELECCIONE INSTRUCTORES PARA ESTE CURSO</h3>
+      <h3 class="right-line">SELECCIONE INSTRUCTORES PARA ESTA GUÍA</h3>
       <% if Instructor.all.empty? %>
       	<h3 class="text-center">No hay Instructores almacenados, porfavor dirijase a la pestaña Gestión de Instructores para crear nuevos registros</h3>
       <% else %>
@@ -45,7 +45,7 @@
 
   <div class="row">
     <div class="field form-group">
-      <h3 class="right-line">SELECCIONE CATEGORÍAS PARA ESTE CURSO</h3>
+      <h3 class="right-line">SELECCIONE CATEGORÍAS PARA ESTA GUÍA</h3>
 			<% if Category.all.empty? %>
       	<h3 class="text-center">No hay categorías almacenadas, porfavor dirijase a la pestaña Categorías para crear nuevos registros</h3>
       <% else %>
@@ -68,7 +68,7 @@
 		<div class="col-md-12">
 		  <div class="actions form-group text-center">
 		  	<%= link_to_add_lessons "Agregar lesson", course, :lessons %>
-		  	<%= course.submit "Guardar Información del Curso", class: "btn btn-ar btn-lg btn-success" %>
+		  	<%= course.submit "Guardar Información de la guía", class: "btn btn-ar btn-lg btn-success" %>
 		  </div>
 	  </div>
 	</div>

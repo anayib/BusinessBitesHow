@@ -22,7 +22,7 @@ class CoursesController < ApplicationController
   	  flash[:notice] = "El course #{@course.title} fue creado con exito"
   	  redirect_to courses_path
   	else
-  		flash[:alert] = "Ha ocurrido un error y el curso #{@course.title}, no ha sido almacenado"
+  		flash[:alert] = "Ha ocurrido un error y la guía #{@course.title}, no ha sido almacenada"
     	render :action => 'new'
   	end
 	end
@@ -36,7 +36,7 @@ class CoursesController < ApplicationController
 		if @course.update(course_params)
 			redirect_to courses_path
 		else
-			flash[:alert] = 'Se ha encontrado un error al intentar editar este curso'
+			flash[:alert] = 'Se ha encontrado un error al intentar editar esta guía'
 			render 'edit'
 		end
 	end
@@ -64,7 +64,7 @@ class CoursesController < ApplicationController
 		def content_permission
 	    if Course.find(params[:id]).with_charge?
 	    	unless current_user.vip_user? || current_user.admin? || current_user.content_manager?
-	    		redirect_to root_path, :alert => "Lo sentimos, usted no posee una cuenta VIP, por lo tanto no puede acceder a la información del curso: #{Course.find(params[:id]).title}."
+	    		redirect_to root_path, :alert => "Lo sentimos, usted no posee una cuenta VIP, por lo tanto no puede acceder a la información de la guía: #{Course.find(params[:id]).title}."
 	    	end
 	    end
   	end

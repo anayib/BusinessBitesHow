@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4 col-sm-6 col-xs-6 text-center">
-                <h4><%= link_to "Regresar al curso", @topic.lesson.course %></h4>
+                <h4><%= link_to "Regresar a la guía", @topic.lesson.course %></h4>
             </div>
             <div class="col-md-8 col-sm-6 col-xs-6 text-center">
                 <%= link_to 'MARCAR COMO <BR> COMPLETO Y CONTINUAR'.html_safe, mark_as_done_path(topic_id: @topic.id), class: "btn btn-ar btn-lg btn-primary", id: "next-step-topic-view" %>

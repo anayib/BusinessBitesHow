@@ -14,7 +14,7 @@
 		<!-- Conditional to add Video or PDF file for topic -->
 		<div class="field form-group">
 			
-			<h4>Contenido de apoyo para el curso, escoja si lleva Archivo PDF o Video Clip</h4>
+			<h4>Contenido de apoyo para la guía, escoja si lleva Archivo PDF o Video Clip</h4>
 			<select class="form-control content_select">
 				<option disabled selected> Seleccione una opción </option>
 			  <option value="pdf">Archivo PDF</option>
@@ -22,7 +22,7 @@
 			</select>
 
 			<div class="field form-group  pdf_field" style='display: none'>
-			  <%= topic.label :document, "PDF del curso:", class: "lead lead-lg" %>
+			  <%= topic.label :document, "PDF de la guía:", class: "lead lead-lg" %>
 			  <%= topic.file_field :document, class: "form-control file_input" %>
 			</div>
 

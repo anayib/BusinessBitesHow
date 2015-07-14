@@ -24,7 +24,7 @@ plan = Plan.create([{
 		name: 'Subscripción Anual', 
 		amount: 204.99, 
 		interval:'yearly', 
-		description: 'Subscripción por un año a todos los cursos de Business Bites', 
+		description: 'Subscripción por un año a todas las guías de Business Bites', 
 		published: true
 	},
 	{
@@ -32,6 +32,6 @@ plan = Plan.create([{
 		name: 'Subscripción Mensual', 
 		amount: 19.99, 
 		interval:'monthly', 
-		description: 'Subscripción por un mes a todos los cursos de Business Bites', 
+		description: 'Subscripción por un mes a todas las guías de Business Bites', 
 		published: true
 		}])
