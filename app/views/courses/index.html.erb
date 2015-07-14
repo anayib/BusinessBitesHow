@@ -1,10 +1,10 @@
 <div class="container-fluid">
 	<div class="row">
-		<h2 class="right-line">LISTADO DE CURSOS EN LA PLATAFORMA</h2>
+		<h2 class="right-line">LISTADO DE GUÍAS EN LA PLATAFORMA</h2>
 		<div class="col-md-12">
 			<table class="table">
 				<tr class="success">
-					<th class="text-center lead lead-lg">No Curso</th>
+					<th class="text-center lead lead-lg">No Guía</th>
 					<th class="text-center lead lead-lg">Imagen</th>
 					<th class="text-center lead lead-lg">Título</th>
 					<th class="text-center lead lead-lg">Descripción</th>
@@ -21,9 +21,9 @@
 						<td class="lead lead-sm vert-align text-center"><%= course.title %></td>
 						<td class="lead lead-sm vert-align text-center"><%= course.description %></td>						
 						<td class="lead lead-sm vert-align text-center" style="width: 15%">
-							<%= link_to '<i class="fa fa-eye text-center"></i>'.html_safe, course, class: "btn btn-ar btn-info", title: "Ver Curso" %>
-							<%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_course_path(course), class: "btn btn-ar btn-warning", title: "Editar Curso" %>
-							<%= link_to course_path(course.id), method: :delete, title: "Eliminar Curso", data: { confirm: '¿Esta seguro que desea eliminar el curso?' }, class: "btn btn btn-ar btn-danger" do %><i class="fa fa-trash"></i><% end %>
+							<%= link_to '<i class="fa fa-eye text-center"></i>'.html_safe, course, class: "btn btn-ar btn-info", title: "Ver Guía" %>
+							<%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_course_path(course), class: "btn btn-ar btn-warning", title: "Editar Guía" %>
+							<%= link_to course_path(course.id), method: :delete, title: "Eliminar Guía", data: { confirm: '¿Esta seguro que desea eliminar la guía?' }, class: "btn btn btn-ar btn-danger" do %><i class="fa fa-trash"></i><% end %>
 						</td>												
 					</tr>								
 				<% end %>
@@ -32,7 +32,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-6 text-center col-md-offset-3" id="btn-new-user">
-			<%= link_to "Crear Un Nuevo Curso", new_course_path, class: "btn btn-lg btn-ar btn-success" %>
+			<%= link_to "Crear Una Nueva Guía", new_course_path, class: "btn btn-lg btn-ar btn-success" %>
 		</div>
 	</div>
 </div>

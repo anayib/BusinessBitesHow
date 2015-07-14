@@ -3448,11 +3448,11 @@ a.thumbnail.active {
   text-transform: lowercase;
   font-family: "Muli", sans-serif;
   word-spacing: -6px;
-  -webkit-text-stroke: 0.01em;
+  -webkit-text-stroke: 0.01em;/*
   background-image: url("http://i592.photobucket.com/albums/tt5/Mardini03/logo.png");
   background-position: left center;
   background-repeat: no-repeat;
-  padding-left: 45px;
+  padding-left: 45px;*/
   color: #000;
 }
 @media (min-width: 360px) and (max-width: 768px) {
@@ -5124,7 +5124,7 @@ input.input-lg[type="text"] {
     margin: 0;
     padding: 0;
     padding-left: 20px;
-    margin-left: 110px;
+    margin-left: 25px;
   }
   .timeline-2 li {
     position: relative;
@@ -5166,7 +5166,7 @@ input.input-lg[type="text"] {
   }
   .timeline-2 li .timeline-time span {
     display: block;
-    font-size: 1.6em;
+    font-size: 1.6em;    
   }
   .timeline-2 li .panel,
   .timeline-2 li .alert,
@@ -5385,18 +5385,19 @@ input.input-lg[type="text"] {
 /* Home Full */
 /*-------------------------------------------------------------------*/
 #header-full {
-  background-image: url("http://i592.photobucket.com/albums/tt5/Mardini03/back.jpg");
+  /*background-image: url("http://i592.photobucket.com/albums/tt5/Mardini03/back.jpg");
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
   color: #fff;
   height: 95vh;
 }
 .wrap-primary {
-  background-color: #5ebe1e;
-  background-color: rgba(40, 80, 13, 0.7);
+  /*background-color: #5ebe1e;
+  background-color: rgba(40, 80, 13, 0.7);*/
+  background-color: black;
   padding: 40px 0;
   height: 95vh;
 }

@@ -14,9 +14,9 @@
       <ul class="nav navbar-nav navbar-right">   
 				<% if user_signed_in? %>
 					<li class="dropdown">
-				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Cursos</a>
+				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Guías</a>
 				     <ul class="dropdown-menu dropdown-menu-left">
-							<li><%= link_to 'Todos los Cursos', root_path(anchor: 'user-courses') %></li>
+							<li><%= link_to 'Todos las Guías', root_path(anchor: 'user-courses') %></li>
 							<% if current_user.subscription.nil? %>
 								<li><%= link_to 'Cuenta VIP', new_subscription_path %></li>
 							<% else %>		
@@ -28,39 +28,27 @@
 				<% end %>           
         <% if user_signed_in? && current_user.admin? %>
 					<li class="dropdown">
-				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Gestión de Usuarios</a>
+				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Opciones Administrador</a>
 				     <ul class="dropdown-menu dropdown-menu-left">
 			        <li><%= link_to 'Usuarios Registrados', user_index_path %></li>
-				    </ul>
-					</li> 
-					<li class="dropdown">
-				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Gestión de Cursos</a>
-				     <ul class="dropdown-menu dropdown-menu-left">
-			        <li><%= link_to 'Crear Cursos', new_course_path %></li>
-			        <li><%= link_to 'Cursos Publicados', courses_path %></li>
-				    </ul>
-					</li> 
-					<li class="dropdown">
-				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Gestión de Instructores</a>
-				     <ul class="dropdown-menu dropdown-menu-left">
+			        <li role="separator" class="divider"></li>
+			        <li><%= link_to 'Crear Guías', new_course_path %></li>
+			        <li><%= link_to 'Guías Publicadas', courses_path %></li>
+			        <li role="separator" class="divider"></li>
 			        <li><%= link_to 'Crear Instructores', new_instructor_path %></li>
 			        <li><%= link_to 'Instructores Registrados', instructors_path %></li>
-				    </ul>
-					</li>
-					<li class="dropdown">
-				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Categorías</a>
-				     <ul class="dropdown-menu dropdown-menu-left">
+			        <li role="separator" class="divider"></li>
 			        <li><%= link_to 'Crear Categoría', new_category_path %></li>
 			        <li><%= link_to 'Categorías Almacenadas', categories_path %></li>
 				    </ul>
-					</li>             	            
+					</li> 
         	<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>
         <% elsif user_signed_in? && current_user.content_manager? %>
 					<li class="dropdown">
-				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Gestión de Cursos</a>
+				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Gestión de Guías</a>
 				     <ul class="dropdown-menu dropdown-menu-left">
-			        <li><%= link_to 'Crear Cursos', new_course_path %></li>
-			        <li><%= link_to 'Cursos Publicados', courses_path %></li>
+			        <li><%= link_to 'Crear Guías', new_course_path %></li>
+			        <li><%= link_to 'Guías Publicadas', courses_path %></li>
 				    </ul>
 					</li>
 					<li class="dropdown">
@@ -82,7 +70,7 @@
 					<li><%= link_to 'Editar Perfil', edit_user_path(current_user) %></li>
 					<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>            
         <% else %>
-        	<li><%= link_to 'Cursos', root_path(anchor: 'user-courses') %></li>
+        	<li><%= link_to 'Guías', root_path(anchor: 'user-courses') %></li>
         	<li><%= link_to 'Iniciar Sesión', new_user_session_path %></li> 
         	<li><%= link_to 'Crea Una Cuenta Gratis', new_user_registration_path, class: "call-to-action" %></li> 
         <% end %>                        

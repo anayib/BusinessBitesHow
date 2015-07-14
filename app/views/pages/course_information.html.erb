@@ -3,9 +3,9 @@
     <div id="course_information_text" class="col-md-12 text-center">
       <h1 id="course_information_title"><%= @course.title %></h1>
       <% if @course.free? %>
-      <%= link_to "ACCEDER AL CURSO", new_user_session_path, class: "btn btn-ar cta_button btn-lg" %>
+      <%= link_to "ACCEDER A LA GUÍA", new_user_session_path, class: "btn btn-ar cta_button btn-lg" %>
       <% else %>
-        <a href=<%="/course_information?course_id=#{@course.id}#price-columns" %> class="call-to-action">ACCEDE A TODOS LOS CURSOS DESDE 19.99 DÓLARES</a>
+        <a href=<%="/course_information?course_id=#{@course.id}#price-columns" %> class="call-to-action" id="payed_call_to_action">ACCEDE A TODAS LAS GUÍAS DESDE 19.99 DÓLARES</a>
       <% end %>
     </div>
   </div>
@@ -73,7 +73,7 @@
     <div class="col-md-12 text-center">
 
       <% if @course.free? %>
-      <%= link_to "ACCEDER AL CURSO", new_user_session_path, class: "btn btn-ar cta_button btn-lg v-align" %>
+      <%= link_to "ACCEDER A LA GUÍA", new_user_session_path, class: "btn btn-ar cta_button btn-lg v-align" %>
       <% else %>
 
 
@@ -253,4 +253,11 @@
     font-size: 25px;
     font-weight: bold;
   }
+
+  @media all and (max-width: 460px) {
+    a#payed_call_to_action {
+      font-size: 11px;      
+    }
+  }
+
 </style>
