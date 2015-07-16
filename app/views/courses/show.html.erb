@@ -64,19 +64,19 @@
 
 		    <!-- Contenido de las pestañas -->
 		    <div class="tab-pane" id="profile2">
-					<% @course.lessons.each do |lesson| %>
-						<% lesson.topics.each do |topic| %>
-							<h1 class="section-title" id="topic_title">Lista para el topic: <%= topic.title %></h1>
-							<div class="list-group">
-							<% topic.resources.each do |resource| %>																
-								<a href="<%= resource.link_url %>" class="list-group-item" target="_blank">
-								  <h4 class="list-group-item-heading"><%= resource.title %></h4>
-								  <p class="list-group-item-text"><%= resource.description %></p>
-								</a> 								
-							<% end %>
-							</div>
+		    	<div class="list-group">
+						<% @course.lessons.each do |lesson| %>							
+							<% lesson.topics.each do |topic| %>
+								<!-- <h1 class="section-title" id="topic_title">Lista para el topic: <%= topic.title %></h1> -->							
+								<% topic.resources.each do |resource| %>																
+									<a href="<%= resource.link_url %>" class="list-group-item" target="_blank">
+									  <h4 class="list-group-item-heading"><%= resource.title %></h4>
+									  <p class="list-group-item-text"><%= resource.description %></p>
+									</a> 								
+								<% end %>							
+							<% end %>							
 						<% end %>
-					<% end %>	        
+					</div>	        
 		    </div>		              
 			</div>
 			<div class="container">
