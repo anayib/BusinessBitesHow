@@ -26,7 +26,6 @@ gem 'thin'
 gem 'pg'
 gem 'rack', '~> 1.6.4'
 gem 'loofah', '~> 2.0.1'
-gem 'rails-dom-testing', '~> 1.0.6'
 
 group :development, :test do
 	gem 'guard'

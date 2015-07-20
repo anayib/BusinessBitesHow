@@ -11,12 +11,12 @@
         </div>
       </div>
       <div class="col-md-6 " id="header_container">
-        <h1 class="head-title" style="text-align:left; color:rgb(160, 206, 23)">Conviértete en un Business Hacker</h1>
-        <h2 class="secondary-color head-subtitle" style="color:white" >Accediendo al repositorio de guías prácticas, paso a paso,  para crear y crecer negocios rentables y sostenibles que se apalancan en la tecnología para innovar</h2> <br>
+        <h1 class="head-title" style="text-align:left; color:rgb(160, 206, 23)">¿Cómo cambiaría tu vida si aprendieras a crear negocios innovadores apalancados en tecnología?</h1>
+        <h2 class="secondary-color head-subtitle" style="color:white" >BusinessHackers es el repositorio de guías prácticas, paso a paso,  para crear y crecer negocios rentables apalancados en tecnología</h2> <br>
         <% if !user_signed_in? %> <br>
-          <%= link_to 'ACCEDER AHORA DESDE 17,99', new_user_registration_path(:subscription => true), class: "btn-warning btn" %>   
+          <%= link_to 'EMPEZAR AHORA $28,49/MES', new_user_registration_path(:subscription => true), class: "btn-warning btn-lg" %>   
         <% elsif user_signed_in? && current_user.subscription.nil? %>
-          <%= link_to 'ACCEDER AHORA DESDE 17,99', new_subscription_path(:subscription => true), class: "btn-warning btn-lg" %>          
+          <%= link_to 'EMPEZAR AHORA $28,49/MES', new_subscription_path(:subscription => true), class: "btn-warning btn-lg" %>          
         <% end %>
       </div>
     </div>
@@ -56,26 +56,50 @@
 </section> <!-- TERMINA SECCIÓN DE CÓMO FUNCIONA --> <br>
 
 <!-- INICIA GUIAS GRATUITAS -->
-<div class="container"> <!-- INICIA TODAS LAS GUÍAS--> 
-  <section class="margin-bottom" id="user-courses">
-    <div class="row">
-      <div class="col-md-12">
-          <h2 class="right-line">CONOCE GRATIS LAS GUÍAS DE MUESTRA</h2>
-      </div>
+<% unless user_signed_in? && current_user.vip_user? %>
+  <div class="container"> <!-- INICIA TODAS LAS GUÍAS--> 
+    <section class="margin-bottom" id="user-courses">
+      <div class="row">
+        <div class="col-md-12">
+            <h2 class="right-line">CONOCE GRATIS LAS GUÍAS DE MUESTRA</h2>
+        </div>
 
-      <% @courses.free.each do |course| %>
-        <div class="col-sm-6 col-md-4 col-xs-12">
-          <div class="thumbnail">
-            <img src="<%= course.image.url(:medium) %>" alt="..." class="thumbnail_custom_image">
-            <div class="caption">
-              <h3 class="course_title"><%= course.title %></h3>
-              <p class="text-justify" id="course_description"><%= course.description %></p>
-            </div>
-            <div class="row course-caption">
-              <% if user_signed_in? && (current_user.user? || current_user.admin? || current_user.content_manager?) %>
-                <% if course.free? %>
+        <% @courses.free.each do |course| %>
+          <div class="col-sm-6 col-md-4 col-xs-12">
+            <div class="thumbnail">
+              <img src="<%= course.image.url(:medium) %>" alt="..." class="thumbnail_custom_image">
+              <div class="caption">
+                <h3 class="course_title"><%= course.title %></h3>
+                <p class="text-justify" id="course_description"><%= course.description %></p>
+              </div>
+              <div class="row course-caption">
+                <% if user_signed_in? && (current_user.user? || current_user.admin? || current_user.content_manager?) %>
+                  <% if course.free? %>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
+                      <span class="text-center">Basado en:</span><br>
+                      <% if !course.instructors.blank? %>
+                        <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
+                        <%= course.instructors.first.name %>
+                      <% end %>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
+                      <%= link_to 'Ir a la guía', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
+                    </div>
+                  <% else %>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
+                      <span>Basado en:</span><br>
+                      <% if !course.instructors.blank? %>
+                        <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
+                        <%= course.instructors.first.name %>
+                      <% end %>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
+                      <%= link_to 'Ver Guía', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
+                    </div>
+                  <% end %>
+                <% elsif user_signed_in? && current_user.vip_user? %>
                   <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
-                    <span class="text-center">Basado en:</span><br>
+                    <span>Basado en:</span><br>
                     <% if !course.instructors.blank? %>
                       <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
                       <%= course.instructors.first.name %>
@@ -96,36 +120,14 @@
                     <%= link_to 'Ver Guía', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
                   </div>
                 <% end %>
-              <% elsif user_signed_in? && current_user.vip_user? %>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
-                  <span>Basado en:</span><br>
-                  <% if !course.instructors.blank? %>
-                    <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
-                    <%= course.instructors.first.name %>
-                  <% end %>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
-                  <%= link_to 'Ir a la guía', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
-                </div>
-              <% else %>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
-                  <span>Basado en:</span><br>
-                  <% if !course.instructors.blank? %>
-                    <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
-                    <%= course.instructors.first.name %>
-                  <% end %>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
-                  <%= link_to 'Ver Guía', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
-                </div>
-              <% end %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div> <!-- row -->
-  </section>
-</div>
+        <% end %>
+      </div> <!-- row -->
+    </section>
+  </div>
+<% end %>  
 
 <!-- TERMINA GUIAS GRATUITAS -->
 <div class="container"> <!-- INICIA TODAS LAS GUÍAS--> 
@@ -200,6 +202,6 @@
 </div> <!-- TERMINA TODAS LAS GUÍAS--> 
 
 <% unless user_signed_in?%>
-  <center><strong><h2 style="color:rgb(16, 37, 63)">Accede gratis a todas las guías de muestra</h2></center></strong> <br>
+  <center><strong><h2 style="color:rgb(16, 37, 63)">A todos aquellos que no son lo suficientemente afortunados de pertenecer a la comunidad VIP de BusinessHackers, los invitamos a acceder gratis a las guías de muestra </h2></center></strong> <br>
   <center><%= link_to 'ACCEDER AHORA', new_user_registration_path, class: "btn-warning btn-lg" %></center>
 <% end %>
