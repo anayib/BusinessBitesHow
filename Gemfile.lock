@@ -41,7 +41,7 @@ GEM
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
     arel (6.0.2)
-    autoprefixer-rails (5.2.1)
+    autoprefixer-rails (5.2.1.1)
       execjs
       json
     aws-sdk (1.64.0)
@@ -266,11 +266,14 @@ DEPENDENCIES
   hirb
   jbuilder (~> 2.0)
   jquery-rails
+  loofah (~> 2.0.1)
   paper_trail
   paperclip (~> 4.2)
   pdfjs_rails
   pg
+  rack (~> 1.6.4)
   rails (= 4.2.0)
+  rails-dom-testing (~> 1.0.6)
   rails_12factor
   rest-client!
   sass-rails (~> 5.0)
