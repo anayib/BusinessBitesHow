@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="col-md-6 " id="header_container">
-        <h1 class="head-title" style="text-align:left; color:rgb(160, 206, 23)">¿Cómo cambiaría tu vida si aprendieras a crear negocios innovadores apalancados en tecnología?</h1>
+        <h1 class="head-title" style="text-align:left; color:rgb(160, 206, 23)">¿Cómo cambiaría tu vida si aprendieras a crear negocios innovadores?</h1>
         <h2 class="secondary-color head-subtitle" style="color:white" >BusinessHackers es el repositorio de guías prácticas, paso a paso,  para crear y crecer negocios rentables apalancados en tecnología</h2> <br>
         <% if !user_signed_in? %> <br>
           <%= link_to 'EMPEZAR AHORA $28,49/MES', new_user_registration_path(:subscription => true), class: "btn-warning btn-lg" %>   
@@ -43,7 +43,7 @@
           <h4 style="color: white"><strong><span style="color:rgb(160, 206, 23)">-</span> A una nueva guía cada semana </strong> con las mejores prácticas de los expertos</h4>
           <h4 style="color: white"><strong><span style="color:rgb(160, 206, 23)">-</span></strong> Estudia las guías y descubre cientos de <strong>estrategias concretas, actualizadas, especializadas y en español</strong> que te enseñarán paso a paso cómo hacer negocios exitosos</h4>
           <h4 style="color: white"><strong><span style="color:rgb(160, 206, 23)">-</span> Accede a todo el repositorio digital</strong> de guías prácticas de Business Hackers <strong>sin costo adicional</strong></h4>
-          <h4 style="color: white"><strong><span style="color:rgb(160, 206, 23)">-</span></strong> Disfruta  24/7 de la <strong>comunidad VIP de Business Hackers</strong>, donde podrás <strong>hacer preguntas, resolver dudas y aprender paso a paso</strong> lo que funciona para crear negocios rentables</h4>
+          <h4 style="color: white"><strong><span style="color:rgb(160, 206, 23)">-</span></strong> Disfruta  24/7 de la <strong>comunidad VIP de Business Hackers</strong>. Podrás <strong>hacer preguntas, resolver dudas y recibir soporte en el foro exclusivo para miembros VIP</strong></h4>
         </div>
         <div class="col-sm-4">
           <center><i class="fa fa-line-chart fa-4x" style="color: rgb(160, 206, 23)"></i>
@@ -202,6 +202,6 @@
 </div> <!-- TERMINA TODAS LAS GUÍAS--> 
 
 <% unless user_signed_in?%>
-  <center><strong><h2 style="color:rgb(16, 37, 63)">A todos aquellos que no son lo suficientemente afortunados de pertenecer a la comunidad VIP de BusinessHackers, los invitamos a acceder gratis a las guías de muestra </h2></center></strong> <br>
+  <center><strong><h2 style="color:rgb(16, 37, 63)">A todos aquellos que no tienen la suerte de pertenecer a la comunidad VIP de BusinessHackers, los invitamos a acceder gratis a las guías de muestra </h2></center></strong> <br>
   <center><%= link_to 'ACCEDER AHORA', new_user_registration_path, class: "btn-warning btn-lg" %></center>
 <% end %>

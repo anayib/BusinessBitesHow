@@ -273,7 +273,6 @@ DEPENDENCIES
   pg
   rack (~> 1.6.4)
   rails (= 4.2.0)
-  rails-dom-testing (~> 1.0.6)
   rails_12factor
   rest-client!
   sass-rails (~> 5.0)
