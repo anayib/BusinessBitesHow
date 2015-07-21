@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 	before_filter :course_location
 	before_action :authenticate_user!, :only => [:welcome_video_user,:welcome_video_subscriptor]
 	before_action :has_subscription?, :only => [:welcome_video_subscriptor]
+	layout "blank_for_payments",  only: [:plans_information]
 
 	def home
 		@courses = Course.all
@@ -22,6 +23,12 @@ class PagesController < ApplicationController
 	def welcome_video_subscriptor
 		@previous_url = session[:previous_url]
 	end
+
+	def plans_information
+
+				
+	end
+
 
 	private
 		def has_subscription?

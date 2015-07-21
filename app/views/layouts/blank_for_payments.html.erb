@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BusinessBites</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script type="text/javascript">
+	  $(function(){
+	  	Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
+	  });
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+
+	<% if flash[:alert] %>
+	  <div class="container-fluid">
+	    <div class="row">
+	      <div class="alert alert-danger text-center" role="alert"><%=flash[:alert]%></div>
+	    </div>
+	  </div>
+	<%end%>
+	<% if flash[:notice] %>
+	  <div class="container-fluid">
+	    <div class="row">
+	      <div class="alert alert-success text-center" role="alert"><%=flash[:notice]%></div>
+	    </div>
+	  </div>
+	<%end%>
+	<%= yield %>
+
+	<% if current_page?(root_path) || current_page?(course_information_path) %>
+		<%= render 'layouts/footer' %>
+	<% end %>
+
+	</div> <!-- boxed -->
+	</div> <!-- sb-site -->
+</body>
+</html>
+
