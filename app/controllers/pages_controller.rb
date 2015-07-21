@@ -25,8 +25,11 @@ class PagesController < ApplicationController
 	end
 
 	def plans_information
+		
+	end
 
-				
+	def politicas_servicio
+		
 	end
 
 
