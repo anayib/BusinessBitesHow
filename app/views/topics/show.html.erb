@@ -67,7 +67,8 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs nav-tabs-ar nav-tabs-ar-white">
                 <!-- <li class="active"><a href="#home2" data-toggle="tab">DESCRIPCIÓN</a></li> -->
-                <li><a href="#messages2" data-toggle="tab">ACCIONES PARA TU PROYECTO</a></li>
+               <!--  <li><a href="#messages2" data-toggle="tab">ACCIONES PARA TU PROYECTO</a></li> -->
+                <li><a href="#messages2" data-toggle="tab">¿PREGUNTAS?</a></li>
                 <li><a href="#profile2" data-toggle="tab">RECURSOS ADICIONALES</a></li>   
                 <% if !(@topic.content_url == "") %>
                     <li><a href="#transcription" data-toggle="tab">TRANSCRIPTION</a></li>
@@ -89,10 +90,15 @@
                         <% end %>                      
                     </div>
                 </div>
-                <div class="tab-pane" id="messages2">
+                <!-- <div class="tab-pane" id="messages2">
                     Sigue las siguiente lista de acciones y aplicalas en tu proyecto personal:
                     <%= @topic.activities.html_safe %>
-                </div>  
+                </div>  -->
+                 <div class="tab-pane active" id="messages2">
+                    <h3 style="color: rgb(16, 37, 63)">¿Tienes preguntas?</h3>
+                    <p>No eres el único. Entérate de que están hablando los BusinessHackers</p><br>
+                    <%= link_to 'Preguntar a la Comunidad VIP', topic_path(anchor: 'messages2'), class: "btn-warning btn" %>
+                </div>   
                 <div class="tab-pane" id="transcription">                    
                     <%= @topic.transcription.html_safe %>
                 </div>            
