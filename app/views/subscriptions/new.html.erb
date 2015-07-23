@@ -1,9 +1,17 @@
 <div class="paper-back-full">
   <div class="login-form-full" style="padding-top:20px;">
     <div class="fix-box">
-      <div class="text-center title-logo animated fadeInDown animation-delay-5" style="padding-top:20px;">
-        business<span>bites</span>
+      <!-- <div class="text-center title-logo animated fadeInDown animation-delay-5" style="padding-top:20px;">
+        business<span>Hackers</span>
+      </div> -->
+      <!-- Stripe Logo-->
+      <div class="row animated fadeInDown animation-delay-13" id="powered_by_stripe">
+              <div class="col-md-12 text-center">
+                Pago seguro
+                <img src="http://i592.photobucket.com/albums/tt5/Mardini03/solid.png" alt="">
+              </div>
       </div>
+<!-- Stripe Logo-->
       <div class="transparent-div no-padding animated fadeInUp animation-delay-8">
         <ul class="nav nav-tabs nav-tabs-transparent">
           <li style="width: 50%;" id="account_created">
@@ -23,12 +31,13 @@
             <h3 class="text-center" style="color:black;"><strong>Elige uno de los siguientes planes:</strong></h3>
             <div class="row" id="plan_buttons">
               <div class="col-md-12 text-center">
-                <button class="btn-ar btn-success" data-name="Plan VIP Anual" data-id="<%= Plan.find_by_stripe_id("anual").id %>" data-price="204.99" id="anual">
-                  Subscripción<br><span style="text-decoration: line-through;">$239.88</span> $204.99 dólares/año
+                <button class="btn-ar btn-default" data-name="Plan VIP Mensual" data-id="<%= Plan.find_by_stripe_id("mensual").id %>" data-price="19.99" id="mensual ">
+                  Subscripción<br>$28.49 dólares/mes
                 </button>
-                <button class="btn-ar btn-warning" data-name="Plan VIP Mensual" data-id="<%= Plan.find_by_stripe_id("mensual").id %>" data-price="19.99" id="mensual ">
-                  Subscripción<br>$19.99 dólares/mes
+                <button class="btn-ar btn-warning" data-name="Plan VIP Anual" data-id="<%= Plan.find_by_stripe_id("anual").id %>" data-price="204.99" id="anual">
+                  Subscripción<br><span style="text-decoration: line-through;">$341.88</span> $204.99 dólares/año
                 </button>
+                <h2 style="color:black">Ahorras 40% con el plan anual!</h2>
               </div>
             </div>
             <h2>
@@ -69,6 +78,7 @@
                   <%= "204.99 dólares/año" if params[:subscription_plan] == "plan_anual" %>
                 </span>
               </div>
+              <p class="text-center">El proceso de pago puede tardar unos minutos, no cierres esta ventana</p>
               <% if params[:subscription_plan] %>
               <button type="submit" class="btn btn-ar btn-primary pull-right btn-lg">Pagar Ahora</button>
               <% else %>
@@ -77,15 +87,8 @@
             <% end %>
           </div>          
         </div>
-        <p class="text-center">Al dar click en el botón estás de acuerdo con las <a href="link a politicas de servicio" target="all_blank">políticas del servicio</a></p>
-        <p class="text-center">El proceso de pago puede tardar unos minutos, no cierres esta ventana</p>
-      </div>
-      <div class="row animated fadeInDown animation-delay-13" id="powered_by_stripe">
-        <div class="col-md-12 text-center">
-          Pago seguro
-          <img src="http://i592.photobucket.com/albums/tt5/Mardini03/solid.png" alt="">
-        </div>
-      </div>
+        <p class="text-center">Al dar click en el botón estás de acuerdo con las <%= link_to 'Políticas de servicio', politicas_servicio_path, target: "all_blank"%></p>
+      </div>      
     </div>
   </div>
-</div>
+</div> 

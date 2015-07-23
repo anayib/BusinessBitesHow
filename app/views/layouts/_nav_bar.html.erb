@@ -6,13 +6,14 @@
       	<span class="sr-only">Toggle navigation</span>
         <i class="fa fa-bars"></i>
       </button>
-      <%= link_to 'Business <span> Bites</span>'.html_safe, root_path, class: "navbar-brand" %>
+      <%= link_to 'Business<span>Hackers</span>'.html_safe, root_path, class: "navbar-brand" %>
     </div> <!-- navbar-header -->
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">   
 				<% if user_signed_in? %>
+					<li><%= link_to 'HacksBlog', root_path(anchor: 'user-courses') %></li>
 					<li class="dropdown">
 				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Guías</a>
 				     <ul class="dropdown-menu dropdown-menu-left">
@@ -67,9 +68,21 @@
 					</li>  
         	<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>
         <% elsif user_signed_in? && ( current_user.user? || current_user.vip_user? ) %>													
-					<li><%= link_to 'Editar Perfil', edit_user_path(current_user) %></li>
-					<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>            
+					<li class="dropdown">
+
+						<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+						<img alt="" class="thumb userMenu-thumb" height="40" src="https://photos-4.dropbox.com/t/2/AABhKo2Z0s-Q76AEV61jv0apQ-53a_RwJGCbH3WYXqKMaA/12/31276713/png/32x32/1/_/1/2/business_hacker_icon.png/EPSa1hcYjLcIIAEgAigB/YSiIxNfyYPVnVB1ZAaahx8oKngDgcJL9czn08zg6xnM?size=1024x768&size_mode=2"></a>
+						<ul class="dropdown-menu">
+							<li><%= link_to 'Editar Perfil', edit_user_path(current_user) %></li>
+							<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>   
+						</ul>
+					</li>
+		<% elsif user_signed_in? && current_user.vip_user? %>
+					
+			<li><%= link_to 'Communidad', root_path(anchor: 'user-courses') %></li>					         
         <% else %>
+        	<li><%= link_to 'Blog', root_path(anchor: 'user-courses') %></li>
+        	<li><%= link_to 'FAQ', root_path(anchor: 'user-courses') %></li>
         	<li><%= link_to 'Guías', root_path(anchor: 'user-courses') %></li>
         	<li><%= link_to 'Iniciar Sesión', new_user_session_path %></li> 
         	<li><%= link_to 'Crea Una Cuenta Gratis', new_user_registration_path, class: "call-to-action" %></li> 

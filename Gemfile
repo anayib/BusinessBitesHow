@@ -24,6 +24,8 @@ gem 'rest-client', :source => 'https://rubygems.org/'
 gem 'paper_trail'
 gem 'thin'
 gem 'pg'
+gem 'rack', '~> 1.6.4'
+gem 'loofah', '~> 2.0.1'
 
 group :development, :test do
 	gem 'guard'

@@ -30,7 +30,7 @@ plan = Plan.create([{
 	{
 		stripe_id: 'mensual', 
 		name: 'Subscripción Mensual', 
-		amount: 19.99, 
+		amount: 28.49, 
 		interval:'monthly', 
 		description: 'Subscripción por un mes a todas las guías de Business Bites', 
 		published: true
