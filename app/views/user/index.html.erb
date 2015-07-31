@@ -17,12 +17,12 @@
 						<% if user.image.url == "http://i592.photobucket.com/albums/tt5/Mardini03/765-default-avatar.png" %>
 							<td class="vert-align text-center"><%= image_tag "http://i592.photobucket.com/albums/tt5/Mardini03/765-default-avatar.png", class: "user-thumbnail" %></td>
 						<% else %>
-							<td class="lead lead-sm vert-align text-center"><%= image_tag user.image.url(:thumb) %></td>						
-						<% end %>						
+							<td class="lead lead-sm vert-align text-center"><%= image_tag user.image.url(:thumb) %></td>
+						<% end %>
 						<td class="lead lead-sm vert-align text-center"><%= user.name %></td>
 						<td class="lead lead-sm vert-align text-center"><%= user.email %></td>
 						<td class="lead lead-sm vert-align text-center"><%= user.role.humanize %></td>
-						
+
 						<td class="lead lead-sm vert-align text-center"><%= link_to "Editar", edit_user_path(user), class: "btn btn-ar btn-warning" %> <%= link_to user_path(user), method: :delete, data: { confirm: '¿Esta seguro que desea elminar esta usuario?' }, class: "btn btn-ar btn-danger" do %><span>Eliminar</span><% end %></td>
 					</tr>
 				<% end %>
@@ -30,8 +30,14 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-6 text-center col-md-offset-3" id="btn-new-user">
+		<div class="col-md-6 col-md-offset-2 text-center" id="btn-new-user">
 			<%= link_to "Crear Un Nuevo Usuario", new_user_path, class: "btn btn-lg btn-ar btn-success" %>
 		</div>
+		<%= form_tag import_user_index_path, multipart: true do %>
+		  <div class="col-md-2">
+		    <%= file_field_tag :file, :class => 'user-upload' %>
+		  </div>
+		  <%= submit_tag "Import", :class => "btn btn-default" %>
+		<% end %>
 	</div>
 </div>
