@@ -34,10 +34,14 @@
 			<%= link_to "Crear Un Nuevo Usuario", new_user_path, class: "btn btn-lg btn-ar btn-success" %>
 		</div>
 		<%= form_tag import_user_index_path, multipart: true do %>
-		  <div class="col-md-2">
+		  <div class="col-md-3">
 		    <%= file_field_tag :file, :class => 'user-upload' %>
 		  </div>
 		  <%= submit_tag "Import", :class => "btn btn-default" %>
 		<% end %>
 	</div>
 </div>
+
+<script>
+  $(".user-upload").filestyle({icon: false});
+</script>
