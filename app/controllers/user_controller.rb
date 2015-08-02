@@ -37,9 +37,9 @@ class UserController < ApplicationController
   def import
     User.import(params[:file])
     if params.has_key?(:file)
-      redirect_to questions_path, notice: "Se han importado las preguntas."
+      redirect_to user_index_path, notice: "Se han importado los usuarios."
     else
-      redirect_to questions_path, alert: "Debe agregar un archivo primero."
+      redirect_to user_index_path, alert: "Debe agregar un archivo primero."
     end
   end
 
