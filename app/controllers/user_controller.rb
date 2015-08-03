@@ -8,7 +8,7 @@ class UserController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
-	end 
+	end
 
 	def update
 		@user = User.find(params[:id])
@@ -21,7 +21,7 @@ class UserController < ApplicationController
 			else
 				redirect_to root_path
 			end
-    else    	
+    else
     	puts @user.errors.messages
       flash[:notice] = "El usuario #{@user.email} no pudo ser editado. Posiblemente no ha ingresado su contraseña."
       redirect_to edit_user_path
@@ -34,11 +34,20 @@ class UserController < ApplicationController
 		redirect_to user_index_path
 	end
 
+  def import
+    User.import(params[:file])
+    if params.has_key?(:file)
+      redirect_to user_index_path, notice: "Se han importado los usuarios."
+    else
+      redirect_to user_index_path, alert: "Debe agregar un archivo primero."
+    end
+  end
+
 	private
 		def user_params
   		params.require(:user).permit(:name, :email, :role, :image, :password, :password_confirmation, { :course_ids => [] } )
 		end
-		
+
 		def admin_only
     unless current_user.admin?
       redirect_to root_path, :alert => "Lo sentimos, usted no posee permisos de administrador para acceder a esta ruta."

@@ -55,6 +55,14 @@ class User < ActiveRecord::Base
     UserMailer.welcome_subscriptor_email(user).deliver
   end
 
+  def self.import(file)
+    if file != nil
+      CSV.foreach(file.path, headers: true) do |row|
+        User.create! row.to_hash
+      end
+    end
+  end
+
   protected
     def confirmation_required?
       false
