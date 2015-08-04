@@ -1,0 +1,63 @@
+<%= form_for @user, :url => user_index_path do |f| %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="field form-group">
+        <%= f.label :name, "Nombre", class: "lead lead-lg" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+      	<%= f.label :email, class: "lead lead-lg" %>
+      	<%= f.text_field :email, class: "form-control", id: "new_user_email" %>
+     	</div>
+
+      <div class="field form-group">
+        <%= f.label :role, "Rol para este usuario", class: "lead lead-lg" %><br />
+        <%= f.select :role, options_for_select(User.roles.map {|k,v| [k.humanize,k]}, @user.role), {}, { :class => "form-control", :id => "select_role" } %>
+      </div>
+
+      <div class="field form-group" id="vip_days">
+        <%= f.label :vip_days, "Dias como usuario invitado:", class: "lead lead-lg" %>
+        <%= f.number_field :vip_days, :min => 0, class: "form-control" %>         
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :image, "Foto de perfil", class: "lead lead-lg" %>
+        <%= f.file_field :image, class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+      	<%= f.label :password, "Contraseña", class: "lead lead-lg"  %>
+      	<%= f.password_field :password, class: "form-control", id: "password" %>
+    	</div>
+
+      <div class="field form-group">
+      	<%= f.label :password_confirmation, "Confirmar Contraseña", class: "lead lead-lg"  %>
+      	<%= f.password_field :password_confirmation, class: "form-control", id: "password_confirmation" %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="actions form-group text-center">
+  	<%= f.submit "Guardar Usuario", class: "btn btn-ar btn-lg btn-success" %>
+  </div>
+<% end %>
+
+<script>
+$(document).on("ready page:load", function() {
+  var role = $('select#select_role').val();
+  if(role=="guest"){
+      $('div#vip_days').show();
+  } else {
+    $('div#vip_days').hide();
+  }
+  $("select#select_role").change(function() {
+    var role = $('select#select_role').val();
+    if(role=="guest"){
+      $('div#vip_days').show();
+    } else {
+      $('div#vip_days').hide();
+    }
+  });
+});  
+</script>

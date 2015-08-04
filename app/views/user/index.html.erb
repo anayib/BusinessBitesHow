@@ -1,17 +1,23 @@
 <div class="container">
 	
 	<div class="row">
-		<h1 class="text-center">Sistema para la creación de usuarios con CSV</h1>
-		<p>El siguiente modulo le permite crear usuarios por medio de archivos de texto a continuación le presentamos dos ejemplos sobre como puede subir los archivos a la plataforma.</p>
-		<img  alt="img" src="<%= asset_path('CSV.png') %>" class="img-responsive parallaximg sliderImg"> </div>
+		<div class="col-md-10 col-md-offset-1">
+			<h1 class="text-center">Sistema para la creación de usuarios con CSV</h1>
+			<p class="text-center">El siguiente modulo le permite crear usuarios por medio de archivos de texto plano, a continuación le presentamos un ejemplo sobre como debe crear el archivo para realizar registros masivos en la plataforma. Seleccione el archivo desde su ubicación y haga click en el boton Importar Usuarios.</p>
+		</div>				
 	</div>
-	
-	<div class="row">
+
+	<div class="row" style="margin-bottom: 30px;">
+		<div class="col-md-6 col-md-offset-3 text-center">
+			<img class="img-responsive img-thumbnail" alt="Responsive image" src="<%= asset_path('CSV.png') %>">
+		</div>
+	</div>
+	<div class="row" style="margin-bottom: 30px;">
 		<%= form_tag import_user_index_path, multipart: true do %>
-		  <div class="col-md-3 col-md-offset-4">
+		  <div class="col-md-3 text-center col-md-offset-4 col-xs-7 col-sm-4 col-sm-offset-3">
 		    <%= file_field_tag :file, :class => 'user-upload' %>
 		  </div>
-		  <%= submit_tag "Import", :class => "btn btn-default" %>
+		  <%= submit_tag "Importar Usuarios", :class => "btn btn-default" %>
 		<% end %>
 	</div>
 
@@ -46,6 +52,12 @@
 			</table>
 		</div>
 	</div>	
+</div>
+
+<div class="row" style="margin-bottom: 30px;">
+	<div class="col-md-6 text-center col-md-offset-3" id="btn-new-user">
+		<%= link_to "Crear Un Nuevo Usuario", new_user_path, class: "btn btn-lg btn-ar btn-success" %>
+	</div>
 </div>
 
 <script>
