@@ -20,7 +20,6 @@
           <%#= link_to 'EMPEZAR AHORA', root_path(anchor: 'user-courses'),class: "btn-warning btn-lg" %>
           <%= link_to 'ACCEDER A TODAS LAS GUIAS', plans_information_path(:subscription => true), class: "btn-warning btn-lg" %>
         <%# elsif user_signed_in? && current_user.vip_user? %>
-
         <% end %>
       </div>
     </div>
@@ -60,7 +59,7 @@
 </section> <!-- TERMINA SECCIÓN DE CÓMO FUNCIONA --> <br>
 
 <!-- INICIA GUIAS GRATUITAS -->
-<% unless user_signed_in? && current_user.vip_user? %>
+<% unless user_signed_in? && (current_user.vip_user? || current_user.guest?) %>
   <div class="container"> <!-- INICIA TODAS LAS GUÍAS--> 
     <section class="margin-bottom" id="user-courses">
       <div class="row">
@@ -174,7 +173,7 @@
                     <%= link_to 'Ver Guía', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
                   </div>
                 <% end %>
-              <% elsif user_signed_in? && current_user.vip_user? %>
+              <% elsif user_signed_in? && (current_user.vip_user? || current_user.guest?) %>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
                   <span>Basado en:</span><br>
                   <% if !course.instructors.blank? %>
