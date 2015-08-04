@@ -1,8 +1,14 @@
 <div class="container">
 	
 	<div class="row">
+		<h1 class="text-center">Sistema para la creación de usuarios con CSV</h1>
+		<p>El siguiente modulo le permite crear usuarios por medio de archivos de texto a continuación le presentamos dos ejemplos sobre como puede subir los archivos a la plataforma.</p>
+		<img  alt="img" src="<%= asset_path('CSV.png') %>" class="img-responsive parallaximg sliderImg"> </div>
+	</div>
+	
+	<div class="row">
 		<%= form_tag import_user_index_path, multipart: true do %>
-		  <div class="col-md-3">
+		  <div class="col-md-3 col-md-offset-4">
 		    <%= file_field_tag :file, :class => 'user-upload' %>
 		  </div>
 		  <%= submit_tag "Import", :class => "btn btn-default" %>
