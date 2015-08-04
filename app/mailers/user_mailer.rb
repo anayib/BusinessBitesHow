@@ -12,7 +12,7 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Bienvenido a BusinessHackers VIP!')
   end
 
-  def end_guset_account(user)
+  def end_guest_account(user)
     @user = user
     @url  = 'http://www.businessbites.how/'
     mail(to: @user.email, subject: 'Ha terminado tu periodo de prueba en BusinessHackers!')
