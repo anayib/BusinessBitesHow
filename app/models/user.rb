@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
       user.update(:vip_days => user.vip_days-=1)
       if user.vip_days == 0
         user.update(:role => 0)
-        puts "Mandar correo de aviso ya es usuario normal"
+        UserMailer.end_guest_account(user).deliver
       end
     end
   end
