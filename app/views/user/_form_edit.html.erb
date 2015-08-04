@@ -37,7 +37,12 @@
 
 <script>
 $(document).on("ready page:load", function() {
-  $('div#vip_days').hide();
+  var role = $('select#select_role').val();
+  if(role=="guest"){
+      $('div#vip_days').show();
+  } else {
+    $('div#vip_days').hide();
+  }
   $("select#select_role").change(function() {
     var role = $('select#select_role').val();
     if(role=="guest"){

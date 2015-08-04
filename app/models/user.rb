@@ -8,7 +8,7 @@
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
-#  sign_in_count          :integer          default("0"), not null
+#  sign_in_count          :integer          default(0), not null
 #  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
@@ -25,8 +25,8 @@
 #  confirmation_token     :string
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
-# 
-# Hirb.enable :output => {"User"=>{:options=>{:fields=>%w{id email role vip_days}}}}
+#  vip_days               :integer
+#
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
