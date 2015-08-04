@@ -6,6 +6,22 @@ class UserController < ApplicationController
 		@users = User.all
 	end
 
+	def new
+		  @user = User.new
+		end
+
+	def create
+  	@user = User.new(user_params)
+	  if @user.save
+	  	UserMailer.welcome_email(@user).deliver_now
+  	  flash[:notice] = "El usuario #{@user.email} fue creado con exito"
+  	  redirect_to user_index_path
+  	else
+  		flash[:alert] = "Ha ocurrido un error y el usuario #{@user.email}, no ha sido almacenado"
+    	render :action => 'new'
+  	end
+	end
+
 	def edit
 		@user = User.find(params[:id])
 	end
@@ -45,7 +61,7 @@ class UserController < ApplicationController
 
 	private
 		def user_params
-  		params.require(:user).permit(:name, :email, :role, :image, :password, :password_confirmation, { :course_ids => [] } )
+  		params.require(:user).permit(:name, :email, :vip_days, :role, :image, :password, :password_confirmation, { :course_ids => [] } )
 		end
 
 		def admin_only
