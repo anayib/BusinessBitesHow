@@ -45,7 +45,7 @@ class UserController < ApplicationController
 
 	private
 		def user_params
-  		params.require(:user).permit(:name, :email, :role, :image, :password, :password_confirmation, { :course_ids => [] } )
+  		params.require(:user).permit(:name, :email, :vip_days, :role, :image, :password, :password_confirmation, { :course_ids => [] } )
 		end
 
 		def admin_only
