@@ -14,12 +14,7 @@
       <% if current_user.admin? %>
         <div class="field form-group">
           <%= f.label :role, "Rol para este usuario", class: "lead lead-lg" %><br />
-          <%= f.select :role, options_for_select(User.roles.map {|k,v| [k.humanize,k]}, @user.role), {}, { :class => "form-control", :id => "select_role" } %>
-        </div>
-
-        <div class="field form-group" id="vip_days">
-          <%= f.label :vip_days, "Dias como usuario invitado:", class: "lead lead-lg" %>
-          <%= f.number_field :vip_days, :min => 0, class: "form-control" %>         
+          <%= f.select :role, options_for_select(User.roles.map {|k,v| [k.humanize,k]}, @user.role), {}, { :class => "form-control" } %>
         </div>
       <% end %>
 
@@ -34,22 +29,3 @@
   	<%= f.submit "Editar Usuario", class: "btn btn-ar btn-lg btn-success" %>
   </div>
 <% end %>
-
-<script>
-$(document).on("ready page:load", function() {
-  var role = $('select#select_role').val();
-  if(role=="guest"){
-      $('div#vip_days').show();
-  } else {
-    $('div#vip_days').hide();
-  }
-  $("select#select_role").change(function() {
-    var role = $('select#select_role').val();
-    if(role=="guest"){
-      $('div#vip_days').show();
-    } else {
-      $('div#vip_days').hide();
-    }
-  });
-});  
-</script>

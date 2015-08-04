@@ -17,7 +17,7 @@ class TopicsController < ApplicationController
 	private
 		def topic_access
 			if Topic.find(params[:id]).lesson.course.with_charge?
-				unless current_user.vip_user? || current_user.admin? || current_user.content_manager? || current_user.guest?
+				unless current_user.vip_user? || current_user.admin? || current_user.content_manager?
 					redirect_to root_path, :alert => "Lo sentimos, usted no posee una cuenta VIP, por lo tanto no puede ver el topic: #{Topic.find(params[:id]).title}."
 				end
 			end

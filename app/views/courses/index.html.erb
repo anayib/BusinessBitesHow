@@ -7,7 +7,7 @@
 					<th class="text-center lead lead-lg">No Guía</th>
 					<th class="text-center lead lead-lg">Imagen</th>
 					<th class="text-center lead lead-lg">Título</th>
-					<th class="text-center lead lead-lg">Tipo</th>
+					<th class="text-center lead lead-lg">Descripción</th>
 					<th class="text-center lead lead-lg">Opciones</th>
 				</tr>		
 				<% @courses.each_with_index do |course,index| %>							
@@ -19,7 +19,7 @@
 							<td class="lead lead-sm vert-align text-center"><%= image_tag course.image.url(:thumb) %></td>						
 						<% end %>						
 						<td class="lead lead-sm vert-align text-center"><%= course.title %></td>
-						<td class="lead lead-sm vert-align text-center"><%= course.course_type.humanize %></td>						
+						<td class="lead lead-sm vert-align text-center"><%= course.description %></td>						
 						<td class="lead lead-sm vert-align text-center" style="width: 15%">
 							<%= link_to '<i class="fa fa-eye text-center"></i>'.html_safe, course, class: "btn btn-ar btn-info", title: "Ver Guía" %>
 							<%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_course_path(course), class: "btn btn-ar btn-warning", title: "Editar Guía" %>
