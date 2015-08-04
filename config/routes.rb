@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   # Block route for devise registration controller
   devise_for :users
   root 'pages#home'
-  resources :user, :controller => "user"
+  resources :user, :controller => "user" do
+    collection { post :import }
+  end
   resources :courses
   resources :topics
   resources :instructors
