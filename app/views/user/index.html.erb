@@ -1,5 +1,25 @@
 <div class="container">
 	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<h1 class="text-center">Sistema para la creación de usuarios con CSV</h1>
+			<p class="text-center">El siguiente modulo le permite crear usuarios por medio de archivos de texto plano, a continuación le presentamos un ejemplo sobre como debe crear el archivo para realizar registros masivos en la plataforma. Seleccione el archivo desde su ubicación y haga click en el boton Importar Usuarios para agregar los nuevos registros.</p>
+		</div>				
+	</div>
+
+	<div class="row" style="margin-bottom: 30px;">
+		<div class="col-md-6 col-md-offset-3 text-center">
+			<img class="img-responsive img-thumbnail" alt="Responsive image" src="<%= asset_path('CSV.png') %>">
+		</div>
+	</div>
+	<div class="row" style="margin-bottom: 30px;">
+		<%= form_tag import_user_index_path, multipart: true do %>
+		  <div class="col-md-3 text-center col-md-offset-4 col-xs-7 col-sm-4 col-sm-offset-3">
+		    <%= file_field_tag :file, :class => 'user-upload' %>
+		  </div>
+		  <%= submit_tag "Importar Usuarios", :class => "btn btn-default" %>
+		<% end %>
+	</div>
+	<div class="row">
 		<h2 class="right-line">LISTADO DE USUARIOS REGISTRADOS</h2>
 		<div class="col-md-12">
 			<table class="table">
