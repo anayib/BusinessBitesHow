@@ -25,7 +25,8 @@
 #  confirmation_token     :string
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
-#
+# 
+# Hirb.enable :output => {"User"=>{:options=>{:fields=>%w{id email role vip_days}}}}
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
@@ -49,6 +50,18 @@ class User < ActiveRecord::Base
   def confirm!
     welcome_email
     super
+  end
+
+  def self.vip_days?
+    @users = User.where(role:4)
+    puts "Hay #{@users.count} usuarios registrados como invitados en Business Hackers"    
+    @users.each do |user|
+      user.update(:vip_days => user.vip_days-=1)
+      if user.vip_days == 0
+        user.update(:role => 0)
+        puts "Mandar correo de aviso ya es usuario normal"
+      end
+    end
   end
 
   def self.welcome_subscriptor_email(user)
