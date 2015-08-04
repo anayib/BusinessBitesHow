@@ -8,7 +8,7 @@
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
-#  sign_in_count          :integer          default(0), not null
+#  sign_in_count          :integer          default("0"), not null
 #  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
@@ -25,13 +25,12 @@
 #  confirmation_token     :string
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
-#  vip_days               :integer
 #
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  enum role: [:user, :content_manager, :admin, :vip_user, :guest]
+  enum role: [:user, :content_manager, :admin, :vip_user]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://i592.photobucket.com/albums/tt5/Mardini03/765-default-avatar.png"
@@ -52,28 +51,8 @@ class User < ActiveRecord::Base
     super
   end
 
-  def self.vip_days?
-    @users = User.where(role:4)
-    puts "Hay #{@users.count} usuarios registrados como invitados en Business Hackers"    
-    @users.each do |user|
-      user.update(:vip_days => user.vip_days-=1)
-      if user.vip_days == 0
-        user.update(:role => 0)
-        UserMailer.end_guest_account(user).deliver
-      end
-    end
-  end
-
   def self.welcome_subscriptor_email(user)
     UserMailer.welcome_subscriptor_email(user).deliver
-  end
-
-  def self.import(file)
-    if file != nil
-      CSV.foreach(file.path, headers: true) do |row|
-        User.create! row.to_hash
-      end
-    end
   end
 
   protected

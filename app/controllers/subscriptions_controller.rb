@@ -58,8 +58,6 @@ class SubscriptionsController < ApplicationController
 				redirect_to root_path, :alert => "Usted es gestor de contenido, por lo tanto no necesita una cuenta VIP en BusinessBites."
 			elsif current_user.admin?
 				redirect_to root_path, :alert => "Usted es administrador de este sitio WEB, por lo tanto no necesita una cuenta VIP en BusinessBites."
-			elsif current_user.guest?
-				redirect_to root_path, :alert => "Usted posee una cuenta como invitado en este sitio WEB, por lo tanto no necesita una cuenta VIP en BusinessBites."
 			end
 		end
 end
