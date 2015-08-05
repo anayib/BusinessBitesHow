@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get 'my_courses' => 'courses#my_courses'
   get 'welcome_new_user' => 'pages#welcome_video_user'
   get 'welcome_new_subscriptor' => 'pages#welcome_video_subscriptor'
+  get 'discourse/sso' => 'discourse_sso#sso'
 end
