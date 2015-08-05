@@ -149,7 +149,6 @@
     $('a:not(.no-modal)').on('click', function(e) {
       e.preventDefault();
       var url = $(this).attr('href');
-      alert(url);
       $('#sign_in_modal').find('a#sign_in_modal_url').attr('href',url);
       $('#sign_in_modal').modal('show');
     });
