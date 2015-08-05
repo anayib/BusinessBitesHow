@@ -249,15 +249,23 @@ a#courses_index_button {
 /* Discount */
 
 .discount {
-	background: #eb5e58; /* old browser */
-	border-radius: 0 4px 4px 0;
+	background: #eb5e58; /* old browser */	
 	color: #fff;
 	display: inline-block;
+	width: 140px;
 	float: left;
-	font-family: Oswald, Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-family: "Lato";
 	font-size: 16px;
-	font-weight: lighter;
-	height: 100%;
+	font-weight: bold;
 	padding: 3px 5px;
+	position: absolute;
+	-ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+  top: 20px;
+	right: -30px;
 }
 
+div.thumbnail {
+	overflow: hidden;
+}

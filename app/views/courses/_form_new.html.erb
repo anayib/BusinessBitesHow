@@ -22,6 +22,14 @@
 		  	<%= course.label :description, "Descripción de la guía:", class: "lead lead-lg" %>
 		  	<%= course.text_area :description, required: true, :rows => 5, class: "form-control", id: "new_user_email" %>
 		 	</div>
+
+		 	<div class="field form-group">
+		  	<%= course.label :new_course, "Estado de la guía:", class: "lead lead-lg" %>
+				<%= course.radio_button :new_course, true %>
+				<%= label_tag(:course_new, "Guia Nueva") %>
+				<%= course.radio_button :new_course, false %>
+				<%= label_tag(:course_new, "Guia Antigua") %>
+		 	</div>
 		</div>
 	</div>
 
