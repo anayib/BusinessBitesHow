@@ -31,7 +31,7 @@
 				<%= label_tag(:course_new, "Guia Antigua") %>
 		 	</div>
 
-		 	<div class="field form-group">
+		 	<div class="field form-group" id="new_course_days">
 		  	<%= course.label :new_course_days, "Número de dias como guía nueva:", class: "lead lead-lg" %>
 		  	<%= course.number_field :new_course_days, :min => 0, class: "form-control" %>  				
 		 	</div>
@@ -89,14 +89,19 @@
 
 <script>
 $(document).on("ready page:load", function() {
-	$("input[type=radio]").change(function() {
-	  var status = $('input[name="course[new_course]"]:checked').val();
-	  alert(status);
-	  // if(role=="guest"){
-	  //   $('div#vip_days').show();
-	  // } else {
-	  //   $('div#vip_days').hide();
-	  // }
+	var status = $('input[name="course[new_course]"]:checked').val();
+	if(status == "true"){
+    $('div#new_course_days').show();
+  } else {
+    $('div#new_course_days').hide();
+  }
+	$('input[type=radio]').change(function() {		
+	  status = $('input[name="course[new_course]"]:checked').val();
+	  if(status == "true" ){
+      $('div#new_course_days').show();
+	  } else {
+	    $('div#new_course_days').hide();
+	  }
 	});
 });  
 </script>
