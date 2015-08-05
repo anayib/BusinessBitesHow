@@ -5,7 +5,7 @@
       <% if @course.free? %>
       <%= link_to "ACCEDER A LA GUÍA", new_user_session_path, class: "btn btn-ar cta_button no-modal btn-lg" %>
       <% else %>
-        <a href=<%="/course_information?course_id=#{@course.id}#price-columns" %> class="call-to-action" id="payed_call_to_action">EMPEZAR AHORA $28,49/MES</a>
+        <a href=<%="/course_information?course_id=#{@course.id}#price-columns" %> class="call-to-action no-modal" id="payed_call_to_action">EMPEZAR AHORA $28,49/MES</a>
       <% end %>
     </div>
   </div>
@@ -98,9 +98,9 @@
                   <div class="pricing-box-footer">
                     <!-- <a href="#" class="btn btn-ar btn-default">Order Now</a> -->
                     <% if user_signed_in? %>
-                      <%= link_to 'ELEGIR PLAN MENSUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), style:"background-color:#8B8987", class: "call-to-action"%>
+                      <%= link_to 'ELEGIR PLAN MENSUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), style:"background-color:#8B8987", class: "call-to-action no-modal"%>
                     <% else %>
-                      <%= link_to 'ELEGIR PLAN MENSUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), style:"background-color:#8B8987", class: "call-to-action" %>
+                      <%= link_to 'ELEGIR PLAN MENSUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), style:"background-color:#8B8987", class: "call-to-action no-modal" %>
                     <% end %>
                   </div>
                 </div>
@@ -128,9 +128,9 @@
                     <!-- <a href="#" class="btn btn-ar btn-primary">Order Now</a> -->
 
                     <% if user_signed_in? %>
-                      <%= link_to 'ELEGIR PLAN ANUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_anual"), class: "call-to-action", style: "background: RGBA(94, 190, 30, 1)" %>
+                      <%= link_to 'ELEGIR PLAN ANUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_anual"), class: "call-to-action no-modal", style: "background: RGBA(94, 190, 30, 1)" %>
                     <% else %>
-                      <%= link_to 'ELEGIR PLAN ANUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_anual"), class: "call-to-action", style: "background: RGBA(94, 190, 30, 1)" %>
+                      <%= link_to 'ELEGIR PLAN ANUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_anual"), class: "call-to-action no-modal", style: "background: RGBA(94, 190, 30, 1)" %>
                     <% end %>
                   </div>
                 </div>
@@ -159,6 +159,8 @@
     <script>
       $(document).on('page:change', function(e) {
         e.preventDefault();
+        var url = $(this).attr('href');
+        $('#sign_in_modal').find('a#sign_in_modal_url').attr('href',url);
         $('#subscription_modal').modal('show');
       });
     </script>
