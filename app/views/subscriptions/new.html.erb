@@ -31,7 +31,7 @@
             <h3 class="text-center" style="color:black;"><strong>Elige uno de los siguientes planes:</strong></h3>
             <div class="row" id="plan_buttons">
               <div class="col-md-12 text-center">
-                <button class="btn-ar btn-default" data-name="Plan VIP Mensual" data-id="<%= Plan.find_by_stripe_id("mensual").id %>" data-price="19.99" id="mensual ">
+                <button class="btn-ar btn-default" data-name="Plan VIP Mensual" data-id="<%= Plan.find_by_stripe_id("mensual").id %>" data-price="28.49" id="mensual ">
                   Subscripción<br>$28.49 dólares/mes
                 </button>
                 <button class="btn-ar btn-warning" data-name="Plan VIP Anual" data-id="<%= Plan.find_by_stripe_id("anual").id %>" data-price="204.99" id="anual">
@@ -74,7 +74,7 @@
                 <span> / </span>
                 <input type="text" size="4" data-stripe="exp-year"/><br><br>
                 Total a pagar: <span id="plan_price">
-                  <%= "19.99 dólares/mes" if params[:subscription_plan] == "plan_mensual" %>
+                  <%= "28.49 dólares/mes" if params[:subscription_plan] == "plan_mensual" %>
                   <%= "204.99 dólares/año" if params[:subscription_plan] == "plan_anual" %>
                 </span>
               </div>

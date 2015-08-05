@@ -75,76 +75,70 @@
       <% if @course.free? %>
       <%= link_to "ACCEDER A LA GUÍA", new_user_session_path, class: "btn btn-ar cta_button btn-lg v-align" %>
       <% else %>
-
-
-
-      <div class="container">
-        <section id="price-columns">
-          <div class="row">
-            <div class="col-md-6 col-sm-6">
-              <div class="pricign-box animated fadeInUp animation-delay-7">
-                <div class="pricing-box-header">
-                  <h2>Subscripción Mensual</h2>
-                </div>
-                <div class="pricing-box-price">
-                  <h3 style="color: black">$28,49 <sub> dólares/mes</sub> </h3>
-                </div>
-                <div class="pricing-box-content">
-                  <ul class="text-center">
-                    <li>Accede a nuevas guías todas las semanas</li>
-                    <li>Acceso ilimitado a todas las guías del repositorio</li> <li>Acceso ilimitado a la comunidad VIP de BusinessHackers mientras estés suscrito</li>                
-                    <li>Pagas mes a mes</li>
-                    <li>Sin permanencias, cancelas si no quieres continuar</li>
-                    <li>*Puedes cancelar tu suscripción recurrente mensual en cualquier momento</li>
-                  </ul>
-                </div>
-                <div class="pricing-box-footer">
-                  <!-- <a href="#" class="btn btn-ar btn-default">Order Now</a> -->
-                  <% if user_signed_in? %>
-                    <%= link_to 'ELEGIR PLAN MENSUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), style:"background-color:#8B8987", class: "call-to-action"%>
-                  <% else %>
-                    <%= link_to 'ELEGIR PLAN MENSUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), style:"background-color:#8B8987", class: "call-to-action" %>
-                  <% end %>
+        <div class="container">
+          <section id="price-columns">
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <div class="pricign-box animated fadeInUp animation-delay-7">
+                  <div class="pricing-box-header">
+                    <h2>Subscripción Mensual</h2>
+                  </div>
+                  <div class="pricing-box-price">
+                    <h3 style="color: black">$28,49 <sub> dólares/mes</sub> </h3>
+                  </div>
+                  <div class="pricing-box-content">
+                    <ul class="text-center">
+                      <li>Accede a nuevas guías todas las semanas</li>
+                      <li>Acceso ilimitado a todas las guías del repositorio</li> <li>Acceso ilimitado a la comunidad VIP de BusinessHackers mientras estés suscrito</li>                
+                      <li>Pagas mes a mes</li>
+                      <li>Sin permanencias, cancelas si no quieres continuar</li>
+                      <li>*Puedes cancelar tu suscripción recurrente mensual en cualquier momento</li>
+                    </ul>
+                  </div>
+                  <div class="pricing-box-footer">
+                    <!-- <a href="#" class="btn btn-ar btn-default">Order Now</a> -->
+                    <% if user_signed_in? %>
+                      <%= link_to 'ELEGIR PLAN MENSUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), style:"background-color:#8B8987", class: "call-to-action"%>
+                    <% else %>
+                      <%= link_to 'ELEGIR PLAN MENSUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), style:"background-color:#8B8987", class: "call-to-action" %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-              <div class="pricign-box pricign-box-pro animated fadeInUp animation-delay-9">
-                <div class="pricing-box-header">
-                  <h2>Subscripción Anual</h2>
-                </div>
-                <div class="pricing-box-price">
-                  <h3><span style="text-decoration: line-through; color:black">$341,88</span> <span style="color:RGBA(198, 39, 23, 1)">$204,99</span><sub>dólares/año</sub> </h3>
-                </div>
-                <div class="pricing-box-content">
-                   <ul class="text-center">
-                    <li><h2><strong>Ahorras 40%!</strong></h2></li>
-                    <li>Accede a nuevas guías todas las semanas</li>
-                    <li>Acceso ilimitado a todas las guías del repositorio</li>
-                    <li>Acceso ilimitado a la comunidad VIP de BusinessHackers mientras estés suscrito</li>
-                    <li>Pagas cada año</li>
-                    <li>Sin permanencias, cancelas si no quieres continuar</li>
-                    <li>*Puedes cancelar tu suscripción recurrente anual en cualquier momento</li>
-                  </ul>
-                </div>
-                <div class="pricing-box-footer">
-                  <!-- <a href="#" class="btn btn-ar btn-primary">Order Now</a> -->
+              <div class="col-md-6 col-sm-6">
+                <div class="pricign-box pricign-box-pro animated fadeInUp animation-delay-9">
+                  <div class="pricing-box-header">
+                    <h2>Subscripción Anual</h2>
+                  </div>
+                  <div class="pricing-box-price">
+                    <h3><span style="text-decoration: line-through; color:black">$341,88</span> <span style="color:RGBA(198, 39, 23, 1)">$204,99</span><sub>dólares/año</sub> </h3>
+                  </div>
+                  <div class="pricing-box-content">
+                     <ul class="text-center">
+                      <li><h2><strong>Ahorras 40%!</strong></h2></li>
+                      <li>Accede a nuevas guías todas las semanas</li>
+                      <li>Acceso ilimitado a todas las guías del repositorio</li>
+                      <li>Acceso ilimitado a la comunidad VIP de BusinessHackers mientras estés suscrito</li>
+                      <li>Pagas cada año</li>
+                      <li>Sin permanencias, cancelas si no quieres continuar</li>
+                      <li>*Puedes cancelar tu suscripción recurrente anual en cualquier momento</li>
+                    </ul>
+                  </div>
+                  <div class="pricing-box-footer">
+                    <!-- <a href="#" class="btn btn-ar btn-primary">Order Now</a> -->
 
-                  <% if user_signed_in? %>
-                    <%= link_to 'ELEGIR PLAN ANUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_anual"), class: "call-to-action", style: "background: RGBA(94, 190, 30, 1)" %>
-                  <% else %>
-                    <%= link_to 'ELEGIR PLAN ANUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_anual"), class: "call-to-action", style: "background: RGBA(94, 190, 30, 1)" %>
-                  <% end %>
+                    <% if user_signed_in? %>
+                      <%= link_to 'ELEGIR PLAN ANUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_anual"), class: "call-to-action", style: "background: RGBA(94, 190, 30, 1)" %>
+                    <% else %>
+                      <%= link_to 'ELEGIR PLAN ANUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_anual"), class: "call-to-action", style: "background: RGBA(94, 190, 30, 1)" %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div> <!-- row -->
-        </section>
-
-      </div> <!-- container -->
-
+            </div> <!-- row -->
+          </section>
+        </div> <!-- container -->
       <% end %>
-
     </div>
   </div>
 </div>
