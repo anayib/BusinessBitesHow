@@ -246,3 +246,18 @@ a#courses_index_button {
 	}	
 }
 
+/* Discount */
+
+.discount {
+	background: #eb5e58; /* old browser */
+	border-radius: 0 4px 4px 0;
+	color: #fff;
+	display: inline-block;
+	float: left;
+	font-family: Oswald, Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-weight: lighter;
+	height: 100%;
+	padding: 3px 5px;
+}
+
