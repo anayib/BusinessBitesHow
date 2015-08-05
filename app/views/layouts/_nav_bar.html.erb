@@ -15,13 +15,13 @@
 				<% if user_signed_in? %>
 					<li><%= link_to 'HacksBlog', root_path(anchor: 'user-courses') %></li>
 					<li class="dropdown">
-				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Guías</a>
+				    <a href="javascript:void(0);" class="dropdown-toggle no-modal" data-toggle="dropdown">Guías</a>
 				     <ul class="dropdown-menu dropdown-menu-left">
 							<li><%= link_to 'Todos las Guías', root_path(anchor: 'user-courses') %></li>
 							<% if current_user.subscription.nil? %>
-								<li><%= link_to 'Cuenta VIP', new_subscription_path %></li>
+								<li><%= link_to 'Cuenta VIP', new_subscription_path, class: "no-modal" %></li>
 							<% else %>		
-								<li><%= link_to 'Editar Tarjeta de Crédito', edit_subscription_path(current_user.subscription.id) %></li>
+								<li><%= link_to 'Editar Tarjeta de Crédito', edit_subscription_path(current_user.subscription.id), class: "no-modal" %></li>
 							<% end %>
 				    </ul>
 					</li> 							         
@@ -29,55 +29,55 @@
         <% if user_signed_in? && current_user.admin? %>
         	<li><%= link_to 'Comunidad', "http://community.businesshackers.how", :target => '_blank' %></li>
 					<li class="dropdown">
-				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Opciones Administrador</a>
+				    <a href="javascript:void(0);" class="dropdown-toggle no-modal" data-toggle="dropdown">Opciones Administrador</a>
 				     <ul class="dropdown-menu dropdown-menu-left">
-			        <li><%= link_to 'Usuarios Registrados', user_index_path %></li>
+			        <li><%= link_to 'Usuarios Registrados', user_index_path, class: "no-modal" %></li>
 			        <li role="separator" class="divider"></li>
-			        <li><%= link_to 'Crear Guías', new_course_path %></li>
-			        <li><%= link_to 'Guías Publicadas', courses_path %></li>
+			        <li><%= link_to 'Crear Guías', new_course_path, class: "no-modal" %></li>
+			        <li><%= link_to 'Guías Publicadas', courses_path, class: "no-modal" %></li>
 			        <li role="separator" class="divider"></li>
-			        <li><%= link_to 'Crear Instructores', new_instructor_path %></li>
-			        <li><%= link_to 'Instructores Registrados', instructors_path %></li>
+			        <li><%= link_to 'Crear Instructores', new_instructor_path, class: "no-modal" %></li>
+			        <li><%= link_to 'Instructores Registrados', instructors_path, class: "no-modal" %></li>
 			        <li role="separator" class="divider"></li>
-			        <li><%= link_to 'Crear Categoría', new_category_path %></li>
-			        <li><%= link_to 'Categorías Almacenadas', categories_path %></li>
+			        <li><%= link_to 'Crear Categoría', new_category_path, class: "no-modal" %></li>
+			        <li><%= link_to 'Categorías Almacenadas', categories_path, class: "no-modal" %></li>
 				    </ul>
 					</li> 
-        	<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>
+        	<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class: "no-modal" %></li>
         <% elsif user_signed_in? && current_user.content_manager? %>
-        	<li><%= link_to 'Comunidad', "http://community.businesshackers.how", :target => '_blank' %></li>
+        	<li><%= link_to 'Comunidad', "http://community.businesshackers.how", :target => '_blank', class: "no-modal" %></li>
 					<li class="dropdown">
-				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Gestión de Guías</a>
+				    <a href="javascript:void(0);" class="dropdown-toggle no-modal" data-toggle="dropdown">Gestión de Guías</a>
 				     <ul class="dropdown-menu dropdown-menu-left">
-			        <li><%= link_to 'Crear Guías', new_course_path %></li>
-			        <li><%= link_to 'Guías Publicadas', courses_path %></li>
+			        <li><%= link_to 'Crear Guías', new_course_path, class: "no-modal" %></li>
+			        <li><%= link_to 'Guías Publicadas', courses_path, class: "no-modal" %></li>
 				    </ul>
 					</li>
 					<li class="dropdown">
-				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Gestión de Instructores</a>
+				    <a href="javascript:void(0);" class="dropdown-toggle no-modal" data-toggle="dropdown">Gestión de Instructores</a>
 				     <ul class="dropdown-menu dropdown-menu-left">
-			        <li><%= link_to 'Crear Instructores', new_instructor_path %></li>
-			        <li><%= link_to 'Instructores Registrados', instructors_path %></li>
+			        <li><%= link_to 'Crear Instructores', new_instructor_path, class: "no-modal" %></li>
+			        <li><%= link_to 'Instructores Registrados', instructors_path, class: "no-modal" %></li>
 				    </ul>
 					</li> 
 					<li class="dropdown">
-				    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Categorías</a>
+				    <a href="javascript:void(0);" class="dropdown-toggle no-modal" data-toggle="dropdown">Categorías</a>
 				     <ul class="dropdown-menu dropdown-menu-left">
-			        <li><%= link_to 'Crear Categoría', new_category_path %></li>
-			        <li><%= link_to 'Categorías Almacenadas', categories_path %></li>
+			        <li><%= link_to 'Crear Categoría', new_category_path, class: "no-modal" %></li>
+			        <li><%= link_to 'Categorías Almacenadas', categories_path, class: "no-modal" %></li>
 				    </ul>
 					</li>  
-        	<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>
+        	<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class: "no-modal" %></li>
         <% elsif user_signed_in? && ( current_user.user? || current_user.vip_user? || current_user.guest? ) %>
         	<% if current_user.vip_user? || current_user.guest? %>					
-						<li><%= link_to 'Comunidad', "http://community.businesshackers.how", :target => '_blank' %></li>	
+						<li><%= link_to 'Comunidad', "http://community.businesshackers.how", :target => '_blank', class: "no-modal" %></li>	
 					<% end %>						
 					<li class="dropdown">
-						<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+						<a href="javascript:void(0);" class="dropdown-toggle no-modal" data-toggle="dropdown">
 						<img alt="" class="thumb userMenu-thumb" height="40" src="https://photos-4.dropbox.com/t/2/AABhKo2Z0s-Q76AEV61jv0apQ-53a_RwJGCbH3WYXqKMaA/12/31276713/png/32x32/1/_/1/2/business_hacker_icon.png/EPSa1hcYjLcIIAEgAigB/YSiIxNfyYPVnVB1ZAaahx8oKngDgcJL9czn08zg6xnM?size=1024x768&size_mode=2"></a>
 						<ul class="dropdown-menu">
-							<li><%= link_to 'Editar Perfil', edit_user_path(current_user) %></li>
-							<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>   
+							<li><%= link_to 'Editar Perfil', edit_user_path(current_user), class: "no-modal" %></li>
+							<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class: "no-modal" %></li>   
 						</ul>
 					</li>								         
 			  <% else %>

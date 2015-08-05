@@ -157,10 +157,10 @@
   <% if current_user.user? && @course.with_charge? && current_user.subscription.nil? %>
     <%= render 'layouts/subscription_modal' %>
     <script>
-      $(document).on('page:change', function(e) {
+      $('a:not(.no-modal)').on('click', function(e) {
         e.preventDefault();
         var url = $(this).attr('href');
-        $('#sign_in_modal').find('a#sign_in_modal_url').attr('href',url);
+        $('#subscription_modal').find('a#subscription_modal_url').attr('href',url);
         $('#subscription_modal').modal('show');
       });
     </script>
