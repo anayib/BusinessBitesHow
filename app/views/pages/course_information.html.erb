@@ -3,7 +3,7 @@
     <div id="course_information_text" class="col-md-12 text-center">
       <h1 id="course_information_title"><%= @course.title %></h1>
       <% if @course.free? %>
-      <%= link_to "ACCEDER A LA GUÍA", new_user_session_path, class: "btn btn-ar cta_button btn-lg" %>
+      <%= link_to "ACCEDER A LA GUÍA", new_user_session_path, class: "btn btn-ar cta_button no-modal btn-lg" %>
       <% else %>
         <a href=<%="/course_information?course_id=#{@course.id}#price-columns" %> class="call-to-action" id="payed_call_to_action">EMPEZAR AHORA $28,49/MES</a>
       <% end %>
@@ -73,7 +73,7 @@
     <div class="col-md-12 text-center">
 
       <% if @course.free? %>
-      <%= link_to "ACCEDER A LA GUÍA", new_user_session_path, class: "btn btn-ar cta_button btn-lg v-align" %>
+      <%= link_to "ACCEDER A LA GUÍA", new_user_session_path, class: "btn btn-ar cta_button no-modal btn-lg v-align" %>
       <% else %>
         <div class="container">
           <section id="price-columns">
@@ -143,152 +143,25 @@
   </div>
 </div>
 
-<style>
-  .teacher-container{
-    margin-bottom:4em;
-  }
-  .teacher-container p{
-    padding: 0 1em;
-  }
-  .teacher-container .row {
-    margin-bottom:2em;
-  }
-  .img-teacher{
-    border-radius: 50%;
-    border: 5px solid #FFF;
-  }
-
-  @media screen and (min-width: 768px) {
-    .img-teacher{
-      width: 180px;
-    }
-    a.cta_button {
-      padding: 15px 75px 15px 75px;
-    }
-  }
-  @media screen and (max-width: 768px) {
-    .img-teacher{
-      width: 200px;
-    }
-    .teacher-container h2{
-      text-align:center;
-    }
-
-  }
-  a.cta_button {
-    font-size: 2em;
-    background-color: #F6921E!important;
-    color: white;
-  }
-  a.cta_button:hover {
-    color: white;
-  }
-
-  .darken-image {
-    /*max-height: 500px;*/
-    overflow: hidden;
-    background-image:
-    linear-gradient(
-      rgba(0, 0, 0, 0.65),
-      rgba(70, 70, 70, 0.5),
-      rgba(255, 255, 255, 1)
-      ),
-    url('<%= @course.image.url %>');
-    background-position: center;
-    padding-bottom:4em;
-  }
-
-  div#course_information_text {
-    margin-top: 50px;
-  }
-  #course_information_text{
-    padding-bottom:3em;
-  }
-  div#course_information_text h1#course_information_title{
-    /*margin-bottom: 60px;*/
-    margin-top: 2em;
-    /*padding-bottom:2em;*/
-    font-size: 60px;
-    color: white;
-    /*color: #595959;*/
-    font-weight: bold;
-  }
-
-  .vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
-  }
-
-  div#teacher_course:first-child {
-    margin-top: -130px;
-  }
-
-  div#teacher_course:not(:first-child) {
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
-
-  div#teacher_information {
-    background-color: rgba(128, 128, 128, 0.4);
-    border-radius: 15px;
-  }
-  div#teacher_information h2{
-    font-weight: bold;
-    font-size: 35px;
-  }
-  div#teacher_information p{
-    font-weight: bold;
-    color: white;
-  }
-  div#first_topic_video {
-    margin-top: 50px;
-  }
-  h3#course_title {
-    font-size: 25px;
-    font-weight: bold;
-  }
-
-  @media all and (max-width: 460px) {
-    a#payed_call_to_action {
-      font-size: 11px;      
-    }
-
-    div#course_information_text h1#course_information_title{
-      font-size: 25px;
-    }
-
-    a.cta_button {
-      font-size: 12px;
-    }
-  }
-
-  @media (min-width: 461px) and (max-width:720px) {
-    a#payed_call_to_action {
-      font-size: 13px;      
-    }
-
-    div#course_information_text h1#course_information_title{
-      font-size: 35px;
-    }
-
-    a.cta_button {
-      font-size: 14px;
-    }
-  }
-
-  @media (min-width: 721px) and (max-width:920px) {
-    a#payed_call_to_action {
-      font-size: 16px;      
-    }
-
-    div#course_information_text h1#course_information_title{
-      font-size: 45px;
-    }
-
-    a.cta_button {
-      font-size: 17px;
-    }
-  }
-
-</style>
+<% if !user_signed_in? && @course.free? %>
+  <%= render 'layouts/sign_in_modal' %>
+  <script>
+    $('a:not(.no-modal)').on('click', function(e) {
+      e.preventDefault();
+      var url = $(this).attr('href');
+      alert(url);
+      $('#sign_in_modal').find('a#sign_in_modal_url').attr('href',url);
+      $('#sign_in_modal').modal('show');
+    });
+  </script>
+<% elsif user_signed_in? %>
+  <% if current_user.user? && @course.with_charge? && current_user.subscription.nil? %>
+    <%= render 'layouts/subscription_modal' %>
+    <script>
+      $(document).on('page:change', function(e) {
+        e.preventDefault();
+        $('#subscription_modal').modal('show');
+      });
+    </script>
+  <% end %>
+<% end %>
