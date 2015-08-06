@@ -32,6 +32,11 @@ class PagesController < ApplicationController
 		
 	end
 
+	def search_by_category
+		@categories = Category.all
+		@courses = Course.all
+	end
+
 
 	private
 		def has_subscription?

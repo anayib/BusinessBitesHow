@@ -15,4 +15,5 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require bootstrap-filestyle.min.js
+//= require jquery.isotope.min
 //= require_tree .
