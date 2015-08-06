@@ -442,7 +442,35 @@ span.option-selected, li a.filter, span.caret {
 }
 
 li a.filter {
-	font-size: 2.3em;
-	font-weight: bold;
 	color: #666;
+}
+
+@media all and (max-width: 660px) {
+	h1.dropdown-text, span.option-selected, li a.filter, span.caret {
+		font-size: 25px !important;
+	}
+}
+
+@media all and (max-width: 530px) {
+	div#search_header {		
+		height: 130px;
+	}
+	h3#search_title {
+		font-size: 17px;
+	}
+	h1.dropdown-text, span.option-selected, li a.filter, span.caret {
+		font-size: 20px !important;
+	}
+}
+
+@media all and (max-width: 440px) {
+	div#search_header {		
+		height: 120px;
+	}
+	h3#search_title {
+		font-size: 15px;
+	}
+	h1.dropdown-text, span.option-selected, li a.filter, span.caret {
+		font-size: 17px !important;
+	}
 }
