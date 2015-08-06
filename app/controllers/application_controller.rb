@@ -14,21 +14,6 @@ class ApplicationController < ActionController::Base
       course = Course.find(params[:course_id]) if params[:course_id]
     end
   	if user_signed_in? && current_user.sign_in_count == 1
-      ####
-      # unless params[:course_id].empty?
-      #   if course.course_type == "with_charge"
-      #     new_subscription_path(:subscription_plan => params[:subscription_plan])
-      #   else
-      # 		welcome_new_user_path
-      #   end
-      # else
-      #   if params[:subscription] == true
-      #     new_subscription_path
-      #   else
-      #     welcome_new_user_path
-      #   end
-      # end
-      ####
       if (params.has_key?(:course_id))
         if course.course_type == "with_charge"
           new_subscription_path(:subscription_plan => params[:subscription_plan])
@@ -42,7 +27,6 @@ class ApplicationController < ActionController::Base
           welcome_new_user_path
         end
       end
-      ####
   	else
     	session[:previous_url] || root_path
   	end

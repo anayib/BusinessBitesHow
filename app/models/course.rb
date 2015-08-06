@@ -28,4 +28,15 @@ class Course < ActiveRecord::Base
 	has_and_belongs_to_many :categories
 	accepts_nested_attributes_for :lessons, :reject_if => :all_blank, allow_destroy: true
   validates_associated :lessons
+
+  def self.has_new_course_days?
+    @courses = Course.where(new_course: true)
+    puts "Hay #{@courses.count} cursos marcados como nuevos"    
+    @courses.each do |course|
+      course.update(:new_course_days => course.new_course_days-=1)
+      if course.new_course_days == 0
+        course.update(:new_course => false)
+      end
+    end
+  end
 end
