@@ -1,1 +1,38 @@
-Buscar cursos por categoria
+<div class="container-fluid" id="search_header">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h3 id="search_title">Escoge una de las siguientes categorias en la lista</h3>
+			<h1 class="dropdown-text">Quiero aprender de: 
+				<div class="dropdown" id="categories_dropdown">
+				  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				    todo
+				    <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				  	<% @categories.each do |categorie| %>
+							<li><%= link_to categorie.name.camelize(:lower), "#" %></li>
+				  	<% end %>
+				  </ul>
+				</div>
+			</h1>
+		</div>
+	</div>
+</div>
+
+<style>
+	div#search_header {
+		background-color: #f6f6f6;
+		height: 200px;
+	}
+
+	h1.dropdown-text {
+		color: #666!important;
+		font-weight: bold;
+	}
+	h3#search_title {
+		font-weight: 300;
+	}
+	div#categories_dropdown {
+		display: inline-block;
+	}
+</style>

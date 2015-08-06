@@ -33,6 +33,7 @@ class PagesController < ApplicationController
 	end
 
 	def search_by_category
+		@categories = Category.all
 	end
 
 
