@@ -32,6 +32,9 @@ class PagesController < ApplicationController
 		
 	end
 
+	def search_by_category
+	end
+
 
 	private
 		def has_subscription?
