@@ -417,3 +417,32 @@ h3#course_title {
     font-size: 17px;
   }
 }
+
+/* APRENDER DE .... */
+div#search_header {
+	background-color: #f6f6f6;
+	height: 150px;
+	margin-bottom: 30px;
+}
+
+h1.dropdown-text {
+	color: #666!important;
+	font-weight: bold;
+}
+h3#search_title {
+	font-weight: 300;
+}
+div#categories_dropdown {
+	display: inline-block;
+}
+span.option-selected, li a.filter, span.caret {
+	font-size: 2.3em;
+	font-weight: bold;
+	color: #5ebe1e;
+}
+
+li a.filter {
+	font-size: 2.3em;
+	font-weight: bold;
+	color: #666;
+}
