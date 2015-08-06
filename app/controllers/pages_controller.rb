@@ -34,6 +34,7 @@ class PagesController < ApplicationController
 
 	def search_by_category
 		@categories = Category.all
+		@courses = Course.all
 	end
 
 
