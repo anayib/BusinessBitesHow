@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   get 'welcome_new_user' => 'pages#welcome_video_user'
   get 'welcome_new_subscriptor' => 'pages#welcome_video_subscriptor'
   get 'discourse/sso' => 'discourse_sso#sso'
+  get 'search_by_category' => 'pages#search_by_category'
 end

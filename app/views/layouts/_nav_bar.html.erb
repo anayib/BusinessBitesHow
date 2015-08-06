@@ -12,6 +12,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">   
+      	<li><%= link_to 'Aprender de..', search_by_category_path %></li>
 				<% if user_signed_in? %>
 					<li><%= link_to 'HacksBlog', root_path(anchor: 'user-courses') %></li>
 					<li class="dropdown">
@@ -81,7 +82,7 @@
 						</ul>
 					</li>								         
 			  <% else %>
-			  	<li><%= link_to 'Blog', root_path(anchor: 'user-courses') %></li>
+			  	<li><%= link_to 'HacksBlog', root_path(anchor: 'user-courses') %></li>
 			  	<li><%= link_to 'FAQ', root_path(anchor: 'user-courses') %></li>
 			  	<li><%= link_to 'Guías', root_path(anchor: 'user-courses') %></li>
 			  	<li><%= link_to 'Iniciar Sesión', new_user_session_path, class: "no-modal" %></li> 
