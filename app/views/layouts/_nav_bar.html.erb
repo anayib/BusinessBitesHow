@@ -73,8 +73,8 @@
 						<li><%= link_to 'Comunidad', "http://community.businesshackers.how", :target => '_blank', class: "no-modal" %></li>	
 					<% end %>						
 					<li class="dropdown">
-						<a href="javascript:void(0);" class="dropdown-toggle no-modal" data-toggle="dropdown">
-						<img alt="" class="thumb userMenu-thumb" height="40" src="https://photos-4.dropbox.com/t/2/AABhKo2Z0s-Q76AEV61jv0apQ-53a_RwJGCbH3WYXqKMaA/12/31276713/png/32x32/1/_/1/2/business_hacker_icon.png/EPSa1hcYjLcIIAEgAigB/YSiIxNfyYPVnVB1ZAaahx8oKngDgcJL9czn08zg6xnM?size=1024x768&size_mode=2"></a>
+						<a href="javascript:void(0);" class="dropdown-toggle no-modal" data-toggle="dropdown" style="padding: 6px 30px 5px 15px;">
+						<img alt="" class="thumb userMenu-thumb" height="40" src="<%= current_user.image.url(:thumb) %>"></a>
 						<ul class="dropdown-menu">
 							<li><%= link_to 'Editar Perfil', edit_user_path(current_user), class: "no-modal" %></li>
 							<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class: "no-modal" %></li>   
