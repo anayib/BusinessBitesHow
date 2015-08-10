@@ -1,3 +1,7 @@
+<script>
+	 mixpanel.track_links("#CrearCuentaGratisTop", "Crear Cuenta Gratis Top clicked");
+</script>
+
 <nav class="navbar navbar-static-top navbar-default navbar-inverse" role="navigation" id="header">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -86,7 +90,7 @@
 			  	<li><%= link_to 'FAQ', root_path(anchor: 'user-courses') %></li>
 			  	<li><%= link_to 'Guías', root_path(anchor: 'user-courses') %></li>
 			  	<li><%= link_to 'Iniciar Sesión', new_user_session_path, class: "no-modal" %></li> 
-			  	<li><%= link_to 'Crea Una Cuenta Gratis', new_user_registration_path, class: "call-to-action no-modal" %></li> 
+			  	<li><%= link_to 'Crea Una Cuenta Gratis', new_user_registration_path, id:"CrearCuentaGratisTop",class: "call-to-action no-modal" %></li> 
 			  <% end %>                        
       </ul>
     </div><!-- navbar-collapse -->

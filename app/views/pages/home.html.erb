@@ -1,3 +1,10 @@
+<script>
+  mixpanel.track("Video play");
+  mixpanel.track("Home_Loaded",{"Page Name": "Home_Loaded"});
+  mixpanel.track_links("#EmprezarAhoraHome", "Empezar Ahora clicked CTA");
+  mixpanel.track_links("#AccederAhoraHomeBottom", "Acceder Ahora clicked CTA");
+</script>
+
 <div id="sb-site">
 <div class="boxed">
 
@@ -14,7 +21,7 @@
         <h1 class="head-title" style="text-align:left; color:rgb(160, 206, 23)">¿Cómo cambiaría tu vida si aprendieras a crear negocios innovadores?</h1>
         <h2 class="secondary-color head-subtitle" style="color:white" >BusinessHackers es el repositorio de guías prácticas, paso a paso,  para crear y crecer negocios rentables apalancados en tecnología</h2> <br>
         <% if !user_signed_in? %> <br>
-          <%= link_to 'EMPEZAR AHORA', root_path(anchor: 'user-courses'),class: "btn-warning btn-lg" %>
+          <%= link_to 'EMPEZAR AHORA', root_path(anchor: 'user-courses'), id: "EmprezarAhoraHome",class: "btn-warning btn-lg"%>
           <%#= link_to 'EMPEZAR AHORA', plans_information_path(:subscription => true), class: "btn-warning btn-lg" %>   
         <% elsif user_signed_in? && current_user.subscription.nil? %>
           <%#= link_to 'EMPEZAR AHORA', root_path(anchor: 'user-courses'),class: "btn-warning btn-lg" %>
@@ -212,5 +219,5 @@
 
 <% unless user_signed_in?%>
   <center><strong><h2 style="color:rgb(16, 37, 63)">A todos aquellos que no tienen la suerte de pertenecer a la comunidad VIP de BusinessHackers, los invitamos a acceder gratis a las guías de muestra </h2></center></strong> <br>
-  <center><%= link_to 'ACCEDER AHORA', new_user_registration_path, class: "btn-warning btn-lg" %></center>
+  <center><%= link_to 'ACCEDER AHORA', new_user_registration_path, id: "AccederAhoraHomeBottom", class: "btn-warning btn-lg"%></center>
 <% end %>
