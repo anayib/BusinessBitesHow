@@ -16,13 +16,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">   
-      	<li><%= link_to 'Aprender de..', search_by_category_path %></li>
-				<% if user_signed_in? %>
-					<li><%= link_to 'HacksBlog', root_path(anchor: 'user-courses') %></li>
+      	<!-- <li><%#= link_to 'Buscar Guía', search_by_category_path %></li>
+				<% if user_signed_in? %> -->
+					<!-- <li><%#= link_to 'HacksBlog', root_path(anchor: 'user-courses') %></li> -->
 					<li class="dropdown">
 				    <a href="javascript:void(0);" class="dropdown-toggle no-modal" data-toggle="dropdown">Guías</a>
 				     <ul class="dropdown-menu dropdown-menu-left">
-							<li><%= link_to 'Todos las Guías', root_path(anchor: 'user-courses') %></li>
+							<li><%= link_to 'Todos las Guías', search_by_category_path %></li>
 							<% if current_user.subscription.nil? %>
 								<li><%= link_to 'Cuenta VIP', new_subscription_path, class: "no-modal" %></li>
 							<% else %>		
@@ -86,9 +86,9 @@
 						</ul>
 					</li>								         
 			  <% else %>
-			  	<li><%= link_to 'HacksBlog', root_path(anchor: 'user-courses') %></li>
-			  	<li><%= link_to 'FAQ', root_path(anchor: 'user-courses') %></li>
-			  	<li><%= link_to 'Guías', root_path(anchor: 'user-courses') %></li>
+			  	<!-- <li><%#= link_to 'HacksBlog', root_path(anchor: 'user-courses') %></li> -->
+			  	<li><%= link_to 'FAQ', faq_path %></li>
+			  	<li><%= link_to 'Guías', search_by_category_path %></li>
 			  	<li><%= link_to 'Iniciar Sesión', new_user_session_path, class: "no-modal" %></li> 
 			  	<li><%= link_to 'Crea Una Cuenta Gratis', new_user_registration_path, id:"CrearCuentaGratisTop",class: "call-to-action no-modal" %></li> 
 			  <% end %>                        

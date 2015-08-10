@@ -97,7 +97,7 @@
                  <div class="tab-pane active" id="messages2">
                     <h3 style="color: rgb(16, 37, 63)">¿Tienes preguntas?</h3>
                     <p>No eres el único. Entérate de que están hablando los BusinessHackers</p><br>
-                    <%= link_to 'Preguntar a la Comunidad VIP', topic_path(anchor: 'messages2'), class: "btn-warning btn" %>
+                    <a href="http://community.businesshackers.how" class="btn-warning btn" target="_blank">Preguntar a la Comunidad VIP</a>
                 </div>   
                 <div class="tab-pane" id="transcription">                    
                     <%= @topic.transcription.html_safe %>

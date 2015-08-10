@@ -21,7 +21,7 @@
         <h1 class="head-title" style="text-align:left; color:rgb(160, 206, 23)">¿Cómo cambiaría tu vida si aprendieras a crear negocios innovadores?</h1>
         <h2 class="secondary-color head-subtitle" style="color:white" >BusinessHackers es el repositorio de guías prácticas, paso a paso,  para crear y crecer negocios rentables apalancados en tecnología</h2> <br>
         <% if !user_signed_in? %> <br>
-          <%= link_to 'EMPEZAR AHORA', root_path(anchor: 'user-courses'), id: "EmprezarAhoraHome",class: "btn-warning btn-lg"%>
+          <%= link_to 'EMPEZAR AHORA', search_by_category_path, id: "EmprezarAhoraHome",class: "btn-warning btn-lg"%>
           <%#= link_to 'EMPEZAR AHORA', plans_information_path(:subscription => true), class: "btn-warning btn-lg" %>   
         <% elsif user_signed_in? && current_user.subscription.nil? %>
           <%#= link_to 'EMPEZAR AHORA', root_path(anchor: 'user-courses'),class: "btn-warning btn-lg" %>
@@ -142,12 +142,16 @@
   </div>
 <% end %>  
 
+<!-- INICIA BUSCADOR DE GUÍAS-->
+
+<!-- TERMINA BUSCADOR DE GUÍAS-->
+
 <!-- TERMINA GUIAS GRATUITAS -->
 <div class="container"> <!-- INICIA TODAS LAS GUÍAS--> 
   <section class="margin-bottom" id="user-courses">
     <div class="row">
       <div class="col-md-12">
-          <h2 class="right-line">QUÉ QUIERES APRENDER HOY?</h2>
+          <h2 class="right-line">QUIERO SABER CÓMO</h2>
       </div>
 
       <% @courses.each do |course| %>

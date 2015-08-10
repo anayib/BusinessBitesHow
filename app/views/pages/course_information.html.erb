@@ -20,19 +20,21 @@
     </div>
   </div>
 </div>
-<div class="container teacher-container">
-  <% @instructors.each do |instructor|%>
+
+<div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-2 col-md-offset-1 vcenter" id="teacher_image_box">
-      <%= image_tag( instructor.image.url, class: "img-teacher img-responsive center-block" ) %>
+    <div class="col-md-10 col-md-offset-1">
+      <h2 class="right-line">Descripción</h2>
     </div>
-    <div class="col-xs-12 col-md-7 vcenter">
-      <h2><%= instructor.name %></h2>
-      <p class="text-justify"><%= instructor.background %></p>
+    <div class="col-md-10 col-md-offset-1">
+      <div class="text-icon wow fadeInUp">
+        <!-- <h3 class="no-margin" id="course_title"><%= @course.title %></h3> -->
+        <p class="text-justify"><%= @course.description %></p>
+      </div>
     </div>
   </div>
-  <% end %>
 </div>
+
 <!-- Conditional to show support content from a specific topic -->
 <% if @topic.content_url == "" %>
 <div class="container">
@@ -64,18 +66,19 @@
 </div>
 <% end %>
 
-<div class="container">
+
+<div class="container teacher-container">
+  <% @instructors.each do |instructor|%>
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <h2 class="right-line">Descripción</h2>
+    <div class="col-xs-12 col-md-2 col-md-offset-1 vcenter" id="teacher_image_box">
+      <%= image_tag( instructor.image.url, class: "img-teacher img-responsive center-block" ) %>
     </div>
-    <div class="col-md-10 col-md-offset-1">
-      <div class="text-icon wow fadeInUp">
-        <h3 class="no-margin" id="course_title"><%= @course.title %></h3>
-        <p class="text-justify"><%= @course.description %></p>
-      </div>
+    <div class="col-xs-12 col-md-7 vcenter">
+      <h2><%= instructor.name %></h2>
+      <p class="text-justify"><%= instructor.background %></p>
     </div>
   </div>
+  <% end %>
 </div>
 
 <div class="container">

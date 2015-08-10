@@ -32,6 +32,10 @@ class PagesController < ApplicationController
 		
 	end
 
+	def faq
+		
+	end
+
 	def search_by_category
 		@categories = Category.all
 		@courses = Course.all
