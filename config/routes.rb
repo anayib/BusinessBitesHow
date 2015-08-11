@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'course_information' => 'pages#course_information'
   get 'plans_information' => 'pages#plans_information'
   get 'politicas_servicio' => 'pages#politicas_servicio'
+  get 'faq' => 'pages#faq'
   get 'my_courses' => 'courses#my_courses'
   get 'welcome_new_user' => 'pages#welcome_video_user'
   get 'welcome_new_subscriptor' => 'pages#welcome_video_subscriptor'

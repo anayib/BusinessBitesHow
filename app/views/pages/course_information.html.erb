@@ -1,28 +1,40 @@
+<script>
+   mixpanel.track_links("#AccederGuiaTop", "Acceder Guia Bottom CTA");
+   mixpanel.track_links("#AccederGuiaBottom", "Acceder Guia Bottom CTA");
+   mixpanel.track_links("#PlanMensualClicked", "Plan Mensual Clicked");;
+   mixpanel.track_links("#PlanAnualClicked", "Plan Anual Clicked");
+
+
+   
+</script>
+
 <div class="container-fluid darken-image" id="course_information_header">
   <div class="row">
     <div id="course_information_text" class="col-md-12 text-center">
       <h1 id="course_information_title"><%= @course.title %></h1>
       <% if @course.free? %>
-      <%= link_to "ACCEDER A LA GUÍA", new_user_session_path, class: "btn btn-ar cta_button no-modal btn-lg" %>
+      <%= link_to "ACCEDER A LA GUÍA", new_user_session_path, id:"AccederGuiaTop", class: "btn btn-ar cta_button no-modal btn-lg" %>
       <% else %>
         <a href=<%="/course_information?course_id=#{@course.id}#price-columns" %> class="call-to-action no-modal" id="payed_call_to_action">EMPEZAR AHORA $28,49/MES</a>
       <% end %>
     </div>
   </div>
 </div>
-<div class="container teacher-container">
-  <% @instructors.each do |instructor|%>
+
+<div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-2 col-md-offset-1 vcenter" id="teacher_image_box">
-      <%= image_tag( instructor.image.url, class: "img-teacher img-responsive center-block" ) %>
+    <div class="col-md-10 col-md-offset-1">
+      <h2 class="right-line">Descripción</h2>
     </div>
-    <div class="col-xs-12 col-md-7 vcenter">
-      <h2><%= instructor.name %></h2>
-      <p class="text-justify"><%= instructor.background %></p>
+    <div class="col-md-10 col-md-offset-1">
+      <div class="text-icon wow fadeInUp">
+        <!-- <h3 class="no-margin" id="course_title"><%= @course.title %></h3> -->
+        <p class="text-justify"><%= @course.description %></p>
+      </div>
     </div>
   </div>
-  <% end %>
 </div>
+
 <!-- Conditional to show support content from a specific topic -->
 <% if @topic.content_url == "" %>
 <div class="container">
@@ -54,18 +66,19 @@
 </div>
 <% end %>
 
-<div class="container">
+
+<div class="container teacher-container">
+  <% @instructors.each do |instructor|%>
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <h2 class="right-line">Descripción</h2>
+    <div class="col-xs-12 col-md-2 col-md-offset-1 vcenter" id="teacher_image_box">
+      <%= image_tag( instructor.image.url, class: "img-teacher img-responsive center-block" ) %>
     </div>
-    <div class="col-md-10 col-md-offset-1">
-      <div class="text-icon wow fadeInUp">
-        <h3 class="no-margin" id="course_title"><%= @course.title %></h3>
-        <p class="text-justify"><%= @course.description %></p>
-      </div>
+    <div class="col-xs-12 col-md-7 vcenter">
+      <h2><%= instructor.name %></h2>
+      <p class="text-justify"><%= instructor.background %></p>
     </div>
   </div>
+  <% end %>
 </div>
 
 <div class="container">
@@ -73,7 +86,7 @@
     <div class="col-md-12 text-center">
 
       <% if @course.free? %>
-      <%= link_to "ACCEDER A LA GUÍA", new_user_session_path, class: "btn btn-ar cta_button no-modal btn-lg v-align" %>
+      <%= link_to "ACCEDER A LA GUÍA", new_user_session_path, id:"AccederGuiaBottom", class: "btn btn-ar cta_button no-modal btn-lg v-align" %>
       <% else %>
         <div class="container">
           <section id="price-columns">
@@ -98,9 +111,9 @@
                   <div class="pricing-box-footer">
                     <!-- <a href="#" class="btn btn-ar btn-default">Order Now</a> -->
                     <% if user_signed_in? %>
-                      <%= link_to 'ELEGIR PLAN MENSUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), style:"background-color:#8B8987", class: "call-to-action no-modal"%>
+                      <%= link_to 'ELEGIR PLAN MENSUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), style:"background-color:#8B8987", id:"PlanMensualClicked", class: "call-to-action no-modal"%>
                     <% else %>
-                      <%= link_to 'ELEGIR PLAN MENSUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), style:"background-color:#8B8987", class: "call-to-action no-modal" %>
+                      <%= link_to 'ELEGIR PLAN MENSUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_mensual"), style:"background-color:#8B8987", id:"PlanMensualClicked", class: "call-to-action no-modal" %>
                     <% end %>
                   </div>
                 </div>
@@ -128,9 +141,9 @@
                     <!-- <a href="#" class="btn btn-ar btn-primary">Order Now</a> -->
 
                     <% if user_signed_in? %>
-                      <%= link_to 'ELEGIR PLAN ANUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_anual"), class: "call-to-action no-modal", style: "background: RGBA(94, 190, 30, 1)" %>
+                      <%= link_to 'ELEGIR PLAN ANUAL', new_subscription_path(:course_id => @course.id, :subscription_plan => "plan_anual"),id:"PlanAnualClicked", class: "call-to-action no-modal", style: "background: RGBA(94, 190, 30, 1)" %>
                     <% else %>
-                      <%= link_to 'ELEGIR PLAN ANUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_anual"), class: "call-to-action no-modal", style: "background: RGBA(94, 190, 30, 1)" %>
+                      <%= link_to 'ELEGIR PLAN ANUAL', new_user_registration_path(:course_id => @course.id, :subscription_plan => "plan_anual"), id:"PlanAnualClicked", class: "call-to-action no-modal", style: "background: RGBA(94, 190, 30, 1)" %>
                     <% end %>
                   </div>
                 </div>
