@@ -13,7 +13,9 @@ class ApplicationController < ActionController::Base
     if (params.has_key?(:course_id))
       course = Course.find(params[:course_id]) if params[:course_id]
     end
-  	if user_signed_in? && current_user.sign_in_count == 1
+    if (user_signed_in? && current_user.sign_in_count == 1) && current_user.guest?
+      welcome_new_subscriptor_path
+    elsif user_signed_in? && current_user.sign_in_count == 1
       if (params.has_key?(:course_id))
         if course.course_type == "with_charge"
           new_subscription_path(:subscription_plan => params[:subscription_plan])
