@@ -14,6 +14,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
+
+
 <html dir="ltr" mozdisallowselectionprint moznomarginboxes>
   <head>
     <meta charset="utf-8">
@@ -37,6 +39,8 @@ limitations under the License.
 
     <script type="text/javascript" src="debugger.js"></script>
     <script type="text/javascript" src="viewer.js"></script>
+
+
 
   </head>
 
@@ -88,7 +92,7 @@ limitations under the License.
               <span data-l10n-id="presentation_mode_label">Presentation Mode</span>
             </button>
 
-            <button id="secondaryOpenFile" class="secondaryToolbarButton openFile visibleLargeView" title="Open File" tabindex="19" data-l10n-id="open_file">
+            <button id="secondaryOpenFile" class="secondaryToolbarButton openFile visibleLargeView hidden" title="Open File" tabindex="19" data-l10n-id="open_file">
               <span data-l10n-id="open_file_label">Open</span>
             </button>
 
@@ -96,7 +100,7 @@ limitations under the License.
               <span data-l10n-id="print_label">Print</span>
             </button>
 
-            <button id="secondaryDownload" class="secondaryToolbarButton download visibleMediumView" title="Download" tabindex="21" data-l10n-id="download">
+            <button id="secondaryDownload" class="secondaryToolbarButton download visibleMediumView hidden" title="Download" tabindex="21" data-l10n-id="download">
               <span data-l10n-id="download_label">Download</span>
             </button>
 
@@ -150,17 +154,17 @@ limitations under the License.
                   <span data-l10n-id="presentation_mode_label">Presentation Mode</span>
                 </button>
 
-                <!-- <button id="openFile" class="toolbarButton openFile hiddenLargeView" title="Open File" tabindex="13" data-l10n-id="open_file">
+                <button id="openFile" class="toolbarButton openFile hiddenLargeView hidden" title="Open File" tabindex="13" data-l10n-id="open_file">
                   <span data-l10n-id="open_file_label">Open</span>
-                </button> -->
+                </button>
 
                 <button id="print" class="toolbarButton print hiddenMediumView" title="Print" tabindex="14" data-l10n-id="print">
                   <span data-l10n-id="print_label">Print</span>
                 </button>
 
-                <!-- <button id="download" class="toolbarButton download hiddenMediumView" title="Download" tabindex="15" data-l10n-id="download">
+                <button id="download" class="toolbarButton download hiddenMediumView hidden" title="Download" tabindex="15" data-l10n-id="download">
                   <span data-l10n-id="download_label">Download</span>
-                </button> -->
+                </button>
                 
                 <!-- <div class="toolbarButtonSpacer"></div> -->
                 <a href="#" id="viewBookmark" class="toolbarButton bookmark hiddenSmallView" title="Current view (copy or open in new window)" tabindex="16" data-l10n-id="bookmark"><span data-l10n-id="bookmark_label">Current View</span></a>

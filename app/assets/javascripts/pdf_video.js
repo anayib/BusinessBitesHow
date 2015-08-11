@@ -11,4 +11,4 @@ $(document).on("ready page:load", function() {
 		  content_div.find('div.video_field').show();
 		}
 	});
-});	
+});
