@@ -6,6 +6,12 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Bienvenido a BusinessHackers!')
   end
 
+  def welcome_guest_email(user)
+    @user = user
+    @url  = 'http://www.businesshackers.how/'
+    mail(to: @user.email, subject: 'Bienvenido a BusinessHackers!')
+  end
+
   def welcome_subscriptor_email(user)
     @user = user
     @url  = 'http://www.businesshackers.how/'

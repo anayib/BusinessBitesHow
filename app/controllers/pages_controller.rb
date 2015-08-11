@@ -44,7 +44,7 @@ class PagesController < ApplicationController
 
 	private
 		def has_subscription?
-	    unless current_user.subscription
+	    unless current_user.subscription || current_user.guest?
 	      redirect_to root_path, :alert => "Acceso denegado, no posee ninguna subscripcion actual para acceder a este contenido"
 	    end
 	  end
