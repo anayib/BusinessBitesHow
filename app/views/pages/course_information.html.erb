@@ -76,6 +76,9 @@
     <div class="col-xs-12 col-md-7 vcenter">
       <h2><%= instructor.name %></h2>
       <p class="text-justify"><%= instructor.background %></p>
+      <% if instructor.twitter_username %>
+        <a class="text-justify" target="_blank" href=<%= "http://www.twitter.com/" + instructor.twitter_username %>><i class="fa fa-twitter"></i> @<%= instructor.twitter_username %></a>
+      <% end %>
     </div>
   </div>
   <% end %>
