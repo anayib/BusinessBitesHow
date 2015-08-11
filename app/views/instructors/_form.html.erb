@@ -13,6 +13,11 @@
 			</div>
 
 			<div class="field form-group">
+				<%= instructor.label :twitter_username, "Usuario de twitter (sin @):", class: "lead lead-lg" %>
+				<%= instructor.text_field :twitter_username, class: "form-control" %>
+			</div>
+
+			<div class="field form-group">
 			  <%= instructor.label :image, "Imagen del instructor:", class: "lead lead-lg" %>
 			  <%= instructor.file_field :image, class: "form-control" %>
 			</div>
