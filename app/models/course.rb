@@ -13,6 +13,7 @@
 #  image_updated_at   :datetime
 #  course_type        :integer
 #  new_course         :boolean
+#  new_course_days    :integer
 #
 
 class Course < ActiveRecord::Base
