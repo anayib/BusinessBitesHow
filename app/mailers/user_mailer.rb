@@ -21,6 +21,6 @@ class UserMailer < ApplicationMailer
   def end_guest_account(user)
     @user = user
     @url  = 'http://www.businesshackers.how/'
-    mail(to: @user.email, subject: 'Ha terminado tu periodo de prueba en BusinessHackers!')
+    mail(to: @user.email, subject: 'Ha caducado tu suscripción a Business Hackers')
   end
 end
