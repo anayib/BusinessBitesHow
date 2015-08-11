@@ -83,6 +83,10 @@ class User < ActiveRecord::Base
 
   private
     def welcome_email
-      UserMailer.welcome_email(self).deliver
+      if self.user?
+        UserMailer.welcome_email(self).deliver
+      elsif self.guest?
+        UserMailer.welcome_guest_email(self).deliver
+      end
     end
 end
