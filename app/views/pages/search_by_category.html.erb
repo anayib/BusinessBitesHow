@@ -11,7 +11,7 @@
 				  <ul class="dropdown-menu grid-controls" aria-labelledby="dropdownMenu1">
 				  	<li><a class="filter" href="#" data-filter="*">Todo</a></li>
 				  	<% @categories.each do |categorie| %>
-							<li><a class="filter" href="#" data-filter=".<%= categorie.name %>"><%= categorie.name %></a></li>
+							<li><a class="filter" href="#" data-filter=".<%= categorie.name.downcase.gsub(' ','-') %>"><%= categorie.name %></a></li>
 				  	<% end %>
 				  </ul>
 				</div>
@@ -23,7 +23,7 @@
 <div class="container">
 	<div class="row grid">
 		<% @courses.each do |course| %>
-		  <div class="col-sm-6 col-md-4 col-xs-12 <% course.categories.each do |c| %><%= c.name + " " %><% end %>">
+		  <div class="col-sm-6 col-md-4 col-xs-12 <% course.categories.each do |c| %><%= " " + c.name.downcase.gsub(' ','-') %><% end %>">
 		    <div class="thumbnail">
 		      <% if course.new_course %>
 		        <span class="discount text-center">NUEVA</span>
