@@ -43,7 +43,7 @@ class InstructorsController < ApplicationController
 
 	private
 		def instructor_params
-  		params.require(:instructor).permit(:name, :background, :image)
+  		params.require(:instructor).permit(:name, :background, :image, :twitter_username)
 		end
 		
 		def content_permission
