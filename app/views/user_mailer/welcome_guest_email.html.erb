@@ -1,10 +1,11 @@
-<h1>Hola, <%= @user.email %>!</h1></br>
-
 <p>Estamos muy emocionados por poderte ayudar a solucionar los retos que tienes como emprendedor  para la creación y crecimiento  de nuevos negocios.</p>
 
-<p>Estás recibiendo este email porque ya eres parte de la comunidad de Business Hackers. Sólo tienes que iniciar sesión con tu correo  <%= @user.email => y la contraseña temporal: 12345678</p>
+<p>Ingresa a la plataforma con: </p>
 
-<p>Recuerda editar tu contraseña <a href="http://www.businesshackers.how/users/password/new">aquí</a>. Sigue los siguientes pasos:</p>
+<p>Usuario: <%= @user.email %> </p>
+ <p> Contraseña: 12345678</p>
+
+<p> Recuerda editar tu contraseña <a href="http://www.businesshackers.how/users/password/new">aquí</a>. Sigue los siguientes pasos:</p>
 
 <ol>
 	<li>Das click en este <a href="http://www.businesshackers.how/users/password/new">enlace</a>.</li>
@@ -13,9 +14,9 @@
 	<li>Comienza la diversión!, ya habrás entrado a BusinessHackers con tu contraseña secreta.</li>
 </ol>
 
-<p>Tendrás acceso a la plataforma por el período de tiempo que tu patrocinador - Universidad o Empresa - haya comprado para ti. </p>
+<p> Gracias a tu patrocinador de suscripción, recuerda que tienes hasta el <%= @deaddate.strftime("%b %d, %Y") %> para interactuar con el <a href="http://community.businesshackers.how/">BusinessHackers Community</a> y disfrutar de <a href="http://www.businesshackers.how/search_by_category">todo el contenido VIP!</a> :) </p>
 
-<p>Comienza a interactuar con la Comunidad  VIP de Business Hackers <a href="http://community.businesshackers.how/">aquí</a></p>
+<p> Cheers! </p>
 
 <p>Laura A,<br>
 Content Strategist, Business Hackers</p>

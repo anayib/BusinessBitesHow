@@ -8,8 +8,9 @@ class UserMailer < ApplicationMailer
 
   def welcome_guest_email(user)
     @user = user
+    @deaddate = Time.now + @user.vip_days.days
     @url  = 'http://www.businesshackers.how/'
-    mail(to: @user.email, subject: 'Bienvenido a Business Hackers!')
+    mail(to: @user.email, subject: "Hola #{@user.name}, te damos la bienvenida a  BusinessHackers!")
   end
 
   def welcome_subscriptor_email(user)
