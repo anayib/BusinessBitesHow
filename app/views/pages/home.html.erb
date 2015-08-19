@@ -8,195 +8,68 @@
 <div id="sb-site">
 <div class="boxed">
 
+
+<!-- WRAPPER ALTERNATIVO -->
 <div class="wrap-primary">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <!-- 16:9 aspect ratio -->
-        <div class="embed-responsive embed-responsive-4by3" id="video_home_embed">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/FIumUGEVhsQ?wmode=transparent"></iframe>
-        </div>
-      </div>
-      <div class="col-md-6 " id="header_container">
-        <h1 class="head-title" style="text-align:left; color:rgb(160, 206, 23)">¿Cómo cambiaría tu vida si aprendieras a crear negocios innovadores?</h1>
-        <h2 class="secondary-color head-subtitle" style="color:white" >BusinessHackers es el repositorio de guías prácticas, paso a paso,  para crear y crecer negocios rentables apalancados en tecnología</h2> <br>
-        <% if !user_signed_in? %> <br>
-          <%= link_to 'EMPEZAR AHORA', search_by_category_path, id: "EmprezarAhoraHome",class: "btn-warning btn-lg"%>
-          <%#= link_to 'EMPEZAR AHORA', plans_information_path(:subscription => true), class: "btn-warning btn-lg" %>
-        <% elsif user_signed_in? && current_user.guest? %>
-          <%#= link_to 'EMPEZAR AHORA', root_path(anchor: 'user-courses'),class: "btn-warning btn-lg" %>
-          <%= link_to 'ACCEDER A TODAS LAS GUIAS', search_by_category_path, class: "btn-warning btn-lg" %>
-          <%# elsif user_signed_in? && current_user.vip_user? %>   
-        <% elsif user_signed_in? && current_user.subscription.nil? %>
-          <%#= link_to 'EMPEZAR AHORA', root_path(anchor: 'user-courses'),class: "btn-warning btn-lg" %>
-          <%= link_to 'ACCEDER A TODAS LAS GUIAS', plans_information_path(:subscription => true), class: "btn-warning btn-lg" %>
-        <%# elsif user_signed_in? && current_user.vip_user? %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <div class="container col-xs-12 col-md-12" id="container-total">
+    <div class="container" id="containerPrimario" >
+      <div class="row" id="row1">
+        <div class=" col-md-2"></div>
+        <div class="col-xs-12   col-md-8 " >
+          <div class="colCentral" style="padding: 30px;text-align:center; margin-top:75px">
+            <h1 style="color:black; font-weight:500" class="head-title"><stong>Aprende las mejores estrategias de empresarios y expertos exitosos</strong></h1>
+             <hr>
+            <h2 style="line-height: 30px; color:black" class="head-subtitle"> <span style="color:#5ebe1e;font-weight: 600;">Ahorra tiempo</span> y <span style="color:#5ebe1e;font-weight: 600;">manténte actualizado </span><br>
+            Curamos el mejor contenido para crecer negocios y te lo entregamos en guías prácticas paso a paso</span></h2>
+            <!-- INICIA CALL TO ACTION -->
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <h1 class="dropdown-text">
+                  <div class="dropdown" id="categories_dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <span class="option-selected">Escoge un tema</span>
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu grid-controls" aria-labelledby="dropdownMenu1">
+                      <li><a class="filter" href="#" data-filter="*">Todo</a></li>
+                      <% @categories.each do |categorie| %>
+                        <li><a class="filter" href="#" data-filter=".<%= categorie.name.downcase.gsub(' ','-') %>"><%= categorie.name %></a></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </h1>
+              </div>
+            </div>
+            <!-- TERMINA CALL TO ACTION --> 
+          </div> <!--termina div colcentral -->
+        </div> <!-- div col8 finaliza -->
+        <div class="col-md-2"></div>
+      </div><!--termina el row1-->
+    </div><!--termina container primario-->
+  </div><br><br>
 </div>
 
-<!-- EMPIEZA SECCIÓN DE CÓMO FUNCIONA -->
+<br><br><br>
 
-<section <section id="howitworks" style="background-color: rgb(16, 37, 63)"> 
-  <div class="container-fluid" style="background-color:white">
-    <h1 style="color: rgb(16, 37, 64); text-align:center">ASÍ FUNCIONA</h1>
-  </div>
-  <div class="container"><br> <br>
-      <div class="row">
-        <div class="col-sm-4 " >
-          <center> <i class="fa fa-credit-card fa-4x" style="color: rgb(160, 206, 23)"></i>
-          <h2 style="color:white; text-aling=center"><strong>Suscríbete</strong></h2></center>
-          <h4 style="color:white"> <strong><span style="color:rgb(160, 206, 23)">-</span> Conoce las mejores prácticas</strong> que aplican los emprendedores, innovadores y profesionales exitosos para iniciar y crecer sus negocios</h4>
-          <h4 style="color:white"><strong><span style="color:rgb(160, 206, 23)">-</span></strong> Ideal para <strong>emprendedores, asesores, profesores o directores de innovación</strong> , emprendimiento, marketing, ventas y nuevos productos</h4>
-        </div>
-        <div class="col-sm-4">
-          <center><i class="fa fa-download fa-4x" style="color: rgb(160, 206, 23)"></i>
-          <h2 style="color:white"> <strong>Accede</strong></h2></center> 
-          <h4 style="color: white"><strong><span style="color:rgb(160, 206, 23)">-</span> A una nueva guía cada semana </strong> con las mejores prácticas de los expertos</h4>
-          <h4 style="color: white"><strong><span style="color:rgb(160, 206, 23)">-</span></strong> Estudia las guías y descubre cientos de <strong>estrategias concretas, actualizadas, especializadas y en español</strong> que te enseñarán paso a paso cómo hacer negocios exitosos</h4>
-          <h4 style="color: white"><strong><span style="color:rgb(160, 206, 23)">-</span> Accede a todo el repositorio digital</strong> de guías prácticas de Business Hackers <strong>sin costo adicional</strong></h4>
-          <h4 style="color: white"><strong><span style="color:rgb(160, 206, 23)">-</span></strong> Disfruta  24/7 de la <strong>comunidad VIP de Business Hackers</strong>. Podrás <strong>hacer preguntas, resolver dudas y recibir soporte en el foro exclusivo para miembros VIP</strong></h4>
-        </div>
-        <div class="col-sm-4">
-          <center><i class="fa fa-line-chart fa-4x" style="color: rgb(160, 206, 23)"></i>
-          <h2 style="color: white"><strong>Crece</strong></h2></center>
-          <h4 style="color: white"><strong><span style="color:rgb(160, 206, 23)">-</span> Aplica las mejores prácticas</strong> identificando cuáles funcionan mejor para tu negocio o los negocios de tus clientes</h4>
-          <h4 style="color: white"><strong><span style="color:rgb(160, 206, 23)">-</span> Apóyate en la comunidad VIP de aprendizaje y colaboración</strong> de BusinessHackers para afrontar tus retos de negocio o los de tus clientes</h4>
-        </div>
-      </div>
-  </div>
-</section> <!-- TERMINA SECCIÓN DE CÓMO FUNCIONA --> <br>
-
-<!-- INICIA GUIAS GRATUITAS -->
-<% unless user_signed_in? && (current_user.vip_user? || current_user.guest?) %>
-  <div class="container"> <!-- INICIA TODAS LAS GUÍAS--> 
-    <section class="margin-bottom" id="user-courses">
-      <div class="row">
-        <div class="col-md-12">
-            <h2 class="right-line">CONOCE GRATIS LAS GUÍAS DE MUESTRA</h2>
-        </div>
-
-        <% @courses.free.each do |course| %>
-          <div class="col-sm-6 col-md-4 col-xs-12">
-            <div class="thumbnail">
-              <% if course.new_course %>
-                <span class="discount text-center">NUEVA</span>
-              <% end %>
-              <img src="<%= course.image.url(:medium) %>" alt="..." class="thumbnail_custom_image">
-              <div class="caption">
-                <h3 class="course_title"><%= course.title %></h3>
-                <p class="text-justify" id="course_description"><%= course.description %></p>
-              </div>
-              <div class="row course-caption">
-                <% if user_signed_in? && (current_user.user? || current_user.admin? || current_user.content_manager?) %>
-                  <% if course.free? %>
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
-                      <span class="text-center">Basado en:</span><br>
-                      <% if !course.instructors.blank? %>
-                        <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
-                        <%= course.instructors.first.name %>
-                      <% end %>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
-                      <%= link_to 'Ir a la guía', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
-                    </div>
-                  <% else %>
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
-                      <span>Basado en:</span><br>
-                      <% if !course.instructors.blank? %>
-                        <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
-                        <%= course.instructors.first.name %>
-                      <% end %>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
-                      <%= link_to 'Ver Guía', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
-                    </div>
-                  <% end %>
-                <% elsif user_signed_in? && current_user.vip_user? %>
-                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
-                    <span>Basado en:</span><br>
-                    <% if !course.instructors.blank? %>
-                      <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
-                      <%= course.instructors.first.name %>
-                    <% end %>
-                  </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
-                    <%= link_to 'Ir a la guía', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
-                  </div>
-                <% else %>
-                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
-                    <span>Basado en:</span><br>
-                    <% if !course.instructors.blank? %>
-                      <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
-                      <%= course.instructors.first.name %>
-                    <% end %>
-                  </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
-                    <%= link_to 'Ver Guía', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
-                  </div>
-                <% end %>
-              </div>
-            </div>
+<!-- response request categories-->
+<div class="container">
+  <div class="row grid">
+    <% @courses.each do |course| %>
+      <div class="col-sm-6 col-md-4 col-xs-12 <% course.categories.each do |c| %><%= " " + c.name.downcase.gsub(' ','-') %><% end %>">
+        <div class="thumbnail">
+          <% if course.new_course %>
+            <span class="discount text-center">NUEVA</span>
+          <% end %>
+          <img src="<%= course.image.url(:medium) %>" alt="..." class="thumbnail_custom_image">
+          <div class="caption">
+            <h3 class="course_title"><%= course.title %></h3>
+            <p class="text-justify" id="course_description"><%= course.description %></p>
           </div>
-        <% end %>
-      </div> <!-- row -->
-    </section>
-  </div>
-<% end %>  
-
-<!-- INICIA BUSCADOR DE GUÍAS-->
-
-<!-- TERMINA BUSCADOR DE GUÍAS-->
-
-<!-- TERMINA GUIAS GRATUITAS -->
-<div class="container"> <!-- INICIA TODAS LAS GUÍAS--> 
-  <section class="margin-bottom" id="user-courses">
-    <div class="row">
-      <div class="col-md-12">
-          <h2 class="right-line">QUIERO SABER CÓMO</h2>
-      </div>
-
-      <% @courses.each do |course| %>
-        <div class="col-sm-6 col-md-4 col-xs-12">
-          <div class="thumbnail">
-            <% if course.new_course %>
-              <span class="discount text-center">NUEVA</span>
-            <% end %>
-            <img src="<%= course.image.url(:medium) %>" alt="..." class="thumbnail_custom_image">
-            <div class="caption">
-              <h3 class="course_title"><%= course.title %></h3>
-              <p class="text-justify" id="course_description"><%= course.description %></p>
-            </div>
-            <div class="row course-caption">
-              <% if user_signed_in? && (current_user.user? || current_user.admin? || current_user.content_manager?) %>
-                <% if course.free? %>
-                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
-                    <span class="text-center">Basado en:</span><br>
-                    <% if !course.instructors.blank? %>
-                      <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
-                      <%= course.instructors.first.name %>
-                    <% end %>
-                  </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
-                    <%= link_to 'Ir a la guía', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
-                  </div>
-                <% else %>
-                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
-                    <span>Basado en:</span><br>
-                    <% if !course.instructors.blank? %>
-                      <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
-                      <%= course.instructors.first.name %>
-                    <% end %>
-                  </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
-                    <%= link_to 'Ver Guía', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
-                  </div>
-                <% end %>
-              <% elsif user_signed_in? && (current_user.vip_user? || current_user.guest?) %>
+          <div class="row course-caption">
+            <% if user_signed_in? && (current_user.user? || current_user.admin? || current_user.content_manager?) %>
+              <% if course.free? %>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
-                  <span>Basado en:</span><br>
+                  <span class="text-center">Basado en:</span><br>
                   <% if !course.instructors.blank? %>
                     <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
                     <%= course.instructors.first.name %>
@@ -217,15 +90,73 @@
                   <%= link_to 'Ver Guía', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
                 </div>
               <% end %>
-            </div>
+            <% elsif user_signed_in? && (current_user.vip_user? || current_user.guest?) %>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
+                <span>Basado en:</span><br>
+                <% if !course.instructors.blank? %>
+                  <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
+                  <%= course.instructors.first.name %>
+                <% end %>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
+                <%= link_to 'Ir a la guía', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
+              </div>
+            <% else %>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
+                <span>Basado en:</span><br>
+                <% if !course.instructors.blank? %>
+                  <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
+                  <%= course.instructors.first.name %>
+                <% end %>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
+                <%= link_to 'Ver Guía', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
+              </div>
+            <% end %>
           </div>
         </div>
-      <% end %>
-    </div> <!-- row -->
-  </section>
-</div> <!-- TERMINA TODAS LAS GUÍAS--> 
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<% unless user_signed_in?%>
-  <center><strong><h2 style="color:rgb(16, 37, 63)">A todos aquellos que no tienen la suerte de pertenecer a la comunidad VIP de BusinessHackers, los invitamos a acceder gratis a las guías de muestra </h2></center></strong> <br>
-  <center><%= link_to 'ACCEDER AHORA', new_user_registration_path, id: "AccederAhoraHomeBottom", class: "btn-warning btn-lg"%></center>
-<% end %>
+<script>
+  /* portfolio mixitup */
+  $(document).on("ready page:load", function() {
+    var $container = $('.grid');
+    $container.isotope({
+        filter: '*',
+        animationOptions: {
+            duration: 750,
+            easing: 'linear',
+            queue: false
+        }
+    });
+ 
+    $('.grid-controls li a').click(function(){
+        $('.grid-controls .current').removeClass('current');
+        $(this).addClass('current');
+ 
+        var selector = $(this).attr('data-filter');
+        $container.isotope({
+            filter: selector,
+            animationOptions: {
+                duration: 750,
+                easing: 'linear',
+                queue: false
+            }
+         });
+         return false;
+    });
+
+    $("a.filter").click(function() {
+      $("#dropdownMenu1").dropdown("toggle");
+      $("span.option-selected").text($(this).text());
+    });
+});
+</script>
+
+<!-- termina response request category -->
+
+
+

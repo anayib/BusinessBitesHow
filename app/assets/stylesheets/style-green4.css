@@ -988,6 +988,7 @@ h6 {
 
 h3.course_title {
   font-weight: bold;
+  color:#000000;
 }
 
 h1 {
@@ -1207,6 +1208,7 @@ hr.double {
   background-color: #5ebe1e;
   padding: 40px 0;
   color: #fff;
+
 }
 .wrap-primary-color h1,
 .wrap-primary-color h2,
@@ -3445,7 +3447,7 @@ a.thumbnail.active {
 .navbar-default .navbar-brand {
   font-size: 28px;
   font-weight: 300;
-  text-transform: lowercase;
+  /* text-transform: lowercase; */
   font-family: "Muli", sans-serif;
   word-spacing: -6px;
   -webkit-text-stroke: 0.01em;/*
@@ -5397,10 +5399,15 @@ input.input-lg[type="text"] {
 .wrap-primary {
   /*background-color: #5ebe1e;
   background-color: rgba(40, 80, 13, 0.7);*/
-  background-color: rgb(16, 37, 63);
+  /*background-color: rgb(16, 37, 63);*/
   padding: 40px 0;
-  height: 100vh;
+  height: 80vh;
+  background: url('') no-repeat; 
+
 }
+
+
+
 #header-full .secondary-color {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   color: #a7fff4;
@@ -5470,7 +5477,7 @@ input.input-lg[type="text"] {
     margin-top: 40px;
   }
   .head-title {
-    font-size: 3em;
+    font-size: 4em;
     
   }
   .head-subtitle {
@@ -5493,19 +5500,20 @@ input.input-lg[type="text"] {
 @media (max-width: 900px) {
   .wrap-primary {
     padding: 20px 0;
-    height: 205vh;
+    height: 150vh;
+
   }
   .header-full-icons {
     margin-top: 40px;
   }
   .head-title {
-    font-size: 3em;
+    font-size: 2em;
     font-weight: 300;
     text-align: center;
     color:rgb(160, 206, 23);
   }
   .head-subtitle {
-    font-size: 2em;
+    font-size: 1.3em;
   }
 }
 /* ---------------------------------------------------- */
@@ -5584,6 +5592,7 @@ a.feature-icon:hover {
   .feature-container h4 {
     font-size: 1em;
   }
+
   .feature-icon:first-child {
     border-left: 0;
   }
