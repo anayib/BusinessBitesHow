@@ -18,7 +18,7 @@
 
 class Course < ActiveRecord::Base
 	enum course_type: [:free, :with_charge]
-	has_attached_file :image, :styles => { :medium => "300x180#", :thumb => "100x100#" }, convert_options: { medium: " -gravity center -crop '300x300+0+0'" , thumbnail: "-gravity Center -crop 500x500+0+0 +repage -resize 100x100^" }
+	has_attached_file :image, :styles => { :medium => "300x200#", :thumb => "100x100#" }, convert_options: { medium: " -gravity center -crop '300x300+0+0'" , thumbnail: "-gravity Center -crop 500x500+0+0 +repage -resize 100x100^" }
 
   # has_attached_file :image, styles: { medium: "300x300>" , thumbnail: '100x100^' }, convert_options: { medium: " -gravity center -crop '300x300+0+0'" , thumbnail: "-gravity Center -crop 500x500+0+0 +repage -resize 100x100^" }
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
