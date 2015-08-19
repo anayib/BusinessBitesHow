@@ -19,8 +19,8 @@
           <div class="colCentral" style="padding: 30px;text-align:center; margin-top:75px">
             <h1 style="color:black; font-weight:500" class="head-title"><stong>Aprende las mejores estrategias de empresarios y expertos exitosos</strong></h1>
              <hr>
-            <h2 style="line-height: 30px; color:black" class="head-subtitle"> <span style="color:#5ebe1e;font-weight: 600;">Ahorra tiempo</span> y <span style="color:#5ebe1e;font-weight: 600;">manténte actualizado </span><br>
-            Curamos el mejor contenido para crecer negocios y te lo entregamos en guías prácticas paso a paso</span></h2>
+            <h2 style="line-height: 30px; color:black" class="head-subtitle"> <span style="color:#5ebe1e;font-weight: 600;">Ahorra tiempo</span> y <span style="color:#5ebe1e;font-weight: 600;">Manténte actualizado </span><br>
+            Curamos el mejor contenido para crecer negocios y te lo entregamos en guías prácticas paso a paso y en español</span></h2>
             <!-- INICIA CALL TO ACTION -->
             <div class="row">
               <div class="col-md-12 text-center">
@@ -60,58 +60,39 @@
           <% if course.new_course %>
             <span class="discount text-center">NUEVA</span>
           <% end %>
-          <img src="<%= course.image.url(:medium) %>" alt="..." class="thumbnail_custom_image">
           <div class="caption">
-            <h3 class="course_title"><%= course.title %></h3>
-            <p class="text-justify" id="course_description"><%= course.description %></p>
+            <h3 class="course_title" style="text-align:center"><%= course.title %></h3>
           </div>
           <div class="row course-caption">
             <% if user_signed_in? && (current_user.user? || current_user.admin? || current_user.content_manager?) %>
               <% if course.free? %>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
-                  <span class="text-center">Basado en:</span><br>
-                  <% if !course.instructors.blank? %>
-                    <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
-                    <%= course.instructors.first.name %>
-                  <% end %>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-center">
                   <%= link_to 'Ir a la guía', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
                 </div>
               <% else %>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
-                  <span>Basado en:</span><br>
-                  <% if !course.instructors.blank? %>
-                    <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
-                    <%= course.instructors.first.name %>
-                  <% end %>
+                <!-- <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
+                </div> -->
+                
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                  <center><%= link_to 'Ver Guía', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %></center>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
-                  <%= link_to 'Ver Guía', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
-                </div>
+                
               <% end %>
             <% elsif user_signed_in? && (current_user.vip_user? || current_user.guest?) %>
-              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
-                <span>Basado en:</span><br>
-                <% if !course.instructors.blank? %>
-                  <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
-                  <%= course.instructors.first.name %>
-                <% end %>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center instructor-info">
               </div>
-              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
-                <%= link_to 'Ir a la guía', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %>
+              
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                <center><%= link_to 'Ir a la guía', course, class: "btn btn-ar btn-primary btn-responsive-thumbnail" %></center>
               </div>
+              </center>
             <% else %>
-              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
-                <span>Basado en:</span><br>
-                <% if !course.instructors.blank? %>
-                  <%= image_tag(course.instructors.first.image.url(:thumb), class: "instructor-image") %>
-                  <%= course.instructors.first.name %>
-                <% end %>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center instructor-info"></div>
+             
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                 <%= link_to 'Ver Guía', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %> 
               </div>
-              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
-                <%= link_to 'Ver Guía', course_information_path(:course_id => course.id), class: "btn btn-ar btn-view-course btn-responsive-thumbnail" %>
-              </div>
+             
             <% end %>
           </div>
         </div>
