@@ -3,21 +3,21 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h2 class="modal-title text-center">Antes que te vayas....</h2>
+        <h2 class="modal-title text-center">Antes de que te vayas....</h2>
       </div>
       <div class="modal-body">
         <div class="row">
           <div class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 vcenter" id="teacher_image_box">
             <%= image_tag( @course.instructors.first.image.url, class: "img-teacher img-responsive center-block" ) %>
           </div>
-          <h4 class="text-center" style="color: #666;">Te invitamos a crear una cuenta gratis en BusinessHackers</h4>
+          <h4 class="text-center" style="color: #666;">Comienza a aprender las estrategias de empresarios y expertos exitosos creando tu cuenta gratis</h4>
           <div class="text-center">
-            <%= link_to "Crear una cuenta gratuita", new_user_registration_path, class: "btn btn-ar call-to-action no-modal btn-lg" %>
+            <%= link_to "Crear una cuenta gratis", new_user_registration_path, class: "btn btn-ar call-to-action no-modal btn-lg" %>
           </div>
         </div>
       </div>
       <div class="modal-footer text-center" style="text-align: center;!important">
-        <a href="#" id="sign_in_modal_url" class="no-modal text-center">No gracias, continuar.</a>
+        <a href="#" id="sign_in_modal_url" class="no-modal text-center">No gracias, no quiero crear negocios exitosos</a>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
