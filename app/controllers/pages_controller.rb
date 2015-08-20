@@ -7,6 +7,7 @@ class PagesController < ApplicationController
 	def home
 		@courses = Course.all
 		@footer_courses = Course.last(3)
+		@categories= Category.all
 	end
 
 	def course_information
