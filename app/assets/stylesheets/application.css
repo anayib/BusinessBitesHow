@@ -32,7 +32,7 @@ img.instructor-image {
 
 div.caption {
 	height: 200px;
-	overflow: scroll;
+	/*overflow: scroll;*/
 }
 
 div.course-caption {
