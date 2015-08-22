@@ -1,6 +1,6 @@
 <script>
-   mixpanel.track_links("#AccederGuiaTop", "Acceder Guia Bottom CTA");
-   mixpanel.track_links("#AccederGuiaBottom", "Acceder Guia Bottom CTA");
+   mixpanel.track_links("#AccederEstrategiaCTATopLandingCourse", "Acceder Estrategia CTA Top LandingCourse");
+   mixpanel.track_links("#AccederEstrategiaCTABottomLandingCourse", "Acceder Estrategia CTA Bottom LandingCourse");
    mixpanel.track_links("#PlanMensualClicked", "Plan Mensual Clicked");;
    mixpanel.track_links("#PlanAnualClicked", "Plan Anual Clicked");
 
@@ -13,7 +13,7 @@
     <div id="course_information_text" class="col-md-12 text-center">
       <h1 id="course_information_title"><%= @course.title %></h1>
       <% if @course.free? %>
-      <%= link_to "ACCEDER A LA GUÍA", new_user_session_path, id:"AccederGuiaTop", class: "btn btn-ar cta_button no-modal btn-lg" %>
+      <%= link_to "LEER LA ESTRATEGIA", new_user_session_path, id:"AccederEstrategiaCTATopLandingCourse", class: "btn btn-ar cta_button no-modal btn-lg" %>
       <% else %>
         <a href=<%="/course_information?course_id=#{@course.id}#price-columns" %> class="call-to-action no-modal" id="payed_call_to_action">EMPEZAR AHORA $28,49/MES</a>
       <% end %>
@@ -93,7 +93,7 @@
     <div class="col-md-12 text-center">
 
       <% if @course.free? %>
-      <%= link_to "ACCEDER A LA GUÍA", new_user_session_path, id:"AccederGuiaBottom", class: "btn btn-ar cta_button no-modal btn-lg v-align" %>
+      <%= link_to "LEER LA ESTRATEGIA", new_user_session_path, id:"AccederEstrategiaCTABottomLandingCourse", class: "btn btn-ar cta_button no-modal btn-lg v-align" %>
       <% else %>
         <div class="container">
           <section id="price-columns">
