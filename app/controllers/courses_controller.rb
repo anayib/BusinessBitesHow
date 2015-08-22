@@ -44,6 +44,7 @@ class CoursesController < ApplicationController
 	def show
 		@topics_ready_ids = current_user.topics.pluck(:id)
 		@course = Course.find(params[:id])
+		@instructors = Instructor.all
 	end
 
 	def destroy

@@ -11,9 +11,9 @@
 <div class="container-fluid darken-image" id="course_information_header">
   <div class="row">
     <div id="course_information_text" class="col-md-12 text-center">
-      <h1 id="course_information_title"><%= @course.title %></h1>
+      <h1 id="course_information_title"><%= @course.title %></h1><br>
       <% if @course.free? %>
-      <%= link_to "LEER LA ESTRATEGIA", new_user_session_path, id:"AccederEstrategiaCTATopLandingCourse", class: "btn btn-ar cta_button no-modal btn-lg" %>
+      <%= link_to "LEER LA ESTRATEGIA", new_user_session_path, id:"AccederEstrategiaCTATopLandingCourse", class: "btn btn-success no-modal btn-lg" %>
       <% else %>
         <a href=<%="/course_information?course_id=#{@course.id}#price-columns" %> class="call-to-action no-modal" id="payed_call_to_action">EMPEZAR AHORA $28,49/MES</a>
       <% end %>
@@ -93,7 +93,7 @@
     <div class="col-md-12 text-center">
 
       <% if @course.free? %>
-      <%= link_to "LEER LA ESTRATEGIA", new_user_session_path, id:"AccederEstrategiaCTABottomLandingCourse", class: "btn btn-ar cta_button no-modal btn-lg v-align" %>
+      <%= link_to "LEER LA ESTRATEGIA", new_user_session_path, id:"AccederEstrategiaCTABottomLandingCourse", class: "btn btn-success no-modal btn-lg v-align" %>
       <% else %>
         <div class="container">
           <section id="price-columns">

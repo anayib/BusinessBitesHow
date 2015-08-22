@@ -2,7 +2,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1 class="page-title" id="title-topic">BIENVENIDO A BUSINESS HACKERS</h3>
+          <h1 class="page-title" id="title-topic">Bienvenido a Business Hackers!, ahora puedes leer todas las estrategias gratuitas!</h3>
         </div>
       </div>
     </div>
@@ -23,11 +23,11 @@
   <div class="row" id="video_actions">
   	<div class="col-md-10 col-md-offset-1 text-center">
       <% if @previous_url %>
-        <%= link_to "IR A LA GUÍA", @previous_url, class: "btn btn-ar btn-primary" %>
+        <%= link_to "LEER LA ESTRATEGIA", @previous_url, class: "btn btn-ar btn-primary" %>
       <% else %>
         <%= link_to "VER GUÍAS", search_by_category_path, class: "btn btn-ar btn-primary" %>
       <% end %>
-  		<%= link_to "SUSCRIBIRME Y ACCEDER A TODAS LAS GUÍAS", new_subscription_path, class: "btn btn-ar btn-warning" %>
+  		<%= link_to "SUSCRIBIRME Y ACCEDER A TODAS LAS ESTRATEGIAS", new_subscription_path, class: "btn btn-ar btn-warning" %>
   	</div>
   </div>
 </div>

@@ -69,7 +69,7 @@
         </div>
         <div class="transparent-div no-padding">
           <ul class="nav nav-tabs nav-tabs-transparent">
-            <li class="active"><a href="#home" data-toggle="tab">Registrarse</a></li>
+            <li class="active"><a href="#home" data-toggle="tab">Crea una cuenta gratis para leer la estrategia</a></li>
           </ul>
           <!-- Tab panes -->
           <div class="tab-content">
@@ -100,7 +100,7 @@
                 <%= hidden_field_tag :subscription_plan, params[:subscription_plan] if (params.has_key?(:subscription_plan)) %>
 
                 <div class="actions form-group">
-                  <%= f.submit "Crear cuenta gratuita", class: "btn btn-ar btn-primary pull-right btn-lg" %>
+                  <%= f.submit "Crear cuenta gratis", class: "btn btn-ar btn-primary pull-right btn-lg" %>
                 </div>
               <% end %>
               <%= render "devise/shared/links" %>

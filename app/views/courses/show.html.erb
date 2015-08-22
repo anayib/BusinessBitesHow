@@ -1,5 +1,8 @@
 <div class="container" id="course_container">
 	<div class="row">
+		<h1 id="course_information_title" style="color:black"><%= @course.title %></h1>
+	</div><br>
+	<div class="row">
 		<div class="col-md-12">
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs nav-tabs-ar nav-tabs-ar-white">
@@ -42,9 +45,9 @@
 														<li class="list-group-item">
 															<% if true %>
 																<% if @topics_ready_ids.include?(topic.id) %>
-																	<%= link_to "<span class='icon-ar icon-ar-sm icon-ar-circle'><i class='fa fa-check'></i></span> #{index+1}. #{topic.title.upcase}".html_safe, topic %>
+																	<%= link_to "<span class='icon-ar icon-ar-sm icon-ar-circle'><i class='fa fa-check'></i></span> #{index+1}. #{topic.title.upcase}".html_safe, topic, style:"color:black;"%>
 																<% else %>
-																	<%= link_to "<span class='icon-ar icon-ar-course-view icon-ar-sm icon-ar-circle'><i class='fa fa-check'></i></span> #{index+1}. #{topic.title.upcase}".html_safe, topic %>
+																	<%= link_to "<span class='icon-ar icon-ar-course-view icon-ar-sm icon-ar-circle'><i class='fa fa-check'></i></span> #{index+1}. #{topic.title.upcase}".html_safe, topic, style:"color:black;" %>
 																<% end %>																
 															<% else %>
 																<span class='icon-ar icon-ar-course-view icon-ar-sm icon-ar-circle'><i class='fa fa-check'></i></span> <%= index+1 %>. <%= topic.title.upcase %>
@@ -82,10 +85,32 @@
 			<div class="container">
 			  <div class="row">
 			    <div class="col-md-12 text-center">			      
-			      <%= link_to 'VER TODAS LAS GUÍAS', root_path(anchor: 'user-courses'), class: "btn btn-ar btn-lg btn-primary", id: "courses_index_button" %>
+			      <%= link_to 'VER TODAS LAS ESTRATEGIAS', search_by_category_path, class: "btn btn-lg btn-primary", id: "courses_index_button" %>
 			    </div>
 			  </div>
 			</div>		
 		</div>
 	</div>
+</div>
+
+<div class="row">
+<div class="col-md-12">
+  <h2 style="text-align:center; color:black">Basada en</h2>
+</div>
+
+<div class="container teacher-container">
+  <% @instructors.each do |instructor|%>
+  <div class="row">
+    <div class="col-xs-12 col-md-2 col-md-offset-1 vcenter" id="teacher_image_box">
+      <%= image_tag( instructor.image.url, class: "img-teacher img-responsive center-block" ) %>
+    </div>
+    <div class="col-xs-12 col-md-7 vcenter">
+      <h2><%= instructor.name %></h2>
+      <p class="text-justify"><%= instructor.background %></p>
+      <% if instructor.twitter_username %>
+        <a class="text-justify" target="_blank" href=<%= "http://www.twitter.com/" + instructor.twitter_username %>><i class="fa fa-twitter"></i> @<%= instructor.twitter_username %></a>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
 </div>
