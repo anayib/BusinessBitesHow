@@ -40,7 +40,7 @@
 	  	            <div class="panel-body">
 	        		    	<ul class="list-group">									
 	        		    		<li class="list-group-item lesson-topics-list">											
-												<% lesson.topics.each_with_index do |topic,index| %>
+												<% lesson.topics.order("id ASC").each_with_index do |topic,index| %>
 													<ul class="list-group topic-item">
 														<li class="list-group-item">
 															<% if true %>
@@ -69,7 +69,7 @@
 		    <div class="tab-pane" id="profile2">
 		    	<div class="list-group">
 						<% @course.lessons.each do |lesson| %>							
-							<% lesson.topics.each do |topic| %>
+							<% lesson.topics.order("id ASC").each do |topic| %>
 								<!-- <h1 class="section-title" id="topic_title">Lista para el topic: <%= topic.title %></h1> -->							
 								<% topic.resources.each do |resource| %>																
 									<a href="<%= resource.link_url %>" class="list-group-item" target="_blank">
