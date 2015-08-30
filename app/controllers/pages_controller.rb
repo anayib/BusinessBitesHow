@@ -19,10 +19,14 @@ class PagesController < ApplicationController
 
 	def welcome_video_user
 		@previous_url = session[:previous_url]
+		@courses = Course.all
+		@categories= Category.all
 	end
 
 	def welcome_video_subscriptor
 		@previous_url = session[:previous_url]
+		@courses = Course.all
+		@categories= Category.all
 	end
 
 	def plans_information
