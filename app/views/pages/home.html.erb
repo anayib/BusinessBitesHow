@@ -16,25 +16,23 @@
         <div class=" col-md-6"></div>
         <div class="col-xs-12   col-md-6 " >
           <div class="colCentral" style="padding: 30px;text-align:center; margin-top:75px">
-            <h1 style="color:black; font-weight:500" class="head-title"><stong>Aprende cómo crear y crecer negocios exitosos</strong></h1><br>
-             <hr><br>
+            <h1 style="color:black; font-weight:500" class="head-title"><stong>La librería de guías prácticas para líderes de producto, marketing, ventas e innovación</strong></h1><br>
+             <hr>
             <h2 style="line-height: 30px; color:black; line-height: 1.5em;" class="head-subtitle"> <span style="color:#5ebe1e;font-weight: 600;">Ahorra tiempo</span> y <span style="color:#5ebe1e;font-weight: 600;">Manténte actualizado.</span><br>
-            Curamos el mejor contenido y te lo entregamos en estrategias prácticas, paso a paso, para crear y crecer negocios</span></h2>
+            con las mejores guías prácticas, paso a paso, para liderar a tu equipo en el desarrollo de productos, servicios y negocios exitosos</span></h2>
           </div> <!--termina div colcentral -->
         </div> <!-- div col8 finaliza -->
       </div><!--termina el row1-->
     </div><!--termina container primario-->
   </div>
 </div>
-
-<br>
 <!-- INICIA GUIAS GRATUITAS -->
 <% unless user_signed_in? && (current_user.vip_user? || current_user.guest?) %>
   <div class="container"> <!-- INICIA TODAS LAS GUÍAS--> 
     <section class="margin-bottom" id="user-courses">
       <div class="row">
         <div class="col-md-12">
-            <h2 style="text-align:center; color:black">CONOCE LAS ESTRATEGIAS GRATUITAS</h2>
+            <h2 style="text-align:center; color:black">CONOCE LAS GUÍAS GRATUITAS</h2>
         </div>
 
         <% @courses.free.each do |course| %> 
@@ -62,7 +60,7 @@
                     </div> -->
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
                       <center> 
-                        <%= link_to 'Leer la estrategia', course, id:"CTALeerEstrategiaThumbnail", class: "btn btn-ar btn-primary btn-responsive-thumbnail", style:"margin-top: -90px"%> 
+                        <%= link_to 'Leer la guía', course, id:"CTALeerEstrategiaThumbnail", class: "btn btn-ar btn-primary btn-responsive-thumbnail", style:"margin-top: -90px"%> 
                       </center>
                     </div>
                   <% else %>
@@ -74,7 +72,7 @@
                       <%# end %>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
-                      <center> <%= link_to 'Ver estrategia', course_information_path(:course_id => course.id), id:"CTAVerEstrategiaThumbnail", class: "btn btn-ar btn-view-course btn-responsive-thumbnail", style:"margin-top: -90px"%> </center>
+                      <center> <%= link_to 'Ver guía', course_information_path(:course_id => course.id), id:"CTAVerEstrategiaThumbnail", class: "btn btn-ar btn-view-course btn-responsive-thumbnail", style:"margin-top: -90px"%> </center>
                     </div>
                   <% end %>
                 <% elsif user_signed_in? && current_user.vip_user? %>
@@ -86,7 +84,7 @@
                     <%# end %>
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
-                    <center><%= link_to 'Leer la estrategia', course, id:"CTALeerEstrategiaThumbnail",  class: "btn btn-ar btn-primary btn-responsive-thumbnail", style:"margin-top: -90px" %></center>
+                    <center><%= link_to 'Leer la guía', course, id:"CTALeerEstrategiaThumbnail",  class: "btn btn-ar btn-primary btn-responsive-thumbnail", style:"margin-top: -90px" %></center>
                   </div>
                 <% else %>
                   <!-- <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
@@ -97,7 +95,7 @@
                     <%# end %>
                   <!-- </div> -->
                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
-                   <center><%= link_to 'Ver estrategia', course_information_path(:course_id => course.id), id:"CTAVerEstrategiaThumbnail" ,class: "btn btn-ar btn-view-course btn-responsive-thumbnail", style:"margin-top: -90px"%> </center> 
+                   <center><%= link_to 'Ver guía', course_information_path(:course_id => course.id), id:"CTAVerEstrategiaThumbnail" ,class: "btn btn-ar btn-view-course btn-responsive-thumbnail", style:"margin-top: -90px"%> </center> 
                   </div>
                 <% end %>
               </div>
@@ -115,7 +113,7 @@
 
 <div class="row">
 <div class="col-md-12">
-  <h2 style="text-align:center; color:black">NUEVAS ESTRATEGIAS TODAS LAS SEMANAS </h2>
+  <h2 style="text-align:center; color:black">NUEVAS GUÍAS CADA 15 DÍAS</h2>
 </div>
 
 </div>
@@ -161,14 +159,14 @@
             <% if user_signed_in? && (current_user.user? || current_user.admin? || current_user.content_manager?) %>
               <% if course.free? %>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                  <center><%= link_to 'Leer la estrategia', course, id:"CTALeerEstrategiaThumbnail", class: "btn btn-ar btn-primary btn-responsive-thumbnail", style:"margin-top: -90px" %></center>
+                  <center><%= link_to 'Leer la guía', course, id:"CTALeerEstrategiaThumbnail", class: "btn btn-ar btn-primary btn-responsive-thumbnail", style:"margin-top: -90px" %></center>
                 </div>
               <% else %>
                 <!-- <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center instructor-info">
                 </div> -->
                 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                  <center><%= link_to 'Ver estrategia', course_information_path(:course_id => course.id), id:"CTAVerEstrategiaThumbnail" , class: "btn btn-ar btn-view-course btn-responsive-thumbnail", style:"margin-top: -90px"%></center>
+                  <center><%= link_to 'Ver guía', course_information_path(:course_id => course.id), id:"CTAVerEstrategiaThumbnail" , class: "btn btn-ar btn-view-course btn-responsive-thumbnail", style:"margin-top: -90px"%></center>
                 </div>
                 
               <% end %>
@@ -177,14 +175,14 @@
               </div>
               
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                <center><%= link_to 'Leer la estrategia', course, id:"CTALeerEstrategiaThumbnail", class: "btn btn-ar btn-primary btn-responsive-thumbnail", style:"margin-top: -90px" %></center>
+                <center><%= link_to 'Leer la guía', course, id:"CTALeerEstrategiaThumbnail", class: "btn btn-ar btn-primary btn-responsive-thumbnail", style:"margin-top: -90px" %></center>
               </div>
               </center>
             <% else %>
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center instructor-info"></div>
              
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                 <center><%= link_to 'Ver estrategia', course_information_path(:course_id => course.id), id:"CTAVerEstrategiaThumbnail", class: "btn btn-ar btn-view-course btn-responsive-thumbnail", style:"margin-top: -90px"%> </center>
+                 <center><%= link_to 'Ver guía', course_information_path(:course_id => course.id), id:"CTAVerEstrategiaThumbnail", class: "btn btn-ar btn-view-course btn-responsive-thumbnail", style:"margin-top: -90px"%> </center>
               </div>
              
             <% end %>

@@ -13,7 +13,7 @@
     <div id="course_information_text" class="col-md-12 text-center">
       <h1 id="course_information_title"><%= @course.title %></h1><br>
       <% if @course.free? %>
-      <%= link_to "LEER LA ESTRATEGIA", new_user_session_path, id:"AccederEstrategiaCTATopLandingCourse", class: "btn btn-success no-modal btn-lg" %>
+      <%= link_to "LEER LA GUÍA", new_user_session_path, id:"AccederEstrategiaCTATopLandingCourse", class: "btn btn-success no-modal btn-lg" %>
       <% else %>
         <a href=<%="/course_information?course_id=#{@course.id}#price-columns" %> class="call-to-action no-modal" id="payed_call_to_action">EMPEZAR AHORA $28,49/MES</a>
       <% end %>
@@ -93,7 +93,7 @@
     <div class="col-md-12 text-center">
 
       <% if @course.free? %>
-      <%= link_to "LEER LA ESTRATEGIA", new_user_session_path, id:"AccederEstrategiaCTABottomLandingCourse", class: "btn btn-success no-modal btn-lg v-align" %>
+      <%= link_to "LEER LA GUÍA", new_user_session_path, id:"AccederEstrategiaCTABottomLandingCourse", class: "btn btn-success no-modal btn-lg v-align" %>
       <% else %>
         <div class="container">
           <section id="price-columns">
@@ -108,8 +108,9 @@
                   </div>
                   <div class="pricing-box-content">
                     <ul class="text-center">
-                      <li>Accede a nuevas estrategias todas las semanas</li>
-                      <li>Acceso ilimitado a todas las estrategias</li> <li>Acceso ilimitado a la comunidad VIP de BusinessHackers mientras estés suscrito</li>                
+                      <li>Accede a nuevas guías cada 15 días</li>
+                      <li>Acceso ilimitado a todas las guías</li> 
+                      <li>Acceso ilimitado a la comunidad VIP/foro de BusinessHackers mientras estés suscrito</li>               
                       <li>Pagas mes a mes</li>
                       <li>Sin permanencias, cancelas si no quieres continuar</li>
                       <li>*Puedes cancelar tu suscripción recurrente mensual en cualquier momento</li>
@@ -136,9 +137,9 @@
                   <div class="pricing-box-content">
                      <ul class="text-center">
                       <li><h2><strong>Ahorras 40%!</strong></h2></li>
-                      <li>Accede a nuevas estrategias todas las semanas</li>
-                      <li>Acceso ilimitado a todas las estrategias</li>
-                      <li>Acceso ilimitado a la comunidad VIP de BusinessHackers mientras estés suscrito</li>
+                      <li>Accede a nuevas guías cada 15 días</li>
+                      <li>Acceso ilimitado a todas las guías</li>
+                      <li>Acceso ilimitado a la comunidad VIP/foro de BusinessHackers mientras estés suscrito</li>
                       <li>Pagas cada año</li>
                       <li>Sin permanencias, cancelas si no quieres continuar</li>
                       <li>*Puedes cancelar tu suscripción recurrente anual en cualquier momento</li>
